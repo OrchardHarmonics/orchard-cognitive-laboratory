@@ -1,0 +1,111 @@
+{
+  "stage": 7,
+  "study": {
+    "route": "learned",
+    "condition": "valid",
+    "passed": true,
+    "reason": "qualified",
+    "recipe": "pair-or",
+    "candidates": 47,
+    "teaching": 9,
+    "validation": 6,
+    "validationMismatches": 0,
+    "expression": {
+      "op": "join",
+      "operator": "or",
+      "left": {
+        "op": "eq",
+        "rhs": 1
+      },
+      "right": {
+        "op": "eq",
+        "rhs": "c"
+      }
+    },
+    "projection": {
+      "fields": [
+        "s",
+        "c",
+        "permission",
+        "anchor",
+        "current"
+      ],
+      "minimumSize": 5,
+      "minima": 1,
+      "candidates": 32,
+      "visits": 3840,
+      "coarse": {
+        "adequate": false,
+        "witness": {
+          "left": {
+            "s": 0,
+            "c": 3,
+            "permission": 0,
+            "anchor": 0,
+            "current": 0
+          },
+          "right": {
+            "s": 0,
+            "c": 3,
+            "permission": 1,
+            "anchor": 1,
+            "current": 1
+          },
+          "leftAnswer": 0,
+          "rightAnswer": 1
+        },
+        "visits": 120,
+        "classes": 15
+      }
+    },
+    "mapping": {
+      "passed": true,
+      "checks": 0
+    },
+    "costs": {
+      "fit": 423,
+      "validation": 6,
+      "projection": 3840,
+      "mapping": 0,
+      "legacy": 34,
+      "total": 4303
+    },
+    "receipt": {
+      "contract": "orchard-obligations/1",
+      "revision": 1,
+      "binding": "{\"contract\":\"orchard-obligations/1\",\"revision\":1,\"expression\":{\"op\":\"join\",\"operator\":\"or\",\"left\":{\"op\":\"eq\",\"rhs\":1},\"right\":{\"op\":\"eq\",\"rhs\":\"c\"}},\"fields\":[\"s\",\"c\",\"permission\",\"anchor\",\"current\"],\"condition\":\"valid\"}"
+    },
+    "unchecked": {
+      "total": 272,
+      "admissions": 208,
+      "wrongAdmissions": 190
+    },
+    "frozen": {
+      "total": 272,
+      "warranted": 272,
+      "wrongLabels": 0,
+      "admissions": 26,
+      "wrongAdmissions": 0,
+      "blocks": 246,
+      "held": 0
+    },
+    "sourceCommonWork": 16788,
+    "legacy": {
+      "predictions": 34,
+      "preserved": 34
+    }
+  },
+  "live": {
+    "total": 272,
+    "warranted": 272,
+    "wrongLabels": 0,
+    "admissions": 0,
+    "wrongAdmissions": 0,
+    "blocks": 0,
+    "held": 272,
+    "ready": true,
+    "current": true,
+    "reason": "receiving-grant-off"
+  },
+  "limits": "Supplied exact feedback, fixed count meanings and reference, finite projection search and honest local host. Frozen scoring is internal verification, not independent replication. No general alignment or MeRSIA rate proof."
+}

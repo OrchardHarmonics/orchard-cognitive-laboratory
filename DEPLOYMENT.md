@@ -16,6 +16,6 @@ The supplied .htaccess selects index.html, disables directory indexes and return
 
 ## Verification
 
-Verify the ordinary domain root over HTTPS, Books and Licensing navigation, source-reference pages, downloadable Python sources, the live 0/2 to 2/2 encounter, glossary dialogs and all six scoped fixtures. Check a retired route returns the retirement page, and verify no WordPress files or installer ZIP remain publicly accessible. Prices and edition availability are maintained by Amazon; this site retains the author-supplied purchase links without live-price claims.
+Verify the ordinary domain root over HTTPS, Vision, Books and Licensing navigation, source-reference pages, downloadable Python sources, the live 0/2 to 2/2 encounter, glossary dialogs and all seven scoped fixtures. Check a retired route returns the retirement page, and verify no WordPress files or installer ZIP remain publicly accessible. Prices and edition availability are maintained by Amazon; this site retains the author-supplied purchase links without live-price claims.
 
 Software terms remain Orchard Noncommercial Research and Evaluation Licence 1.0. The book and paper terms and the logo exclusion are unchanged.

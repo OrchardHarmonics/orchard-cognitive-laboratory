@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>When the Obligations Change · report · Orchard</title><style>body{font:17px/1.65 system-ui,sans-serif;background:#f4f6fb;color:#182a3a;margin:0;padding:32px}main{max-width:1050px;margin:auto}h1{font:42px/1.15 Georgia,serif}h2{font-family:Georgia,serif}a{color:#2359af}pre{background:white;border:1px solid #d4dce6;border-radius:12px;padding:22px;overflow:auto;font:13px/1.7 monospace}p{max-width:85ch}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #d4dce6;padding:12px;text-align:left}.table-wrap{overflow-x:auto}details{background:#fff;padding:18px;border:1px solid #d4dce6;border-radius:10px}.result{font:30px Georgia,serif;color:#087859}@media(max-width:500px){body{padding:16px}h1{font-size:32px}pre{padding:12px}}</style><main><nav><a href="../index.html#changing-obligations">← Stage seven</a> · <a href="../vision.html">The Orchard vision</a></nav><p>Stage 07 · computed native-Python default fixture</p><h1>When the Obligations Change</h1><p class="result">272 / 272 new-contract answers · zero invalid releases with supplied grants</p><p>The displayed live default keeps receiving permission off: all 272 effects are held. The frozen comparison census explicitly supplies grants and produces 26 valid releases and 246 blocks.</p><div class="table-wrap"><table><thead><tr><th>Computed obligation</th><th>Result</th></tr></thead><tbody><tr><td>Old-view collision</td><td>Same (s,c), different required eligibility</td></tr><tr><td>New expression</td><td>(s = 1) OR (s = c)</td></tr><tr><td>Adequate view</td><td>s, c, permission, anchor, current</td></tr><tr><td>Later-work total</td><td>4303</td></tr><tr><td>Standalone source acquisition + replay</td><td>16788</td></tr><tr><td>Historical reference checks</td><td>34/34</td></tr><tr><td>Invalid old-rule shortcut releases</td><td>190</td></tr></tbody></table></div><p>Preinstalled OR matches inheritance on the later task. Direct AND/OR enumeration succeeds at 4,492 later-work units. The 189-unit difference is conditional candidate pruning, not a general alignment rate result. Source costs and excluded overhead matter.</p><p>Nine count teaching records at c=3,4, six separate validation records at c=5, and 120 view-qualification records at c=3..5 precede a frozen 272-record score at c=6..9. These authored fixtures were inspected during development. No external replication, unknown-schema discovery or autonomous normative authority is demonstrated.</p><p><a href="07_changing_obligations_source.html">Inspect the native implementation</a> · <a href="07_changing_obligations_results.json" download>Download the computed JSON</a></p><details><summary>Inspect the complete computed report</summary><pre>{
+  &quot;stage&quot;: 7,
+  &quot;study&quot;: {
+    &quot;route&quot;: &quot;learned&quot;,
+    &quot;condition&quot;: &quot;valid&quot;,
+    &quot;passed&quot;: true,
+    &quot;reason&quot;: &quot;qualified&quot;,
+    &quot;recipe&quot;: &quot;pair-or&quot;,
+    &quot;candidates&quot;: 47,
+    &quot;teaching&quot;: 9,
+    &quot;validation&quot;: 6,
+    &quot;validationMismatches&quot;: 0,
+    &quot;expression&quot;: {
+      &quot;op&quot;: &quot;join&quot;,
+      &quot;operator&quot;: &quot;or&quot;,
+      &quot;left&quot;: {
+        &quot;op&quot;: &quot;eq&quot;,
+        &quot;rhs&quot;: 1
+      },
+      &quot;right&quot;: {
+        &quot;op&quot;: &quot;eq&quot;,
+        &quot;rhs&quot;: &quot;c&quot;
+      }
+    },
+    &quot;projection&quot;: {
+      &quot;fields&quot;: [
+        &quot;s&quot;,
+        &quot;c&quot;,
+        &quot;permission&quot;,
+        &quot;anchor&quot;,
+        &quot;current&quot;
+      ],
+      &quot;minimumSize&quot;: 5,
+      &quot;minima&quot;: 1,
+      &quot;candidates&quot;: 32,
+      &quot;visits&quot;: 3840,
+      &quot;coarse&quot;: {
+        &quot;adequate&quot;: false,
+        &quot;witness&quot;: {
+          &quot;left&quot;: {
+            &quot;s&quot;: 0,
+            &quot;c&quot;: 3,
+            &quot;permission&quot;: 0,
+            &quot;anchor&quot;: 0,
+            &quot;current&quot;: 0
+          },
+          &quot;right&quot;: {
+            &quot;s&quot;: 0,
+            &quot;c&quot;: 3,
+            &quot;permission&quot;: 1,
+            &quot;anchor&quot;: 1,
+            &quot;current&quot;: 1
+          },
+          &quot;leftAnswer&quot;: 0,
+          &quot;rightAnswer&quot;: 1
+        },
+        &quot;visits&quot;: 120,
+        &quot;classes&quot;: 15
+      }
+    },
+    &quot;mapping&quot;: {
+      &quot;passed&quot;: true,
+      &quot;checks&quot;: 0
+    },
+    &quot;costs&quot;: {
+      &quot;fit&quot;: 423,
+      &quot;validation&quot;: 6,
+      &quot;projection&quot;: 3840,
+      &quot;mapping&quot;: 0,
+      &quot;legacy&quot;: 34,
+      &quot;total&quot;: 4303
+    },
+    &quot;receipt&quot;: {
+      &quot;contract&quot;: &quot;orchard-obligations/1&quot;,
+      &quot;revision&quot;: 1,
+      &quot;binding&quot;: &quot;{\&quot;contract\&quot;:\&quot;orchard-obligations/1\&quot;,\&quot;revision\&quot;:1,\&quot;expression\&quot;:{\&quot;op\&quot;:\&quot;join\&quot;,\&quot;operator\&quot;:\&quot;or\&quot;,\&quot;left\&quot;:{\&quot;op\&quot;:\&quot;eq\&quot;,\&quot;rhs\&quot;:1},\&quot;right\&quot;:{\&quot;op\&quot;:\&quot;eq\&quot;,\&quot;rhs\&quot;:\&quot;c\&quot;}},\&quot;fields\&quot;:[\&quot;s\&quot;,\&quot;c\&quot;,\&quot;permission\&quot;,\&quot;anchor\&quot;,\&quot;current\&quot;],\&quot;condition\&quot;:\&quot;valid\&quot;}&quot;
+    },
+    &quot;unchecked&quot;: {
+      &quot;total&quot;: 272,
+      &quot;admissions&quot;: 208,
+      &quot;wrongAdmissions&quot;: 190
+    },
+    &quot;frozen&quot;: {
+      &quot;total&quot;: 272,
+      &quot;warranted&quot;: 272,
+      &quot;wrongLabels&quot;: 0,
+      &quot;admissions&quot;: 26,
+      &quot;wrongAdmissions&quot;: 0,
+      &quot;blocks&quot;: 246,
+      &quot;held&quot;: 0
+    },
+    &quot;sourceCommonWork&quot;: 16788,
+    &quot;legacy&quot;: {
+      &quot;predictions&quot;: 34,
+      &quot;preserved&quot;: 34
+    }
+  },
+  &quot;live&quot;: {
+    &quot;total&quot;: 272,
+    &quot;warranted&quot;: 272,
+    &quot;wrongLabels&quot;: 0,
+    &quot;admissions&quot;: 0,
+    &quot;wrongAdmissions&quot;: 0,
+    &quot;blocks&quot;: 0,
+    &quot;held&quot;: 272,
+    &quot;ready&quot;: true,
+    &quot;current&quot;: true,
+    &quot;reason&quot;: &quot;receiving-grant-off&quot;
+  },
+  &quot;limits&quot;: &quot;Supplied exact feedback, fixed count meanings and reference, finite projection search and honest local host. Frozen scoring is internal verification, not independent replication. No general alignment or MeRSIA rate proof.&quot;
+}
+</pre></details></main></html>

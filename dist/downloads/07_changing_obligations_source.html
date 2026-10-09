@@ -1,0 +1,243 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>When the Obligations Change · source · Orchard</title><style>body{font:17px/1.65 system-ui,sans-serif;background:#f4f6fb;color:#182a3a;margin:0;padding:32px}main{max-width:1050px;margin:auto}h1{font:42px/1.15 Georgia,serif}h2{font-family:Georgia,serif}a{color:#2359af}pre{background:white;border:1px solid #d4dce6;border-radius:12px;padding:22px;overflow:auto;font:13px/1.7 monospace}p{max-width:85ch}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #d4dce6;padding:12px;text-align:left}.table-wrap{overflow-x:auto}details{background:#fff;padding:18px;border:1px solid #d4dce6;border-radius:10px}.result{font:30px Georgia,serif;color:#087859}@media(max-width:500px){body{padding:16px}h1{font-size:32px}pre{padding:12px}}</style><main><nav><a href="../index.html#changing-obligations">← Stage seven</a> · <a href="../vision.html">The Orchard vision</a></nav><p>Native Python · new authored finite experiment</p><h1>When the Obligations Change</h1><p>Self-contained Python 3.10+, standard library only. Receiving permission starts off. Noncommercial research and evaluation under the <a href="../licensing.html">software terms</a>; commercial use requires separate written permission.</p><p>This count-level reference reconstructs the stage-five constructor acquisition internally. Native receipts replay within Python; serialized interchange with JavaScript is not claimed. Primitive meanings, reference and feedback are supplied. All effects are simulated.</p><p><a href="07_changing_obligations.py" download>Download .py</a> · <a href="07_changing_obligations_report.html">Computed default report</a></p><pre>python3 07_changing_obligations.py --help
+python3 07_changing_obligations.py --permission --output result.json</pre><h2>Complete source</h2><pre><code>#!/usr/bin/env python3
+&quot;&quot;&quot;Stage seven: a native, self-contained finite reference experiment.
+
+New authored study inspired by The Aligned Signal, Preface and sections 3, 7, 19.
+Copyright (c) 2026 Kimberley Laverne Asher, to the extent of rights held.
+Orchard Noncommercial Research and Evaluation Licence 1.0; see LICENSE.txt.
+Commercial use requires separate written permission. Standard library only.
+All effects are simulated. Native receipts are not a JavaScript interchange format.
+&quot;&quot;&quot;
+import argparse
+import itertools
+import json
+from pathlib import Path
+
+FIELDS = [&#x27;s&#x27;, &#x27;c&#x27;, &#x27;permission&#x27;, &#x27;anchor&#x27;, &#x27;current&#x27;]
+ROUTES = [&#x27;learned&#x27;, &#x27;removed&#x27;, &#x27;restored&#x27;, &#x27;preinstalled&#x27;, &#x27;direct&#x27;]
+CONDITIONS = [&#x27;valid&#x27;, &#x27;renamed&#x27;, &#x27;bad-feedback&#x27;, &#x27;unapproved&#x27;, &#x27;off-language&#x27;, &#x27;wrong-map&#x27;]
+BASE = [{&#x27;op&#x27;: op, &#x27;rhs&#x27;: rhs} for op in [&#x27;ge&#x27;, &#x27;eq&#x27;, &#x27;le&#x27;] for rhs in [0, 1, 2, 3, 4, &#x27;c&#x27;, &#x27;c-1&#x27;]]
+BASE += [{&#x27;op&#x27;: &#x27;mod&#x27;, &#x27;mod&#x27;: mod, &#x27;residue&#x27;: residue} for mod in [2, 3] for residue in range(mod)]
+ATOMS = [g for g in BASE if g[&#x27;op&#x27;] == &#x27;eq&#x27;]
+
+def generate(recipe):
+    if recipe not in [&#x27;base&#x27;, &#x27;pair-and&#x27;, &#x27;pair-or&#x27;]:
+        raise ValueError(&#x27;Unknown constructor recipe&#x27;)
+    extra = [] if recipe == &#x27;base&#x27; else [{&#x27;op&#x27;: &#x27;join&#x27;, &#x27;operator&#x27;: recipe[5:], &#x27;left&#x27;: a, &#x27;right&#x27;: b} for a, b in itertools.combinations(ATOMS, 2)]
+    return BASE + extra
+
+def interpret(g, s, c):
+    if g[&#x27;op&#x27;] == &#x27;join&#x27;:
+        a, b = interpret(g[&#x27;left&#x27;], s, c), interpret(g[&#x27;right&#x27;], s, c)
+        return int(a and b) if g[&#x27;operator&#x27;] == &#x27;and&#x27; else int(a or b)
+    if g[&#x27;op&#x27;] == &#x27;mod&#x27;:
+        return int(s % g[&#x27;mod&#x27;] == g[&#x27;residue&#x27;])
+    r = c if g[&#x27;rhs&#x27;] == &#x27;c&#x27; else c-1 if g[&#x27;rhs&#x27;] == &#x27;c-1&#x27; else g[&#x27;rhs&#x27;]
+    return int(s &gt;= r) if g[&#x27;op&#x27;] == &#x27;ge&#x27; else int(s &lt;= r) if g[&#x27;op&#x27;] == &#x27;le&#x27; else int(s == r)
+
+def risk(s, c, kind=&#x27;valid&#x27;):
+    return int(s == 1 or s == c or (kind == &#x27;off-language&#x27; and s == 0))
+
+def old_risk(s, c):
+    return int(s == 0 or s == c-1)
+
+def reference(x, kind=&#x27;valid&#x27;):
+    return int(not risk(x[&#x27;s&#x27;], x[&#x27;c&#x27;], kind) and x[&#x27;permission&#x27;] and x[&#x27;anchor&#x27;] and x[&#x27;current&#x27;])
+
+def domain(totals):
+    return [dict(s=s, c=c, permission=bits &amp; 1, anchor=(bits &gt;&gt; 1) &amp; 1, current=(bits &gt;&gt; 2) &amp; 1) for c in totals for s in range(c+1) for bits in range(8)]
+
+def data(kind=&#x27;valid&#x27;, totals=(3, 4)):
+    return [dict(s=s, c=c, y=risk(s, c, kind)) for c in totals for s in range(c+1)]
+
+def fit(grammar, records):
+    # Charge and perform every candidate/record prediction, including rejected candidates.
+    survivors = []
+    for g in grammar:
+        mismatches = sum(interpret(g, o[&#x27;s&#x27;], o[&#x27;c&#x27;]) != o[&#x27;y&#x27;] for o in records)
+        if not mismatches:
+            survivors.append(g)
+    return dict(survivors=survivors, predictions=len(grammar)*len(records), candidates=len(grammar))
+
+def primitive_oracle(g, s, c):
+    if g[&#x27;op&#x27;] == &#x27;mod&#x27;:
+        return int(s % g[&#x27;mod&#x27;] == g[&#x27;residue&#x27;])
+    bound = {&#x27;c&#x27;: c, &#x27;c-1&#x27;: c-1}.get(g[&#x27;rhs&#x27;], g[&#x27;rhs&#x27;])
+    comparisons = {&#x27;ge&#x27;: s &gt;= bound, &#x27;eq&#x27;: s == bound, &#x27;le&#x27;: s &lt;= bound}
+    return int(comparisons[g[&#x27;op&#x27;]])
+
+def source_method():
+    &quot;&quot;&quot;Reconstruct the same count-level constructor acquisition as stage five.
+
+    Source A has 44 query measurements, a 2170-measurement semantic validation,
+    and 312 preserved denotations per candidate constructor. Meanings are supplied.
+    &quot;&quot;&quot;
+    records = []
+    for n, c, K in [(4, 3, 7), (5, 4, 15)]:
+        for q in range(1, 2**n-1):
+            s = (K &amp; q).bit_count()
+            records.append(dict(s=s, c=c, y=int(s == 0 or s == c)))
+    methods, work = [], 0
+    for recipe in [&#x27;base&#x27;, &#x27;pair-and&#x27;, &#x27;pair-or&#x27;]:
+        grammar = generate(recipe)
+        fitted = fit(grammar, records)
+        work += fitted[&#x27;predictions&#x27;]
+        preserved = 0
+        for g in BASE:
+            for c in [2, 3, 4]:
+                for s in range(c+1):
+                    if g in grammar and interpret(g, s, c) == primitive_oracle(g, s, c):
+                        preserved += 1
+        work += preserved
+        truth_ok = True
+        if recipe != &#x27;base&#x27;:
+            op = recipe[5:]
+            truth_ok = all(interpret(dict(op=&#x27;join&#x27;, operator=op, left=dict(op=&#x27;eq&#x27;, rhs=a), right=dict(op=&#x27;eq&#x27;, rhs=b)), 0, 3) == int((a == 0 and b == 0) if op == &#x27;and&#x27; else (a == 0 or b == 0)) for a in [0, 1] for b in [0, 1])
+            work += 4
+        if preserved == 312 and truth_ok and len(fitted[&#x27;survivors&#x27;]) == 1 and len(grammar) &gt; 26:
+            methods.append((recipe, fitted[&#x27;survivors&#x27;][0]))
+    if len(methods) != 1:
+        raise ValueError(&#x27;Source method acquisition failed&#x27;)
+    recipe, witness = methods[0]
+    validation_count, mismatches = 0, 0
+    for c in [3, 4]:
+        for K in range(64):
+            if K.bit_count() == c:
+                for q in range(1, 63):
+                    s = (K &amp; q).bit_count()
+                    mismatches += interpret(witness, s, c) != int(s == 0 or s == c)
+                    validation_count += 1
+    if mismatches:
+        raise ValueError(&#x27;Source method validation failed&#x27;)
+    return dict(recipe=recipe, work=work+validation_count)
+
+def key(x, fields):
+    return tuple(x[f] for f in fields)
+
+def qualify_view(fields, rows, kind=&#x27;valid&#x27;):
+    fibres, witness = {}, None
+    for x in rows:
+        k, y = key(x, fields), reference(x, kind)
+        if k not in fibres:
+            fibres[k] = (x, y)
+        elif fibres[k][1] != y and witness is None:
+            witness = dict(left=fibres[k][0], right=x, leftAnswer=fibres[k][1], rightAnswer=y)
+    return dict(adequate=witness is None, witness=witness, visits=len(rows), classes=len(fibres))
+
+def search_view(kind=&#x27;valid&#x27;):
+    rows = domain([3, 4, 5])
+    checks = []
+    for mask in range(32):
+        fields = [f for i, f in enumerate(FIELDS) if mask &amp; (1 &lt;&lt; i)]
+        checks.append(dict(fields=fields, **qualify_view(fields, rows, kind)))
+    ok = sorted([r for r in checks if r[&#x27;adequate&#x27;]], key=lambda r: len(r[&#x27;fields&#x27;]))
+    return dict(fields=ok[0][&#x27;fields&#x27;], minimumSize=len(ok[0][&#x27;fields&#x27;]), minima=sum(len(r[&#x27;fields&#x27;]) == len(ok[0][&#x27;fields&#x27;]) for r in ok), candidates=len(checks), visits=sum(r[&#x27;visits&#x27;] for r in checks), coarse=qualify_view([&#x27;s&#x27;, &#x27;c&#x27;], rows, kind))
+
+def adapt(x, condition):
+    result = dict(x)
+    if condition == &#x27;wrong-map&#x27;:
+        result[&#x27;s&#x27;], result[&#x27;c&#x27;] = x[&#x27;c&#x27;], x[&#x27;s&#x27;]
+    # Known names map bijectively to these meanings; no schema is inferred.
+    return result
+
+def map_qualified(condition):
+    rows = domain([3, 4, 5])
+    return dict(passed=all(adapt(x, condition) == x for x in rows), checks=len(rows) if condition in [&#x27;renamed&#x27;, &#x27;wrong-map&#x27;] else 0)
+
+def census(expression, fields, condition=&#x27;valid&#x27;, grant=False, qualified=False):
+    rows, groups = domain([6, 7, 8, 9]), {}
+    for x in rows:
+        y = int(not interpret(expression, x[&#x27;s&#x27;], x[&#x27;c&#x27;]) and x[&#x27;permission&#x27;] and x[&#x27;anchor&#x27;] and x[&#x27;current&#x27;])
+        groups.setdefault(key(x, fields), set()).add(y)
+    r = dict(total=len(rows), warranted=0, wrongLabels=0, admissions=0, wrongAdmissions=0, blocks=0, held=0)
+    for actual in rows:
+        answers = groups.get(key(adapt(actual, condition), fields), set())
+        y = next(iter(answers)) if len(answers) == 1 else None
+        if y is not None:
+            r[&#x27;warranted&#x27;] += 1
+            r[&#x27;wrongLabels&#x27;] += int(y != reference(actual, condition))
+        if not qualified or not grant or y is None:
+            r[&#x27;held&#x27;] += 1
+        elif y:
+            r[&#x27;admissions&#x27;] += 1
+            r[&#x27;wrongAdmissions&#x27;] += int(not reference(actual, condition))
+        else:
+            r[&#x27;blocks&#x27;] += 1
+    return r
+
+def unchecked_census(kind=&#x27;valid&#x27;):
+    rows = domain([6, 7, 8, 9])
+    admitted = [x for x in rows if not old_risk(x[&#x27;s&#x27;], x[&#x27;c&#x27;])]
+    return dict(total=len(rows), admissions=len(admitted), wrongAdmissions=sum(not reference(x, kind) for x in admitted))
+
+def capture(expression, fields, condition, revision=1):
+    return dict(contract=&#x27;orchard-obligations/1&#x27;, revision=revision, binding=json.dumps(dict(contract=&#x27;orchard-obligations/1&#x27;, revision=revision, expression=expression, fields=fields, condition=condition), separators=(&#x27;,&#x27;, &#x27;:&#x27;)))
+
+def is_current(receipt, expression, fields, condition, revision=1):
+    return receipt == capture(expression, fields, condition, revision)
+
+def compare(route=&#x27;learned&#x27;, condition=&#x27;valid&#x27;):
+    if route not in ROUTES or condition not in CONDITIONS:
+        raise ValueError(&#x27;Unknown setting&#x27;)
+    source = source_method() if route in [&#x27;learned&#x27;, &#x27;removed&#x27;, &#x27;restored&#x27;] else None
+    if source:
+        # Standalone bootstrap followed by native replay. Restore route replays once more.
+        replay = source_method()
+        if replay != source:
+            raise ValueError(&#x27;Source replay failed&#x27;)
+        if route == &#x27;restored&#x27; and source_method() != source:
+            raise ValueError(&#x27;Restoration replay failed&#x27;)
+    recipe = &#x27;base&#x27; if route == &#x27;removed&#x27; else source[&#x27;recipe&#x27;] if source else &#x27;pair-or&#x27;
+    grammar = BASE + generate(&#x27;pair-and&#x27;)[26:] + generate(&#x27;pair-or&#x27;)[26:] if route == &#x27;direct&#x27; else generate(recipe)
+    teaching, validation = data(condition), data(condition, [5])
+    if condition == &#x27;bad-feedback&#x27;:
+        for o in teaching:
+            o[&#x27;y&#x27;] = old_risk(o[&#x27;s&#x27;], o[&#x27;c&#x27;])
+    fitted = fit(grammar, teaching)
+    expression = fitted[&#x27;survivors&#x27;][0] if len(fitted[&#x27;survivors&#x27;]) == 1 else None
+    mismatches = sum(interpret(expression, o[&#x27;s&#x27;], o[&#x27;c&#x27;]) != o[&#x27;y&#x27;] for o in validation) if expression else None
+    projection, mapping = search_view(condition), map_qualified(condition)
+    passed = condition != &#x27;unapproved&#x27; and mapping[&#x27;passed&#x27;] and expression is not None and mismatches == 0
+    reason = &#x27;reference-change-not-authorized&#x27; if condition == &#x27;unapproved&#x27; else &#x27;descriptor-map-failed&#x27; if not mapping[&#x27;passed&#x27;] else (&#x27;ambiguous-expression&#x27; if fitted[&#x27;survivors&#x27;] else &#x27;no-expression&#x27;) if expression is None else &#x27;validation-failed&#x27; if mismatches else &#x27;qualified&#x27;
+    old_expression = dict(op=&#x27;join&#x27;, operator=&#x27;or&#x27;, left=dict(op=&#x27;eq&#x27;, rhs=0), right=dict(op=&#x27;eq&#x27;, rhs=&#x27;c-1&#x27;))
+    legacy_rows = data(&#x27;valid&#x27;, [6, 7, 8, 9])
+    legacy = dict(predictions=len(legacy_rows), preserved=sum(interpret(old_expression, o[&#x27;s&#x27;], o[&#x27;c&#x27;]) == old_risk(o[&#x27;s&#x27;], o[&#x27;c&#x27;]) for o in legacy_rows))
+    costs = dict(fit=fitted[&#x27;predictions&#x27;], validation=len(validation) if expression else 0, projection=projection[&#x27;visits&#x27;], mapping=mapping[&#x27;checks&#x27;], legacy=legacy[&#x27;predictions&#x27;])
+    costs[&#x27;total&#x27;] = sum(costs.values())
+    return dict(route=route, condition=condition, passed=passed, reason=reason, recipe=recipe, candidates=len(grammar), teaching=len(teaching), validation=len(validation) if expression else 0, validationMismatches=mismatches, expression=expression, projection=projection, mapping=mapping, costs=costs, receipt=capture(expression, projection[&#x27;fields&#x27;], condition) if passed else None, unchecked=unchecked_census(condition), frozen=census(expression, projection[&#x27;fields&#x27;], condition, True, True) if passed else None, sourceCommonWork=source[&#x27;work&#x27;]*(3 if route == &#x27;restored&#x27; else 2) if source else 0, legacy=legacy)
+
+def at_phase(study, phase, grant=False, budget=None, revision=1):
+    if type(phase) is not int or not 0 &lt;= phase &lt;= 3 or type(grant) is not bool or type(revision) is not int or revision &lt; 1:
+        raise ValueError(&#x27;Invalid phase, grant or revision&#x27;)
+    budget = study[&#x27;costs&#x27;][&#x27;total&#x27;] if budget is None else budget
+    if type(budget) is not int or budget &lt; 0:
+        raise ValueError(&#x27;Invalid work budget&#x27;)
+    current = study[&#x27;passed&#x27;] and is_current(study[&#x27;receipt&#x27;], study[&#x27;expression&#x27;], study[&#x27;projection&#x27;][&#x27;fields&#x27;], study[&#x27;condition&#x27;], revision)
+    ready = phase == 3 and current and budget &gt;= study[&#x27;costs&#x27;][&#x27;total&#x27;]
+    r = census(study[&#x27;expression&#x27;], study[&#x27;projection&#x27;][&#x27;fields&#x27;] if phase == 3 else [&#x27;s&#x27;, &#x27;c&#x27;], study[&#x27;condition&#x27;], grant, ready) if study[&#x27;expression&#x27;] else dict(total=272, warranted=0, wrongLabels=0, admissions=0, wrongAdmissions=0, blocks=0, held=272)
+    if phase &lt; 2 or not study[&#x27;passed&#x27;] or (phase == 3 and not ready):
+        r[&#x27;warranted&#x27;] = 0
+    reason = &#x27;new-contract-not-yet-qualified&#x27; if phase &lt; 3 else study[&#x27;reason&#x27;] if not study[&#x27;passed&#x27;] else &#x27;receipt-stale&#x27; if not current else &#x27;work-prefix-incomplete&#x27; if budget &lt; study[&#x27;costs&#x27;][&#x27;total&#x27;] else &#x27;receiving-grant-off&#x27; if not grant else &#x27;current-qualified-use&#x27;
+    return dict(**r, ready=bool(ready), current=bool(current), reason=reason)
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(&#x27;--route&#x27;, choices=ROUTES, default=&#x27;learned&#x27;)
+    parser.add_argument(&#x27;--condition&#x27;, choices=CONDITIONS, default=&#x27;valid&#x27;)
+    parser.add_argument(&#x27;--phase&#x27;, type=int, choices=range(4), default=3)
+    parser.add_argument(&#x27;--permission&#x27;, action=&#x27;store_true&#x27;, help=&#x27;Supply a current simulated receiving grant; default off&#x27;)
+    parser.add_argument(&#x27;--budget&#x27;, type=int, default=None)
+    parser.add_argument(&#x27;--revision&#x27;, type=int, default=1)
+    parser.add_argument(&#x27;--output&#x27;, type=Path)
+    args = parser.parse_args()
+    study = compare(args.route, args.condition)
+    result = dict(stage=7, study=study, live=at_phase(study, args.phase, args.permission, args.budget, args.revision), limits=&#x27;Supplied exact feedback, fixed count meanings and reference, finite projection search and honest local host. Frozen scoring is internal verification, not independent replication. No general alignment or MeRSIA rate proof.&#x27;)
+    text = json.dumps(result, indent=2) + &#x27;\n&#x27;
+    if args.output:
+        args.output.write_text(text)
+    else:
+        print(text, end=&#x27;&#x27;)
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</code></pre></main></html>

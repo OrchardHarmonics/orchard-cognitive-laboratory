@@ -97,3 +97,9 @@ Later modules can consume qualified construction artifacts after their transfer 
 The welcome page is a host route, not a seventh experiment. `#home` displays it; each registered experiment has its own hash route. Leaving a module disposes its listeners and optional tools. Welcome sequence execution uses all six registered experiment IDs without changing live controls. Definitions register before the front-page DOM initialization.
 
 The downloadable Python scripts use native reference implementations. Their artifacts support local Python replay; they do not claim serialized interchange with JavaScript bindings. Preserve numerical parity checks when changing either implementation.
+
+## Stage seven: changed responsibilities
+
+`changing-obligations` requires a passed `resource-comparison` envelope with unchanged authority and a replayable `generatorArtifact`. Stage six now forwards the same qualified constructor; stage seven replays it. Only that artifact transfers. Runtime records, grants and the new reference do not. A supplied count adapter transports the primitive count interpretation into a smaller count-record experiment. The learned method selects a different expression under a new reference, and a fixed projection search repairs receiving adequacy. This adapter and reference authorization are developer/fixture inputs, not automatically learned semantics or normative legitimacy.
+
+Versioned receipts bind the reference, actual revision, expression, view and map condition. Receiving grant and completed declared work are separate gates. Public modules remain trusted code in an honest host. The seven-stage welcome runner executes each scoped contract in order; it does not certify general mathematical integration or an autonomous mind.

@@ -1,8 +1,8 @@
 {
   "version": "orchard-evidence-checklist/1",
   "date": "2026-10-09",
-  "completed": 24,
-  "total": 42,
+  "completed": 28,
+  "total": 49,
   "percentage": 57.142857142857146,
   "meaning": "Equal-count declared evidence coverage; not percentage of MeRSIA achieved, work remaining or probability of success. Gates have unequal difficulty.",
   "assessment": "Manual project assessment against explicit gates. Finite fixture results are inspectable; wider gates remain unmet.",
@@ -540,6 +540,96 @@
     {
       "stage": 6,
       "title": "What Does Better Checking Cost?",
+      "gate": "general",
+      "label": "Generalized application",
+      "criterion": "Evidence and applicable results beyond these finite development fixtures.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 7,
+      "title": "When the Obligations Change",
+      "gate": "contract",
+      "label": "Stated test contract",
+      "criterion": "Question, assumptions, success condition and limits are explicit.",
+      "met": true,
+      "evidence": [
+        "experiments/obligations/engine.js",
+        "experiments/obligations/module.js",
+        "downloads/07_changing_obligations_results.json",
+        "downloads/07_changing_obligations.py"
+      ],
+      "verification": "See package tests/obligations.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 7,
+      "title": "When the Obligations Change",
+      "gate": "model",
+      "label": "Specified mathematical model",
+      "criterion": "Finite state, response semantics and relevant obligations are defined.",
+      "met": true,
+      "evidence": [
+        "experiments/obligations/engine.js",
+        "experiments/obligations/module.js",
+        "downloads/07_changing_obligations_results.json",
+        "downloads/07_changing_obligations.py"
+      ],
+      "verification": "See package tests/obligations.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 7,
+      "title": "When the Obligations Change",
+      "gate": "finite",
+      "label": "Finite checks in declared scopes",
+      "criterion": "Computed fixtures and interventions pass their stated checks. This is not universal safety.",
+      "met": true,
+      "evidence": [
+        "experiments/obligations/engine.js",
+        "experiments/obligations/module.js",
+        "downloads/07_changing_obligations_results.json",
+        "downloads/07_changing_obligations.py"
+      ],
+      "verification": "See package tests/obligations.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 7,
+      "title": "When the Obligations Change",
+      "gate": "python",
+      "label": "Native-Python numerical parity",
+      "criterion": "A standalone second implementation reproduces declared primary fixture results. It is not independent scientific replication.",
+      "met": true,
+      "evidence": [
+        "experiments/obligations/engine.js",
+        "experiments/obligations/module.js",
+        "downloads/07_changing_obligations_results.json",
+        "downloads/07_changing_obligations.py"
+      ],
+      "verification": "See package tests/python/obligations.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 7,
+      "title": "When the Obligations Change",
+      "gate": "independent",
+      "label": "Independent replication and robustness",
+      "criterion": "External reproduction and broader difficult-input tests with independently designed protocols.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 7,
+      "title": "When the Obligations Change",
+      "gate": "scale",
+      "label": "Measured scale-up",
+      "criterion": "Larger contexts with comprehensive measured resource costs and comparators.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 7,
+      "title": "When the Obligations Change",
       "gate": "general",
       "label": "Generalized application",
       "criterion": "Evidence and applicable results beyond these finite development fixtures.",

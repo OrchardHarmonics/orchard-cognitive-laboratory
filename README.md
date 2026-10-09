@@ -1,8 +1,8 @@
 # Orchard Cognitive Laboratory
 
-Six inspectable toy experiments towards MeRSIA: meta-recursively self-improving alignment.
+Seven inspectable toy experiments towards MeRSIA: meta-recursively self-improving alignment.
 
-**[Open the interactive laboratory](https://orchardharmonics.com/)** · [Explore the books](https://orchardharmonics.com/books.html) · [Software terms](LICENSE.txt) · [Research and commercial enquiries](mailto:kimberlasher@gmail.com)
+**[Open the interactive laboratory](https://orchardharmonics.com/)** · [Read the vision](https://orchardharmonics.com/vision.html) · [Explore the books](https://orchardharmonics.com/books.html) · [Software terms](LICENSE.txt) · [Research and commercial enquiries](mailto:kimberlasher@gmail.com)
 
 Watch a missing contextual distinction make a decision possible, carry a qualified method into a fresh context, construct useful enquiries, learn a missing expression, and acquire a bounded constructor for a different later repair. Then inspect the cost of stronger checking.
 
@@ -12,7 +12,7 @@ This is a small public window into the Orchard Cognitive Framework’s developed
 
 Open `dist/index.html` in a browser. It works offline, without installation, accounts, model calls or a server. Keep the `dist` folder together: the page uses its adjacent scripts, logo and bibliographic source pages.
 
-Begin on the welcome page, then choose one of the six experiments using the navigation at the top. Each has a guided experience, computed graphics and numerical results. Dotted terms open plain-English definitions, mathematics or research status, and source-page links. “Browse all definitions” lists 82 concepts. Relevant definitions also link to the author-supplied Zenodo records.
+Begin on the welcome page, then choose one of the seven experiments using the navigation at the top. Each has a guided experience, computed graphics and numerical results. Dotted terms open plain-English definitions, mathematics or research status, and source-page links. “Browse all definitions” lists 89 concepts. Relevant definitions also link to the author-supplied Zenodo records.
 
 For a local server, with Node.js available:
 
@@ -150,9 +150,9 @@ Plots reconstruct availability prefixes from actual phase ledgers; they are not 
 
 ## Welcome page, evidence map and native Python
 
-The front page explains Orchard, the toy laboratory and MeRSIA, provides a live coupled-repair example, and links all six milestones. Its **57% indicator means 24/42 equally counted evidence-checklist entries**, not 57% of MeRSIA achieved, work remaining or probability of success. Four gates per stage have evidence: a contract, mathematical model, finite checks and native-Python numerical parity. Independent replication/robustness, measured scale-up and generalized application remain unmet. The gates have unequal difficulty; `dist/downloads/evidence-checklist.json` makes every entry inspectable. Future stages 7–9+ are proposed, not implemented.
+The front page explains Orchard, the toy laboratory and MeRSIA, provides a live coupled-repair example, and links all seven milestones. Its **57% indicator means 28/49 equally counted evidence-checklist entries**, not 57% of MeRSIA achieved, work remaining or probability of success. Four gates per stage have evidence: a contract, mathematical model, finite checks and native-Python numerical parity. Independent replication/robustness, measured scale-up and generalized application remain unmet. The gates have unequal difficulty; `dist/downloads/evidence-checklist.json` makes every entry inspectable. Stage seven is implemented as a new finite study; stages 8–9+ remain proposed.
 
-Six scripts in `dist/downloads/` each contain their own required Python routines. They need Python 3.10+, use only the standard library and compute their reports without JavaScript, external packages, accounts or network requests. The welcome page offers complete source inspection, `.py` downloads, readable computed reports and raw default JSON files.
+Seven scripts in `dist/downloads/` each contain their own required Python routines. They need Python 3.10+, use only the standard library and compute their reports without JavaScript, external packages, accounts or network requests. The welcome page offers complete source inspection, `.py` downloads, readable computed reports and raw default JSON files.
 
 ```sh
 python3 dist/downloads/05_bounded_meta_extension.py --help
@@ -166,7 +166,7 @@ The shared native reference is in `python-reference/core.py`. After editing it, 
 
 ## Scope
 
-Stages one–four are educational reconstructions of the worked encounter, qualified policy reuse, constructive enquiry and acquired response expressions. Stages five and six are new bounded constructor-acquisition and resource-comparison studies. These are not reproductions of the complete paper packages. Milestone two has two receiving contexts and four target requests; milestone three has twelve represented cases and six separate OR stress cases. The zero/two-error controls and audit stress bench in milestone one are exploratory variations. Rule languages, initial construction grammar, primitive meanings, higher meta-grammar, enumeration, qualifiers, audit fixtures and permissions are supplied. Stage five selects a bounded operative construction-language extension within that fixed foundation. The code assumes an honest local host. Equality is currentness, not authentication or hostile-process isolation. All actions are simulated; there are no external effects.
+Stages one–four are educational reconstructions of the worked encounter, qualified policy reuse, constructive enquiry and acquired response expressions. Stages five, six and seven are new bounded constructor-acquisition, resource-comparison and changed-obligation studies. These are not reproductions of the complete paper packages. Milestone two has two receiving contexts and four target requests; milestone three has twelve represented cases and six separate OR stress cases. The zero/two-error controls and audit stress bench in milestone one are exploratory variations. Rule languages, initial construction grammar, primitive meanings, higher meta-grammar, enumeration, qualifiers, audit fixtures and permissions are supplied. Stage five selects a bounded operative construction-language extension within that fixed foundation. The code assumes an honest local host. Equality is currentness, not authentication or hostile-process isolation. All actions are simulated; there are no external effects.
 
 Milestone two implements bounded acquisition and inheritance of a construction procedure within a fixed grammar. Broader MeRSIA and relative-rate dominance remain research targets. Stage five implements conservative finite constructor growth and subsequent acquisition. Milestone four learns a response expression by finite program selection from audited examples. No milestone trains a neural model, invents semantic primitives, changes the higher meta-grammar or establishes a general alignment guarantee.
 
@@ -238,6 +238,20 @@ Publication titles and cited manuscript pages appear inside the laboratory. Publ
 
 The original software and implementation documentation are provided under the Orchard Noncommercial Research and Evaluation Licence 1.0; see `LICENSE.txt` and the site’s licensing page. Noncommercial research, code modification and research sharing are permitted under its conditions. Commercial use, commercial R&D and product integration require a separate written agreement. Source publications retain CC-BY-NC-ND 4.0. The Orchard logo is excluded from the software grant and may not be reused as another project’s branding.
 
-Author: Kimberley Laverne Asher. This laboratory was developed collaboratively with AI assistance. Stages one–four reconstruct selected manuscript mechanisms; stages five–six are new authored toy studies inspired by that programme. Numerical parity is internal verification, not independent scientific replication.
+Author: Kimberley Laverne Asher. This laboratory was developed collaboratively with AI assistance. Stages one–four reconstruct selected manuscript mechanisms; stages five–seven are new authored toy studies inspired by that programme. Numerical parity is internal verification, not independent scientific replication.
 
 Research collaborations, independent replication and commercial licensing enquiries: **kimberlasher@gmail.com**.
+
+## Seventh milestone: When the Obligations Change
+
+The old reference asks a count-level risk question `r₀(s,c)=1[s=0 or s=c−1]`. The externally authorized new reference asks `r₁(s,c)=1[s=1 or s=c]` and release eligibility `Q₁=¬r₁ ∧ permission ∧ anchor ∧ current`. The supplied adapter preserves the count meanings of the earlier equality-pair grammar; it is not a learned schema interpreter.
+
+Replay the acquired OR constructor carried through stage six. Nine teaching records at c=3,4 select a different expression, `(s=1) OR (s=c)`; six separate records at c=5 validate it. Search all 32 coordinate projections over 120 records at c=3..5. The coarse `(s,c)` view has a concrete collision witness; within this coordinate language all five fields are necessary. Rule-only coverage is 64/272; repaired view coverage is 272/272 in the frozen c=6..9 census. With supplied current receiving grants: 26 correct releases, 246 blocks, zero invalid releases. The unchecked old-rule shortcut would make 190 invalid releases. All effects are simulated.
+
+Later-work cost is 4,303 units for inherited, restored and preinstalled OR routes; direct enumeration over base plus AND/OR pairs costs 4,492. The latter also succeeds. The 189-unit difference is conditional candidate pruning, not rate dominance or superiority over every optimized comparator. Actual source acquisition/replay is shown separately: 8,394 per pass; standalone inheritance runs two passes, restoration three. A sequence run uses one stage-seven replay of the forwarded artifact, excluding earlier stages’ work from this later task. Qualification visits, prediction counts and historical replay are charged; hardware, elapsed time, data construction, encoding and frozen scoring are not.
+
+Removing the constructor leaves no expression in the base grammar. Old answers mislabeled as new teaching fail separate validation. A three-peak target exceeds the one-pair grammar. Unauthorized reference changes and swapped field mappings remain held. Known renamed fields require a supplied bijection and 120 correspondence checks. Receiving permission starts off. A changed revision invalidates the qualification receipt even if field values return. Currentness is exact host binding, not authentication. Historical checks retain the old reference separately; a new goal is not a better score on the old goal.
+
+Download `dist/downloads/07_changing_obligations.py`. The native reference reconstructs the constructor acquisition locally and matches all declared numerical interventions. Full cross-language receipt import is not claimed. This is authored finite verification, not independent scientific replication, autonomous normative self-governance, or a generalized MeRSIA result.
+
+The prominently linked vision page develops the author’s aspiration from the preface of *The Aligned Signal* and the current author brief. It preserves the distinction between a wider societal ambition and the finite claims shown in the laboratory. No unpublished manuscript is distributed.
