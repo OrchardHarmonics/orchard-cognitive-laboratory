@@ -1,0 +1,58 @@
+{
+  "stage": 1,
+  "question": "Can rule and view repair change warranted receiving labels with fixed evidence?",
+  "candidates": [
+    {
+      "global_rule": false,
+      "refined": false,
+      "coverage": 0,
+      "eligible": false
+    },
+    {
+      "global_rule": false,
+      "refined": true,
+      "coverage": 0,
+      "eligible": false
+    },
+    {
+      "global_rule": true,
+      "refined": false,
+      "coverage": 0,
+      "eligible": false
+    },
+    {
+      "global_rule": true,
+      "refined": true,
+      "coverage": 2,
+      "eligible": true
+    }
+  ],
+  "before": 0,
+  "after": 2,
+  "worldsBefore": "1073741824",
+  "worldsAfter": "1073741824",
+  "qualification": {
+    "passed": true,
+    "cases": 320
+  },
+  "labels": [
+    0,
+    1
+  ],
+  "live": {
+    "reason": "permission",
+    "decisions": [
+      "hold",
+      "hold"
+    ]
+  },
+  "afterRevocation": {
+    "reason": "permission",
+    "decisions": [
+      "hold",
+      "hold"
+    ]
+  },
+  "implementation": "Native Python 3.10+ reference; no JavaScript or external packages required",
+  "release": "Orchard Noncommercial Research and Evaluation Licence 1.0; commercial use requires separate written permission; source publications retain their own terms"
+}

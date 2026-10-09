@@ -1,0 +1,523 @@
+{
+  "stage": 2,
+  "live": {
+    "route": "intact",
+    "repaired": 4,
+    "decisive": 0,
+    "contexts": [
+      {
+        "labels": [
+          0,
+          1
+        ],
+        "decisions": [
+          "hold",
+          "hold"
+        ],
+        "before": 0,
+        "after": 2,
+        "worlds": "1073741824"
+      },
+      {
+        "labels": [
+          1,
+          0
+        ],
+        "decisions": [
+          "hold",
+          "hold"
+        ],
+        "before": 0,
+        "after": 2,
+        "worlds": "1073741824"
+      }
+    ],
+    "counts": {
+      "rounds": 1,
+      "candidates": 1,
+      "constructorCalls": 12,
+      "qualifierCases": 5760,
+      "componentUses": 4,
+      "pairChecks": 4,
+      "executionCalls": 2
+    },
+    "learning": [
+      {
+        "round": 1,
+        "learned": "compose"
+      }
+    ]
+  },
+  "source": {
+    "version": "construction-policy/1",
+    "scope": "orchard-five-bit/b1/counts-at-most-three/v1",
+    "policy": {
+      "kind": "fallback",
+      "old": {
+        "kind": "fallback",
+        "old": {
+          "kind": "hold"
+        },
+        "next": {
+          "kind": "inquiry"
+        }
+      },
+      "next": {
+        "kind": "construct-rule"
+      }
+    },
+    "binding": "{\"policy\":{\"kind\":\"fallback\",\"next\":{\"kind\":\"construct-rule\"},\"old\":{\"kind\":\"fallback\",\"next\":{\"kind\":\"inquiry\"},\"old\":{\"kind\":\"hold\"}}},\"scope\":\"orchard-five-bit/b1/counts-at-most-three/v1\",\"version\":\"construction-policy/1\"}",
+    "qualification": {
+      "cases": 320,
+      "positiveWitnessGain": 2
+    },
+    "acquisition": {
+      "rounds": 1,
+      "counts": {
+        "rounds": 1,
+        "candidates": 1,
+        "constructorCalls": 1,
+        "qualifierCases": 320,
+        "componentUses": 0,
+        "pairChecks": 0,
+        "executionCalls": 0
+      }
+    }
+  },
+  "comparison": [
+    {
+      "route": "intact",
+      "repaired": 4,
+      "decisive": 4,
+      "contexts": [
+        {
+          "labels": [
+            0,
+            1
+          ],
+          "decisions": [
+            "release",
+            "block"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        },
+        {
+          "labels": [
+            1,
+            0
+          ],
+          "decisions": [
+            "block",
+            "release"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        }
+      ],
+      "counts": {
+        "rounds": 1,
+        "candidates": 1,
+        "constructorCalls": 12,
+        "qualifierCases": 5760,
+        "componentUses": 4,
+        "pairChecks": 4,
+        "executionCalls": 2
+      },
+      "learning": [
+        {
+          "round": 1,
+          "learned": "compose"
+        }
+      ]
+    },
+    {
+      "route": "removed",
+      "repaired": 0,
+      "decisive": 0,
+      "contexts": [
+        {
+          "labels": [
+            null,
+            null
+          ],
+          "decisions": [
+            "hold",
+            "hold"
+          ],
+          "before": 0,
+          "after": 0,
+          "worlds": "1073741824"
+        },
+        {
+          "labels": [
+            null,
+            null
+          ],
+          "decisions": [
+            "hold",
+            "hold"
+          ],
+          "before": 0,
+          "after": 0,
+          "worlds": "1073741824"
+        }
+      ],
+      "counts": {
+        "rounds": 1,
+        "candidates": 1,
+        "constructorCalls": 0,
+        "qualifierCases": 0,
+        "componentUses": 0,
+        "pairChecks": 0,
+        "executionCalls": 2
+      },
+      "learning": [
+        {
+          "round": 1,
+          "learned": null
+        }
+      ]
+    },
+    {
+      "route": "restored",
+      "repaired": 4,
+      "decisive": 4,
+      "contexts": [
+        {
+          "labels": [
+            0,
+            1
+          ],
+          "decisions": [
+            "release",
+            "block"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        },
+        {
+          "labels": [
+            1,
+            0
+          ],
+          "decisions": [
+            "block",
+            "release"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        }
+      ],
+      "counts": {
+        "rounds": 1,
+        "candidates": 1,
+        "constructorCalls": 12,
+        "qualifierCases": 5760,
+        "componentUses": 4,
+        "pairChecks": 4,
+        "executionCalls": 2
+      },
+      "learning": [
+        {
+          "round": 1,
+          "learned": "compose"
+        }
+      ]
+    },
+    {
+      "route": "relearn-one",
+      "repaired": 0,
+      "decisive": 0,
+      "contexts": [
+        {
+          "labels": [
+            null,
+            null
+          ],
+          "decisions": [
+            "hold",
+            "hold"
+          ],
+          "before": 0,
+          "after": 0,
+          "worlds": "1073741824"
+        },
+        {
+          "labels": [
+            null,
+            null
+          ],
+          "decisions": [
+            "hold",
+            "hold"
+          ],
+          "before": 0,
+          "after": 0,
+          "worlds": "1073741824"
+        }
+      ],
+      "counts": {
+        "rounds": 1,
+        "candidates": 1,
+        "constructorCalls": 3,
+        "qualifierCases": 960,
+        "componentUses": 0,
+        "pairChecks": 0,
+        "executionCalls": 2
+      },
+      "learning": [
+        {
+          "round": 1,
+          "learned": "construct-rule"
+        }
+      ]
+    },
+    {
+      "route": "relearn-two",
+      "repaired": 4,
+      "decisive": 4,
+      "contexts": [
+        {
+          "labels": [
+            0,
+            1
+          ],
+          "decisions": [
+            "release",
+            "block"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        },
+        {
+          "labels": [
+            1,
+            0
+          ],
+          "decisions": [
+            "block",
+            "release"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        }
+      ],
+      "counts": {
+        "rounds": 2,
+        "candidates": 2,
+        "constructorCalls": 13,
+        "qualifierCases": 6080,
+        "componentUses": 4,
+        "pairChecks": 4,
+        "executionCalls": 2
+      },
+      "learning": [
+        {
+          "round": 1,
+          "learned": "construct-rule"
+        },
+        {
+          "round": 2,
+          "learned": "compose"
+        }
+      ]
+    },
+    {
+      "route": "fresh",
+      "repaired": 4,
+      "decisive": 4,
+      "contexts": [
+        {
+          "labels": [
+            0,
+            1
+          ],
+          "decisions": [
+            "release",
+            "block"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        },
+        {
+          "labels": [
+            1,
+            0
+          ],
+          "decisions": [
+            "block",
+            "release"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        }
+      ],
+      "counts": {
+        "rounds": 2,
+        "candidates": 2,
+        "constructorCalls": 13,
+        "qualifierCases": 6080,
+        "componentUses": 4,
+        "pairChecks": 4,
+        "executionCalls": 2
+      },
+      "learning": [
+        {
+          "round": 1,
+          "learned": "construct-rule"
+        },
+        {
+          "round": 2,
+          "learned": "compose"
+        }
+      ]
+    },
+    {
+      "route": "specificity",
+      "repaired": 4,
+      "decisive": 4,
+      "contexts": [
+        {
+          "labels": [
+            0,
+            1
+          ],
+          "decisions": [
+            "release",
+            "block"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        },
+        {
+          "labels": [
+            1,
+            0
+          ],
+          "decisions": [
+            "block",
+            "release"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        }
+      ],
+      "counts": {
+        "rounds": 1,
+        "candidates": 1,
+        "constructorCalls": 12,
+        "qualifierCases": 5760,
+        "componentUses": 4,
+        "pairChecks": 4,
+        "executionCalls": 2
+      },
+      "learning": [
+        {
+          "round": 1,
+          "learned": "compose"
+        }
+      ]
+    },
+    {
+      "route": "preinstalled",
+      "repaired": 4,
+      "decisive": 4,
+      "contexts": [
+        {
+          "labels": [
+            0,
+            1
+          ],
+          "decisions": [
+            "release",
+            "block"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        },
+        {
+          "labels": [
+            1,
+            0
+          ],
+          "decisions": [
+            "block",
+            "release"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        }
+      ],
+      "counts": {
+        "rounds": 0,
+        "candidates": 0,
+        "constructorCalls": 6,
+        "qualifierCases": 3200,
+        "componentUses": 2,
+        "pairChecks": 2,
+        "executionCalls": 2
+      },
+      "learning": []
+    },
+    {
+      "route": "direct",
+      "repaired": 4,
+      "decisive": 4,
+      "contexts": [
+        {
+          "labels": [
+            0,
+            1
+          ],
+          "decisions": [
+            "release",
+            "block"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        },
+        {
+          "labels": [
+            1,
+            0
+          ],
+          "decisions": [
+            "block",
+            "release"
+          ],
+          "before": 0,
+          "after": 2,
+          "worlds": "1073741824"
+        }
+      ],
+      "counts": {
+        "rounds": 0,
+        "candidates": 8,
+        "constructorCalls": 0,
+        "qualifierCases": 1280,
+        "componentUses": 0,
+        "pairChecks": 0,
+        "executionCalls": 2
+      },
+      "learning": []
+    }
+  ],
+  "evidenceTransfer": "none",
+  "authorityExpanded": false,
+  "implementation": "Native Python 3.10+ reference; no JavaScript or external packages required",
+  "release": "Orchard Noncommercial Research and Evaluation Licence 1.0; commercial use requires separate written permission; source publications retain their own terms"
+}

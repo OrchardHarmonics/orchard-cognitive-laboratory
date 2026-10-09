@@ -1,0 +1,237 @@
+{
+  "stage": 3,
+  "live": {
+    "O": [
+      {
+        "q": 7,
+        "y": 0,
+        "version": 0
+      },
+      {
+        "q": 9,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 1,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 2,
+        "y": 0,
+        "version": 0
+      }
+    ],
+    "proposal": 5,
+    "decision": "hold",
+    "reason": "receiving-permission",
+    "decisionTick": 8,
+    "ticks": 18,
+    "work": 6,
+    "serviced": 6,
+    "missed": 0,
+    "trace": [
+      {
+        "tick": 1,
+        "kind": "query"
+      },
+      {
+        "tick": 2,
+        "kind": "query"
+      },
+      {
+        "tick": 3,
+        "kind": "watch"
+      },
+      {
+        "tick": 4,
+        "kind": "query"
+      },
+      {
+        "tick": 5,
+        "kind": "query"
+      },
+      {
+        "tick": 6,
+        "kind": "watch"
+      },
+      {
+        "tick": 7,
+        "kind": "refresh"
+      },
+      {
+        "tick": 8,
+        "kind": "qualification"
+      },
+      {
+        "tick": 9,
+        "kind": "watch"
+      },
+      {
+        "tick": 10,
+        "kind": "idle"
+      },
+      {
+        "tick": 11,
+        "kind": "idle"
+      },
+      {
+        "tick": 12,
+        "kind": "watch"
+      },
+      {
+        "tick": 13,
+        "kind": "idle"
+      },
+      {
+        "tick": 14,
+        "kind": "idle"
+      },
+      {
+        "tick": 15,
+        "kind": "watch"
+      },
+      {
+        "tick": 16,
+        "kind": "idle"
+      },
+      {
+        "tick": 17,
+        "kind": "idle"
+      },
+      {
+        "tick": 18,
+        "kind": "watch"
+      }
+    ],
+    "history": [
+      {
+        "query": 0,
+        "tick": 0,
+        "worlds": 12,
+        "actions": 6
+      },
+      {
+        "query": 1,
+        "tick": 1,
+        "worlds": 6,
+        "actions": 6,
+        "q": 7,
+        "y": 0,
+        "phase": "inherited"
+      },
+      {
+        "query": 2,
+        "tick": 2,
+        "worlds": 3,
+        "actions": 3,
+        "q": 9,
+        "y": 1,
+        "phase": "inherited"
+      },
+      {
+        "query": 3,
+        "tick": 4,
+        "worlds": 2,
+        "actions": 2,
+        "q": 1,
+        "y": 1,
+        "phase": "constructed"
+      },
+      {
+        "query": 4,
+        "tick": 5,
+        "worlds": 1,
+        "actions": 1,
+        "q": 2,
+        "y": 0,
+        "phase": "constructed"
+      }
+    ],
+    "counts": {
+      "predictions": 294,
+      "scores": 98,
+      "nodes": 16,
+      "replays": 9,
+      "replayPredictions": 21
+    },
+    "actions": [
+      5
+    ],
+    "scoring": {
+      "correct": false,
+      "incorrect": false,
+      "withheld": true
+    }
+  },
+  "comparison": [
+    {
+      "route": "constructive",
+      "registered": {
+        "episodes": 12,
+        "correct": 12,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 44,
+        "ticks": 112,
+        "missedWatches": 0
+      },
+      "outside": {
+        "episodes": 6,
+        "correct": 3,
+        "incorrect": 3,
+        "withheld": 0,
+        "queries": 21,
+        "ticks": 54,
+        "missedWatches": 0
+      }
+    },
+    {
+      "route": "removed",
+      "registered": {
+        "episodes": 12,
+        "correct": 2,
+        "incorrect": 0,
+        "withheld": 10,
+        "queries": 30,
+        "ticks": 44,
+        "missedWatches": 0
+      },
+      "outside": {
+        "episodes": 6,
+        "correct": 0,
+        "incorrect": 0,
+        "withheld": 6,
+        "queries": 13,
+        "ticks": 14,
+        "missedWatches": 0
+      }
+    },
+    {
+      "route": "active",
+      "registered": {
+        "episodes": 12,
+        "correct": 12,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 44,
+        "ticks": 112,
+        "missedWatches": 0
+      },
+      "outside": {
+        "episodes": 6,
+        "correct": 3,
+        "incorrect": 3,
+        "withheld": 0,
+        "queries": 20,
+        "ticks": 52,
+        "missedWatches": 0
+      }
+    }
+  ],
+  "compilerSupplied": true,
+  "authorityExpanded": false,
+  "implementation": "Native Python 3.10+ reference; no JavaScript or external packages required",
+  "release": "Orchard Noncommercial Research and Evaluation Licence 1.0; commercial use requires separate written permission; source publications retain their own terms"
+}

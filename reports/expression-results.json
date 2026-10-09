@@ -1,0 +1,5019 @@
+{
+  "version": "0.4.0",
+  "generatedDate": "2026-10-09",
+  "scope": "Authored finite educational reconstruction; not the paper full census",
+  "development": {
+    "grammar": [
+      {
+        "op": "ge",
+        "rhs": 0
+      },
+      {
+        "op": "ge",
+        "rhs": 1
+      },
+      {
+        "op": "ge",
+        "rhs": 2
+      },
+      {
+        "op": "ge",
+        "rhs": 3
+      },
+      {
+        "op": "ge",
+        "rhs": 4
+      },
+      {
+        "op": "ge",
+        "rhs": "c"
+      },
+      {
+        "op": "ge",
+        "rhs": "c-1"
+      },
+      {
+        "op": "eq",
+        "rhs": 0
+      },
+      {
+        "op": "eq",
+        "rhs": 1
+      },
+      {
+        "op": "eq",
+        "rhs": 2
+      },
+      {
+        "op": "eq",
+        "rhs": 3
+      },
+      {
+        "op": "eq",
+        "rhs": 4
+      },
+      {
+        "op": "eq",
+        "rhs": "c"
+      },
+      {
+        "op": "eq",
+        "rhs": "c-1"
+      },
+      {
+        "op": "le",
+        "rhs": 0
+      },
+      {
+        "op": "le",
+        "rhs": 1
+      },
+      {
+        "op": "le",
+        "rhs": 2
+      },
+      {
+        "op": "le",
+        "rhs": 3
+      },
+      {
+        "op": "le",
+        "rhs": 4
+      },
+      {
+        "op": "le",
+        "rhs": "c"
+      },
+      {
+        "op": "le",
+        "rhs": "c-1"
+      },
+      {
+        "op": "mod",
+        "mod": 2,
+        "residue": 0
+      },
+      {
+        "op": "mod",
+        "mod": 2,
+        "residue": 1
+      },
+      {
+        "op": "mod",
+        "mod": 3,
+        "residue": 0
+      },
+      {
+        "op": "mod",
+        "mod": 3,
+        "residue": 1
+      },
+      {
+        "op": "mod",
+        "mod": 3,
+        "residue": 2
+      }
+    ],
+    "selected": {
+      "op": "ge",
+      "rhs": 1
+    },
+    "calibrationCases": [
+      {
+        "n": 4,
+        "c": 2,
+        "audit": {
+          "source": "supplied-exact-set-4-2",
+          "version": 0,
+          "trusted": true,
+          "incorrect": true,
+          "actualK": 3,
+          "proposal": 9
+        },
+        "trace": [
+          {
+            "q": 7,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 3,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 1,
+            "y": 1,
+            "version": 0
+          }
+        ],
+        "observations": [
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 1,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 2,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 3,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 4,
+            "y": 0
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 5,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 6,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 7,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 8,
+            "y": 0
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 9,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 10,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 11,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 12,
+            "y": 0
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 13,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 2,
+            "K": 3,
+            "q": 14,
+            "y": 1
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "c": 3,
+        "audit": {
+          "source": "supplied-exact-set-4-3",
+          "version": 0,
+          "trusted": true,
+          "incorrect": true,
+          "actualK": 11,
+          "proposal": 7
+        },
+        "trace": [
+          {
+            "q": 7,
+            "y": 1,
+            "version": 0
+          }
+        ],
+        "observations": [
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 1,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 2,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 3,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 4,
+            "y": 0
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 5,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 6,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 7,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 8,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 9,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 10,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 11,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 12,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 13,
+            "y": 1
+          },
+          {
+            "n": 4,
+            "c": 3,
+            "K": 11,
+            "q": 14,
+            "y": 1
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "c": 2,
+        "audit": {
+          "source": "supplied-exact-set-5-2",
+          "version": 0,
+          "trusted": true,
+          "incorrect": true,
+          "actualK": 3,
+          "proposal": 17
+        },
+        "trace": [
+          {
+            "q": 15,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 7,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 3,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 1,
+            "y": 1,
+            "version": 0
+          }
+        ],
+        "observations": [
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 1,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 2,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 3,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 4,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 5,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 6,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 7,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 8,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 9,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 10,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 11,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 12,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 13,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 14,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 15,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 16,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 17,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 18,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 19,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 20,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 21,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 22,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 23,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 24,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 25,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 26,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 27,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 28,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 29,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 2,
+            "K": 3,
+            "q": 30,
+            "y": 1
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "c": 3,
+        "audit": {
+          "source": "supplied-exact-set-5-3",
+          "version": 0,
+          "trusted": true,
+          "incorrect": true,
+          "actualK": 11,
+          "proposal": 7
+        },
+        "trace": [
+          {
+            "q": 15,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 7,
+            "y": 1,
+            "version": 0
+          }
+        ],
+        "observations": [
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 1,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 2,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 3,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 4,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 5,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 6,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 7,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 8,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 9,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 10,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 11,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 12,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 13,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 14,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 15,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 16,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 17,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 18,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 19,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 20,
+            "y": 0
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 21,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 22,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 23,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 24,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 25,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 26,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 27,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 28,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 29,
+            "y": 1
+          },
+          {
+            "n": 5,
+            "c": 3,
+            "K": 11,
+            "q": 30,
+            "y": 1
+          }
+        ]
+      }
+    ],
+    "calibrationObservations": 88,
+    "selectionPredictions": 2288,
+    "ledger": [
+      {
+        "g": {
+          "op": "ge",
+          "rhs": 0
+        },
+        "label": "s ≥ 0",
+        "mismatches": 14,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "ge",
+          "rhs": 1
+        },
+        "label": "s ≥ 1",
+        "mismatches": 0,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "ge",
+          "rhs": 2
+        },
+        "label": "s ≥ 2",
+        "mismatches": 42,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "ge",
+          "rhs": 3
+        },
+        "label": "s ≥ 3",
+        "mismatches": 70,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "ge",
+          "rhs": 4
+        },
+        "label": "s ≥ 4",
+        "mismatches": 74,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "ge",
+          "rhs": "c"
+        },
+        "label": "s ≥ c",
+        "mismatches": 60,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "ge",
+          "rhs": "c-1"
+        },
+        "label": "s ≥ c-1",
+        "mismatches": 18,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "eq",
+          "rhs": 0
+        },
+        "label": "s = 0",
+        "mismatches": 88,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "eq",
+          "rhs": 1
+        },
+        "label": "s = 1",
+        "mismatches": 32,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "eq",
+          "rhs": 2
+        },
+        "label": "s = 2",
+        "mismatches": 46,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "eq",
+          "rhs": 3
+        },
+        "label": "s = 3",
+        "mismatches": 70,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "eq",
+          "rhs": 4
+        },
+        "label": "s = 4",
+        "mismatches": 74,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "eq",
+          "rhs": "c"
+        },
+        "label": "s = c",
+        "mismatches": 60,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "eq",
+          "rhs": "c-1"
+        },
+        "label": "s = c-1",
+        "mismatches": 32,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "le",
+          "rhs": 0
+        },
+        "label": "s ≤ 0",
+        "mismatches": 88,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "le",
+          "rhs": 1
+        },
+        "label": "s ≤ 1",
+        "mismatches": 46,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "le",
+          "rhs": 2
+        },
+        "label": "s ≤ 2",
+        "mismatches": 18,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "le",
+          "rhs": 3
+        },
+        "label": "s ≤ 3",
+        "mismatches": 14,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "le",
+          "rhs": 4
+        },
+        "label": "s ≤ 4",
+        "mismatches": 14,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "le",
+          "rhs": "c"
+        },
+        "label": "s ≤ c",
+        "mismatches": 14,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "le",
+          "rhs": "c-1"
+        },
+        "label": "s ≤ c-1",
+        "mismatches": 28,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "mod",
+          "mod": 2,
+          "residue": 0
+        },
+        "label": "s mod 2 = 0",
+        "mismatches": 60,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "mod",
+          "mod": 2,
+          "residue": 1
+        },
+        "label": "s mod 2 = 1",
+        "mismatches": 28,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "mod",
+          "mod": 3,
+          "residue": 0
+        },
+        "label": "s mod 3 = 0",
+        "mismatches": 84,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "mod",
+          "mod": 3,
+          "residue": 1
+        },
+        "label": "s mod 3 = 1",
+        "mismatches": 32,
+        "predictions": 88
+      },
+      {
+        "g": {
+          "op": "mod",
+          "mod": 3,
+          "residue": 2
+        },
+        "label": "s mod 3 = 2",
+        "mismatches": 46,
+        "predictions": 88
+      }
+    ],
+    "validationScope": {
+      "n": 6,
+      "c": [
+        2,
+        3,
+        4
+      ],
+      "measurements": 3100
+    },
+    "validationMismatches": 0,
+    "sourceTrust": "supplied exact-set audit and measurement fixtures"
+  },
+  "heldOut": {
+    "n": 7,
+    "c": 3,
+    "mainMechanisms": [
+      "AND",
+      "XOR",
+      "OR"
+    ],
+    "budget": 48,
+    "price": "unit",
+    "mainEpisodesPerArm": 105,
+    "stressMechanisms": [
+      "GE2",
+      "EQ1"
+    ],
+    "stressBudget": 64,
+    "stressEpisodesPerArm": 70,
+    "comparison": [
+      {
+        "arm": "inherited",
+        "main": {
+          "total": 105,
+          "correct": 105,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 693,
+          "work": 1008,
+          "missed": 0
+        },
+        "stress": {
+          "total": 70,
+          "correct": 2,
+          "incorrect": 68,
+          "withheld": 0,
+          "queries": 430,
+          "work": 640,
+          "missed": 0
+        },
+        "or": {
+          "total": 35,
+          "correct": 35,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 311,
+          "work": 416,
+          "missed": 0
+        },
+        "outcomes": [
+          {
+            "mode": "AND",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          }
+        ]
+      },
+      {
+        "arm": "removed",
+        "main": {
+          "total": 105,
+          "correct": 71,
+          "incorrect": 34,
+          "withheld": 0,
+          "queries": 513,
+          "work": 828,
+          "missed": 0
+        },
+        "stress": {
+          "total": 70,
+          "correct": 2,
+          "incorrect": 68,
+          "withheld": 0,
+          "queries": 352,
+          "work": 562,
+          "missed": 0
+        },
+        "or": {
+          "total": 35,
+          "correct": 1,
+          "incorrect": 34,
+          "withheld": 0,
+          "queries": 144,
+          "work": 249,
+          "missed": 0
+        },
+        "outcomes": [
+          {
+            "mode": "AND",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 11,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 13,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 14,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 19,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 21,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 22,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 25,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 26,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 28,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 35,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 37,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 38,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 41,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 42,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 44,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 49,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 50,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 52,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 56,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 67,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 69,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 70,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 73,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 74,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 76,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 81,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 82,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 84,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 88,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 97,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 98,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 100,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 104,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 112,
+            "correct": false,
+            "incorrect": true,
+            "withheld": false
+          }
+        ]
+      },
+      {
+        "arm": "restored",
+        "main": {
+          "total": 105,
+          "correct": 105,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 693,
+          "work": 1008,
+          "missed": 0
+        },
+        "stress": {
+          "total": 70,
+          "correct": 2,
+          "incorrect": 68,
+          "withheld": 0,
+          "queries": 430,
+          "work": 640,
+          "missed": 0
+        },
+        "or": {
+          "total": 35,
+          "correct": 35,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 311,
+          "work": 416,
+          "missed": 0
+        },
+        "outcomes": [
+          {
+            "mode": "AND",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          }
+        ]
+      },
+      {
+        "arm": "active",
+        "main": {
+          "total": 105,
+          "correct": 105,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 666,
+          "work": 981,
+          "missed": 0
+        },
+        "stress": {
+          "total": 70,
+          "correct": 32,
+          "incorrect": 38,
+          "withheld": 0,
+          "queries": 418,
+          "work": 628,
+          "missed": 0
+        },
+        "or": {
+          "total": 35,
+          "correct": 35,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 212,
+          "work": 317,
+          "missed": 0
+        },
+        "outcomes": [
+          {
+            "mode": "AND",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "AND",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "XOR",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 7,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 11,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 13,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 14,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 19,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 21,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 22,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 25,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 26,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 28,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 35,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 37,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 38,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 41,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 42,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 44,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 49,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 50,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 52,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 56,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 67,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 69,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 70,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 73,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 74,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 76,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 81,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 82,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 84,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 88,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 97,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 98,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 100,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 104,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          },
+          {
+            "mode": "OR",
+            "K": 112,
+            "correct": true,
+            "incorrect": false,
+            "withheld": false
+          }
+        ]
+      }
+    ]
+  },
+  "witness": {
+    "old": {
+      "n": 7,
+      "c": 3,
+      "L": [
+        {
+          "op": "eq",
+          "rhs": "c"
+        },
+        {
+          "op": "mod",
+          "mod": 2,
+          "residue": 1
+        }
+      ],
+      "context": "fresh-7-3",
+      "O": [
+        {
+          "q": 63,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 31,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 15,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 7,
+          "y": 1,
+          "version": 0
+        }
+      ],
+      "H": [
+        {
+          "g": {
+            "op": "eq",
+            "rhs": "c"
+          },
+          "K": 7
+        },
+        {
+          "g": {
+            "op": "mod",
+            "mod": 2,
+            "residue": 1
+          },
+          "K": 7
+        }
+      ],
+      "actions": [
+        7
+      ],
+      "proposal": 7,
+      "decision": "admit",
+      "reason": "current",
+      "receipt": {
+        "version": 0,
+        "binding": "{\"context\":\"fresh-7-3\",\"n\":7,\"c\":3,\"L\":[{\"op\":\"eq\",\"rhs\":\"c\"},{\"op\":\"mod\",\"mod\":2,\"residue\":1}],\"O\":[{\"q\":63,\"y\":1,\"version\":0},{\"q\":31,\"y\":1,\"version\":0},{\"q\":15,\"y\":1,\"version\":0},{\"q\":7,\"y\":1,\"version\":0}],\"proposal\":7}"
+      },
+      "decisionTick": 10,
+      "ticks": 48,
+      "work": 7,
+      "serviced": 16,
+      "missed": 0,
+      "trace": [
+        {
+          "tick": 1,
+          "kind": "query"
+        },
+        {
+          "tick": 2,
+          "kind": "query"
+        },
+        {
+          "tick": 3,
+          "kind": "watch"
+        },
+        {
+          "tick": 4,
+          "kind": "query"
+        },
+        {
+          "tick": 5,
+          "kind": "query"
+        },
+        {
+          "tick": 6,
+          "kind": "watch"
+        },
+        {
+          "tick": 7,
+          "kind": "refresh"
+        },
+        {
+          "tick": 8,
+          "kind": "qualification"
+        },
+        {
+          "tick": 9,
+          "kind": "watch"
+        },
+        {
+          "tick": 10,
+          "kind": "admission"
+        },
+        {
+          "tick": 11,
+          "kind": "idle"
+        },
+        {
+          "tick": 12,
+          "kind": "watch"
+        },
+        {
+          "tick": 13,
+          "kind": "idle"
+        },
+        {
+          "tick": 14,
+          "kind": "idle"
+        },
+        {
+          "tick": 15,
+          "kind": "watch"
+        },
+        {
+          "tick": 16,
+          "kind": "idle"
+        },
+        {
+          "tick": 17,
+          "kind": "idle"
+        },
+        {
+          "tick": 18,
+          "kind": "watch"
+        },
+        {
+          "tick": 19,
+          "kind": "idle"
+        },
+        {
+          "tick": 20,
+          "kind": "idle"
+        },
+        {
+          "tick": 21,
+          "kind": "watch"
+        },
+        {
+          "tick": 22,
+          "kind": "idle"
+        },
+        {
+          "tick": 23,
+          "kind": "idle"
+        },
+        {
+          "tick": 24,
+          "kind": "watch"
+        },
+        {
+          "tick": 25,
+          "kind": "idle"
+        },
+        {
+          "tick": 26,
+          "kind": "idle"
+        },
+        {
+          "tick": 27,
+          "kind": "watch"
+        },
+        {
+          "tick": 28,
+          "kind": "idle"
+        },
+        {
+          "tick": 29,
+          "kind": "idle"
+        },
+        {
+          "tick": 30,
+          "kind": "watch"
+        },
+        {
+          "tick": 31,
+          "kind": "idle"
+        },
+        {
+          "tick": 32,
+          "kind": "idle"
+        },
+        {
+          "tick": 33,
+          "kind": "watch"
+        },
+        {
+          "tick": 34,
+          "kind": "idle"
+        },
+        {
+          "tick": 35,
+          "kind": "idle"
+        },
+        {
+          "tick": 36,
+          "kind": "watch"
+        },
+        {
+          "tick": 37,
+          "kind": "idle"
+        },
+        {
+          "tick": 38,
+          "kind": "idle"
+        },
+        {
+          "tick": 39,
+          "kind": "watch"
+        },
+        {
+          "tick": 40,
+          "kind": "idle"
+        },
+        {
+          "tick": 41,
+          "kind": "idle"
+        },
+        {
+          "tick": 42,
+          "kind": "watch"
+        },
+        {
+          "tick": 43,
+          "kind": "idle"
+        },
+        {
+          "tick": 44,
+          "kind": "idle"
+        },
+        {
+          "tick": 45,
+          "kind": "watch"
+        },
+        {
+          "tick": 46,
+          "kind": "idle"
+        },
+        {
+          "tick": 47,
+          "kind": "idle"
+        },
+        {
+          "tick": 48,
+          "kind": "watch"
+        }
+      ],
+      "history": [
+        {
+          "query": 0,
+          "tick": 0,
+          "worlds": 70,
+          "actions": 35,
+          "phase": "start"
+        },
+        {
+          "query": 1,
+          "tick": 1,
+          "worlds": 40,
+          "actions": 20,
+          "q": 63,
+          "y": 1,
+          "phase": "inherited"
+        },
+        {
+          "query": 2,
+          "tick": 2,
+          "worlds": 20,
+          "actions": 10,
+          "q": 31,
+          "y": 1,
+          "phase": "inherited"
+        },
+        {
+          "query": 3,
+          "tick": 4,
+          "worlds": 8,
+          "actions": 4,
+          "q": 15,
+          "y": 1,
+          "phase": "inherited"
+        },
+        {
+          "query": 4,
+          "tick": 5,
+          "worlds": 2,
+          "actions": 1,
+          "q": 7,
+          "y": 1,
+          "phase": "inherited"
+        }
+      ],
+      "counts": {
+        "predictions": 23184,
+        "scores": 4284,
+        "nodes": 69,
+        "replays": 35,
+        "replayPredictions": 184
+      },
+      "oldLeaf": {
+        "observations": [
+          {
+            "q": 63,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 31,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 15,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 7,
+            "y": 1,
+            "version": 0
+          }
+        ],
+        "worlds": 2,
+        "actions": [
+          7
+        ],
+        "oldActions": [
+          7
+        ]
+      },
+      "permission": true,
+      "environment": {
+        "mode": "OR",
+        "K": 11
+      },
+      "scoring": {
+        "correct": false,
+        "incorrect": true,
+        "withheld": false,
+        "proposalMatches": false
+      }
+    },
+    "expanded": {
+      "n": 7,
+      "c": 3,
+      "L": [
+        {
+          "op": "eq",
+          "rhs": "c"
+        },
+        {
+          "op": "mod",
+          "mod": 2,
+          "residue": 1
+        },
+        {
+          "op": "ge",
+          "rhs": 1
+        }
+      ],
+      "context": "fresh-7-3",
+      "O": [
+        {
+          "q": 63,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 31,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 15,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 7,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 1,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 24,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 6,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 2,
+          "y": 1,
+          "version": 0
+        },
+        {
+          "q": 8,
+          "y": 1,
+          "version": 0
+        }
+      ],
+      "H": [
+        {
+          "g": {
+            "op": "ge",
+            "rhs": 1
+          },
+          "K": 11
+        }
+      ],
+      "actions": [
+        11
+      ],
+      "proposal": 11,
+      "decision": "admit",
+      "reason": "current",
+      "receipt": {
+        "version": 0,
+        "binding": "{\"context\":\"fresh-7-3\",\"n\":7,\"c\":3,\"L\":[{\"op\":\"eq\",\"rhs\":\"c\"},{\"op\":\"mod\",\"mod\":2,\"residue\":1},{\"op\":\"ge\",\"rhs\":1}],\"O\":[{\"q\":63,\"y\":1,\"version\":0},{\"q\":31,\"y\":1,\"version\":0},{\"q\":15,\"y\":1,\"version\":0},{\"q\":7,\"y\":1,\"version\":0},{\"q\":1,\"y\":1,\"version\":0},{\"q\":24,\"y\":1,\"version\":0},{\"q\":6,\"y\":1,\"version\":0},{\"q\":2,\"y\":1,\"version\":0},{\"q\":8,\"y\":1,\"version\":0}],\"proposal\":11}"
+      },
+      "decisionTick": 17,
+      "ticks": 48,
+      "work": 12,
+      "serviced": 16,
+      "missed": 0,
+      "trace": [
+        {
+          "tick": 1,
+          "kind": "query"
+        },
+        {
+          "tick": 2,
+          "kind": "query"
+        },
+        {
+          "tick": 3,
+          "kind": "watch"
+        },
+        {
+          "tick": 4,
+          "kind": "query"
+        },
+        {
+          "tick": 5,
+          "kind": "query"
+        },
+        {
+          "tick": 6,
+          "kind": "watch"
+        },
+        {
+          "tick": 7,
+          "kind": "query"
+        },
+        {
+          "tick": 8,
+          "kind": "query"
+        },
+        {
+          "tick": 9,
+          "kind": "watch"
+        },
+        {
+          "tick": 10,
+          "kind": "query"
+        },
+        {
+          "tick": 11,
+          "kind": "query"
+        },
+        {
+          "tick": 12,
+          "kind": "watch"
+        },
+        {
+          "tick": 13,
+          "kind": "query"
+        },
+        {
+          "tick": 14,
+          "kind": "refresh"
+        },
+        {
+          "tick": 15,
+          "kind": "watch"
+        },
+        {
+          "tick": 16,
+          "kind": "qualification"
+        },
+        {
+          "tick": 17,
+          "kind": "admission"
+        },
+        {
+          "tick": 18,
+          "kind": "watch"
+        },
+        {
+          "tick": 19,
+          "kind": "idle"
+        },
+        {
+          "tick": 20,
+          "kind": "idle"
+        },
+        {
+          "tick": 21,
+          "kind": "watch"
+        },
+        {
+          "tick": 22,
+          "kind": "idle"
+        },
+        {
+          "tick": 23,
+          "kind": "idle"
+        },
+        {
+          "tick": 24,
+          "kind": "watch"
+        },
+        {
+          "tick": 25,
+          "kind": "idle"
+        },
+        {
+          "tick": 26,
+          "kind": "idle"
+        },
+        {
+          "tick": 27,
+          "kind": "watch"
+        },
+        {
+          "tick": 28,
+          "kind": "idle"
+        },
+        {
+          "tick": 29,
+          "kind": "idle"
+        },
+        {
+          "tick": 30,
+          "kind": "watch"
+        },
+        {
+          "tick": 31,
+          "kind": "idle"
+        },
+        {
+          "tick": 32,
+          "kind": "idle"
+        },
+        {
+          "tick": 33,
+          "kind": "watch"
+        },
+        {
+          "tick": 34,
+          "kind": "idle"
+        },
+        {
+          "tick": 35,
+          "kind": "idle"
+        },
+        {
+          "tick": 36,
+          "kind": "watch"
+        },
+        {
+          "tick": 37,
+          "kind": "idle"
+        },
+        {
+          "tick": 38,
+          "kind": "idle"
+        },
+        {
+          "tick": 39,
+          "kind": "watch"
+        },
+        {
+          "tick": 40,
+          "kind": "idle"
+        },
+        {
+          "tick": 41,
+          "kind": "idle"
+        },
+        {
+          "tick": 42,
+          "kind": "watch"
+        },
+        {
+          "tick": 43,
+          "kind": "idle"
+        },
+        {
+          "tick": 44,
+          "kind": "idle"
+        },
+        {
+          "tick": 45,
+          "kind": "watch"
+        },
+        {
+          "tick": 46,
+          "kind": "idle"
+        },
+        {
+          "tick": 47,
+          "kind": "idle"
+        },
+        {
+          "tick": 48,
+          "kind": "watch"
+        }
+      ],
+      "history": [
+        {
+          "query": 0,
+          "tick": 0,
+          "worlds": 105,
+          "actions": 35,
+          "phase": "start"
+        },
+        {
+          "query": 1,
+          "tick": 1,
+          "worlds": 75,
+          "actions": 35,
+          "q": 63,
+          "y": 1,
+          "phase": "inherited"
+        },
+        {
+          "query": 2,
+          "tick": 2,
+          "worlds": 55,
+          "actions": 35,
+          "q": 31,
+          "y": 1,
+          "phase": "inherited"
+        },
+        {
+          "query": 3,
+          "tick": 4,
+          "worlds": 42,
+          "actions": 34,
+          "q": 15,
+          "y": 1,
+          "phase": "inherited"
+        },
+        {
+          "query": 4,
+          "tick": 5,
+          "worlds": 33,
+          "actions": 31,
+          "q": 7,
+          "y": 1,
+          "phase": "inherited"
+        },
+        {
+          "query": 5,
+          "tick": 7,
+          "worlds": 16,
+          "actions": 15,
+          "q": 1,
+          "y": 1,
+          "phase": "constructed"
+        },
+        {
+          "query": 6,
+          "tick": 8,
+          "worlds": 9,
+          "actions": 9,
+          "q": 24,
+          "y": 1,
+          "phase": "constructed"
+        },
+        {
+          "query": 7,
+          "tick": 10,
+          "worlds": 4,
+          "actions": 4,
+          "q": 6,
+          "y": 1,
+          "phase": "constructed"
+        },
+        {
+          "query": 8,
+          "tick": 11,
+          "worlds": 2,
+          "actions": 2,
+          "q": 2,
+          "y": 1,
+          "phase": "constructed"
+        },
+        {
+          "query": 9,
+          "tick": 13,
+          "worlds": 1,
+          "actions": 1,
+          "q": 8,
+          "y": 1,
+          "phase": "constructed"
+        }
+      ],
+      "counts": {
+        "predictions": 44226,
+        "scores": 8190,
+        "nodes": 132,
+        "replays": 68,
+        "replayPredictions": 351
+      },
+      "oldLeaf": {
+        "observations": [
+          {
+            "q": 63,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 31,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 15,
+            "y": 1,
+            "version": 0
+          },
+          {
+            "q": 7,
+            "y": 1,
+            "version": 0
+          }
+        ],
+        "worlds": 33,
+        "actions": [
+          7,
+          11,
+          13,
+          14,
+          19,
+          21,
+          22,
+          25,
+          26,
+          28,
+          35,
+          37,
+          38,
+          41,
+          42,
+          44,
+          49,
+          50,
+          52,
+          67,
+          69,
+          70,
+          73,
+          74,
+          76,
+          81,
+          82,
+          84,
+          97,
+          98,
+          100
+        ],
+        "oldActions": [
+          7
+        ]
+      },
+      "permission": true,
+      "environment": {
+        "mode": "OR",
+        "K": 11
+      },
+      "scoring": {
+        "correct": true,
+        "incorrect": false,
+        "withheld": false,
+        "proposalMatches": true
+      }
+    }
+  },
+  "limits": [
+    "No held-out truth enters diagnosis or acquisition",
+    "No runtime outcome revises the frozen expression",
+    "No receiving grant is acquired",
+    "Grammar, selector and interpreter unchanged",
+    "Finite validation is not universal coverage",
+    "Structural binding assumes an honest host",
+    "Counters are selected logical work, not exhaustive compute or elapsed time"
+  ]
+}

@@ -1,0 +1,344 @@
+{
+  "version": "0.5.0",
+  "study": "New authored bounded constructor-acquisition toy",
+  "date": "2026-10-09",
+  "provenance": {
+    "book": {
+      "local": "sources/aligned-signal.pdf",
+      "page": 89,
+      "section": "18.4"
+    },
+    "enquiry": {
+      "local": "sources/enquiry.pdf",
+      "page": 7,
+      "section": "10.2",
+      "status": "proposed stronger developmental test; this is a new toy"
+    }
+  },
+  "suppliedFoundation": {
+    "metaRecipes": [
+      {
+        "id": "base",
+        "title": "Keep the 26-program constructor",
+        "operator": null
+      },
+      {
+        "id": "pair-and",
+        "title": "Append pairs joined by AND",
+        "operator": "and"
+      },
+      {
+        "id": "pair-or",
+        "title": "Append pairs joined by OR",
+        "operator": "or"
+      }
+    ],
+    "oldGrammarPrograms": 26,
+    "newGrammarPrograms": 47,
+    "syntax": "Exactly one Boolean join of two distinct equality leaves",
+    "metaGrammarExpanded": false,
+    "primitiveMeaningsInvented": false,
+    "metaSelectorChanged": false,
+    "qualifierChanged": false,
+    "authorityExpanded": false,
+    "sourceAuthentication": "Not established by exact structural replay",
+    "taskContracts": "Teaching and validation scopes must match; qualified A repair cannot fill B model contract"
+  },
+  "teacherA": {
+    "calibration": 44,
+    "descriptors": "n=4,c=3,K=7 and n=5,c=4,K=15",
+    "validation": 2170,
+    "validationDescriptors": "n=6,c=3/4, every K and proper query",
+    "witness": {
+      "op": "join",
+      "operator": "or",
+      "left": {
+        "op": "eq",
+        "rhs": 0
+      },
+      "right": {
+        "op": "eq",
+        "rhs": "c"
+      }
+    },
+    "protectedMeanings": {
+      "passed": true,
+      "retained": true,
+      "oldPrograms": 26,
+      "newPrograms": 47,
+      "preservationCases": 312,
+      "preservationFailures": 0,
+      "truthCases": 4,
+      "truthFailures": 0,
+      "maxNewLeaves": 2,
+      "qualifier": "conservative-equality-pair/1"
+    },
+    "selectionPredictions": 5280,
+    "validationMismatches": 0,
+    "trials": [
+      {
+        "recipe": "base",
+        "fittingPrograms": [],
+        "checked": 26,
+        "total": 26,
+        "predictions": 1144,
+        "qualification": {
+          "passed": true,
+          "retained": true,
+          "oldPrograms": 26,
+          "newPrograms": 26,
+          "preservationCases": 312,
+          "preservationFailures": 0,
+          "truthCases": 0,
+          "truthFailures": 0,
+          "maxNewLeaves": 2,
+          "qualifier": "conservative-equality-pair/1"
+        }
+      },
+      {
+        "recipe": "pair-and",
+        "fittingPrograms": [],
+        "checked": 47,
+        "total": 47,
+        "predictions": 2068,
+        "qualification": {
+          "passed": true,
+          "retained": true,
+          "oldPrograms": 26,
+          "newPrograms": 47,
+          "preservationCases": 312,
+          "preservationFailures": 0,
+          "truthCases": 4,
+          "truthFailures": 0,
+          "maxNewLeaves": 2,
+          "qualifier": "conservative-equality-pair/1"
+        }
+      },
+      {
+        "recipe": "pair-or",
+        "fittingPrograms": [
+          {
+            "op": "join",
+            "operator": "or",
+            "left": {
+              "op": "eq",
+              "rhs": 0
+            },
+            "right": {
+              "op": "eq",
+              "rhs": "c"
+            }
+          }
+        ],
+        "checked": 47,
+        "total": 47,
+        "predictions": 2068,
+        "qualification": {
+          "passed": true,
+          "retained": true,
+          "oldPrograms": 26,
+          "newPrograms": 47,
+          "preservationCases": 312,
+          "preservationFailures": 0,
+          "truthCases": 4,
+          "truthFailures": 0,
+          "maxNewLeaves": 2,
+          "qualifier": "conservative-equality-pair/1"
+        }
+      }
+    ]
+  },
+  "laterB": {
+    "calibration": 44,
+    "validation": 2170,
+    "expression": {
+      "op": "join",
+      "operator": "or",
+      "left": {
+        "op": "eq",
+        "rhs": 0
+      },
+      "right": {
+        "op": "eq",
+        "rhs": "c-1"
+      }
+    },
+    "selectionPredictions": 2068,
+    "mismatches": 0,
+    "evaluationStatus": "A/B teaching and semantic validation inspected during development; B is a subsequent-acquisition transfer task, not an untouched meta-selector holdout"
+  },
+  "runtime": {
+    "n": 7,
+    "cardinalities": [
+      3,
+      4
+    ],
+    "budget": 48,
+    "queryPrice": "unit",
+    "newTaskEpisodesPerArm": 70,
+    "legacyEpisodesPerArm": 210,
+    "grants": "Fresh supplied grants for controlled census; live permission starts off",
+    "arms": [
+      {
+        "arm": "fixed",
+        "recipe": "base",
+        "methodAcquisitionRounds": 0,
+        "methodRestorationReplays": 0,
+        "repairStatus": "hold",
+        "reason": "no-expression",
+        "candidatesChecked": 26,
+        "candidateSpace": 26,
+        "selectionPredictions": 1144,
+        "validationPredictions": 0,
+        "newTask": {
+          "total": 70,
+          "correct": 0,
+          "incorrect": 0,
+          "withheld": 70,
+          "queries": 426,
+          "work": 566,
+          "missed": 0
+        },
+        "legacy": {
+          "total": 210,
+          "correct": 210,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 1444,
+          "work": 2074,
+          "missed": 0
+        }
+      },
+      {
+        "arm": "learned",
+        "recipe": "pair-or",
+        "methodAcquisitionRounds": 1,
+        "methodRestorationReplays": 0,
+        "repairStatus": "qualified",
+        "reason": "repair-acquired",
+        "candidatesChecked": 47,
+        "candidateSpace": 47,
+        "selectionPredictions": 2068,
+        "validationPredictions": 2170,
+        "newTask": {
+          "total": 70,
+          "correct": 70,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 480,
+          "work": 690,
+          "missed": 0
+        },
+        "legacy": {
+          "total": 210,
+          "correct": 210,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 1501,
+          "work": 2131,
+          "missed": 0
+        }
+      },
+      {
+        "arm": "removed",
+        "recipe": "base",
+        "methodAcquisitionRounds": 1,
+        "methodRestorationReplays": 0,
+        "repairStatus": "hold",
+        "reason": "no-expression",
+        "candidatesChecked": 26,
+        "candidateSpace": 26,
+        "selectionPredictions": 1144,
+        "validationPredictions": 0,
+        "newTask": {
+          "total": 70,
+          "correct": 0,
+          "incorrect": 0,
+          "withheld": 70,
+          "queries": 426,
+          "work": 566,
+          "missed": 0
+        },
+        "legacy": {
+          "total": 210,
+          "correct": 210,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 1444,
+          "work": 2074,
+          "missed": 0
+        }
+      },
+      {
+        "arm": "restored",
+        "recipe": "pair-or",
+        "methodAcquisitionRounds": 1,
+        "methodRestorationReplays": 1,
+        "repairStatus": "qualified",
+        "reason": "repair-acquired",
+        "candidatesChecked": 47,
+        "candidateSpace": 47,
+        "selectionPredictions": 2068,
+        "validationPredictions": 2170,
+        "newTask": {
+          "total": 70,
+          "correct": 70,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 480,
+          "work": 690,
+          "missed": 0
+        },
+        "legacy": {
+          "total": 210,
+          "correct": 210,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 1501,
+          "work": 2131,
+          "missed": 0
+        }
+      },
+      {
+        "arm": "preinstalled",
+        "recipe": "pair-or",
+        "methodAcquisitionRounds": 0,
+        "methodRestorationReplays": 0,
+        "repairStatus": "qualified",
+        "reason": "repair-acquired",
+        "candidatesChecked": 47,
+        "candidateSpace": 47,
+        "selectionPredictions": 2068,
+        "validationPredictions": 2170,
+        "newTask": {
+          "total": 70,
+          "correct": 70,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 480,
+          "work": 690,
+          "missed": 0
+        },
+        "legacy": {
+          "total": 210,
+          "correct": 210,
+          "incorrect": 0,
+          "withheld": 0,
+          "queries": 1501,
+          "work": 2131,
+          "missed": 0
+        }
+      }
+    ],
+    "gapInterpretation": "Fixed/removed arms have a known unfilled B-model contract. Their holds are not counted as incorrect predictions.",
+    "costInterpretation": "Selected logical work units, not total compute or elapsed time; legacy expanded work is higher",
+    "preinstallation": "Same successful runtime outcomes with zero method-acquisition rounds"
+  },
+  "boundary": {
+    "task": "s in {0,1,c}",
+    "survivors": 0,
+    "reason": "no-expression",
+    "searchLimit": "Complete 47-program census; no deeper syntax admitted"
+  },
+  "interventionObject": "Pause constructor after acquisition retains the repair and its supplied decoder. Remove before fresh acquisition clears the controlled B repair and loses construction reachability."
+}

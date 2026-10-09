@@ -1,0 +1,551 @@
+{
+  "version": "orchard-evidence-checklist/1",
+  "date": "2026-10-09",
+  "completed": 24,
+  "total": 42,
+  "percentage": 57.142857142857146,
+  "meaning": "Equal-count declared evidence coverage; not percentage of MeRSIA achieved, work remaining or probability of success. Gates have unequal difficulty.",
+  "assessment": "Manual project assessment against explicit gates. Finite fixture results are inspectable; wider gates remain unmet.",
+  "entries": [
+    {
+      "stage": 1,
+      "title": "The Missing Distinction",
+      "gate": "contract",
+      "label": "Stated test contract",
+      "criterion": "Question, assumptions, success condition and limits are explicit.",
+      "met": true,
+      "evidence": [
+        "experiments/coupled/engine.js",
+        "experiments/coupled/module.js",
+        "downloads/01_coupled_repair_results.json",
+        "downloads/01_coupled_repair.py"
+      ],
+      "verification": "See package tests/engine.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 1,
+      "title": "The Missing Distinction",
+      "gate": "model",
+      "label": "Specified mathematical model",
+      "criterion": "Finite state, response semantics and relevant obligations are defined.",
+      "met": true,
+      "evidence": [
+        "experiments/coupled/engine.js",
+        "experiments/coupled/module.js",
+        "downloads/01_coupled_repair_results.json",
+        "downloads/01_coupled_repair.py"
+      ],
+      "verification": "See package tests/engine.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 1,
+      "title": "The Missing Distinction",
+      "gate": "finite",
+      "label": "Finite checks in declared scopes",
+      "criterion": "Computed fixtures and interventions pass their stated checks. This is not universal safety.",
+      "met": true,
+      "evidence": [
+        "experiments/coupled/engine.js",
+        "experiments/coupled/module.js",
+        "downloads/01_coupled_repair_results.json",
+        "downloads/01_coupled_repair.py"
+      ],
+      "verification": "See package tests/engine.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 1,
+      "title": "The Missing Distinction",
+      "gate": "python",
+      "label": "Native-Python numerical parity",
+      "criterion": "A standalone second implementation reproduces declared primary fixture results. It is not independent scientific replication.",
+      "met": true,
+      "evidence": [
+        "experiments/coupled/engine.js",
+        "experiments/coupled/module.js",
+        "downloads/01_coupled_repair_results.json",
+        "downloads/01_coupled_repair.py"
+      ],
+      "verification": "See package tests/python/parity.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 1,
+      "title": "The Missing Distinction",
+      "gate": "independent",
+      "label": "Independent replication and robustness",
+      "criterion": "External reproduction and broader difficult-input tests with independently designed protocols.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 1,
+      "title": "The Missing Distinction",
+      "gate": "scale",
+      "label": "Measured scale-up",
+      "criterion": "Larger contexts with comprehensive measured resource costs and comparators.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 1,
+      "title": "The Missing Distinction",
+      "gate": "general",
+      "label": "Generalized application",
+      "criterion": "Evidence and applicable results beyond these finite development fixtures.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 2,
+      "title": "Carry the Method Forward",
+      "gate": "contract",
+      "label": "Stated test contract",
+      "criterion": "Question, assumptions, success condition and limits are explicit.",
+      "met": true,
+      "evidence": [
+        "experiments/inheritance/engine.js",
+        "experiments/inheritance/module.js",
+        "downloads/02_qualified_inheritance_results.json",
+        "downloads/02_qualified_inheritance.py"
+      ],
+      "verification": "See package tests/inheritance.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 2,
+      "title": "Carry the Method Forward",
+      "gate": "model",
+      "label": "Specified mathematical model",
+      "criterion": "Finite state, response semantics and relevant obligations are defined.",
+      "met": true,
+      "evidence": [
+        "experiments/inheritance/engine.js",
+        "experiments/inheritance/module.js",
+        "downloads/02_qualified_inheritance_results.json",
+        "downloads/02_qualified_inheritance.py"
+      ],
+      "verification": "See package tests/inheritance.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 2,
+      "title": "Carry the Method Forward",
+      "gate": "finite",
+      "label": "Finite checks in declared scopes",
+      "criterion": "Computed fixtures and interventions pass their stated checks. This is not universal safety.",
+      "met": true,
+      "evidence": [
+        "experiments/inheritance/engine.js",
+        "experiments/inheritance/module.js",
+        "downloads/02_qualified_inheritance_results.json",
+        "downloads/02_qualified_inheritance.py"
+      ],
+      "verification": "See package tests/inheritance.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 2,
+      "title": "Carry the Method Forward",
+      "gate": "python",
+      "label": "Native-Python numerical parity",
+      "criterion": "A standalone second implementation reproduces declared primary fixture results. It is not independent scientific replication.",
+      "met": true,
+      "evidence": [
+        "experiments/inheritance/engine.js",
+        "experiments/inheritance/module.js",
+        "downloads/02_qualified_inheritance_results.json",
+        "downloads/02_qualified_inheritance.py"
+      ],
+      "verification": "See package tests/python/parity.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 2,
+      "title": "Carry the Method Forward",
+      "gate": "independent",
+      "label": "Independent replication and robustness",
+      "criterion": "External reproduction and broader difficult-input tests with independently designed protocols.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 2,
+      "title": "Carry the Method Forward",
+      "gate": "scale",
+      "label": "Measured scale-up",
+      "criterion": "Larger contexts with comprehensive measured resource costs and comparators.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 2,
+      "title": "Carry the Method Forward",
+      "gate": "general",
+      "label": "Generalized application",
+      "criterion": "Evidence and applicable results beyond these finite development fixtures.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 3,
+      "title": "Ask What Matters",
+      "gate": "contract",
+      "label": "Stated test contract",
+      "criterion": "Question, assumptions, success condition and limits are explicit.",
+      "met": true,
+      "evidence": [
+        "experiments/enquiry/engine.js",
+        "experiments/enquiry/module.js",
+        "downloads/03_constructive_enquiry_results.json",
+        "downloads/03_constructive_enquiry.py"
+      ],
+      "verification": "See package tests/enquiry.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 3,
+      "title": "Ask What Matters",
+      "gate": "model",
+      "label": "Specified mathematical model",
+      "criterion": "Finite state, response semantics and relevant obligations are defined.",
+      "met": true,
+      "evidence": [
+        "experiments/enquiry/engine.js",
+        "experiments/enquiry/module.js",
+        "downloads/03_constructive_enquiry_results.json",
+        "downloads/03_constructive_enquiry.py"
+      ],
+      "verification": "See package tests/enquiry.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 3,
+      "title": "Ask What Matters",
+      "gate": "finite",
+      "label": "Finite checks in declared scopes",
+      "criterion": "Computed fixtures and interventions pass their stated checks. This is not universal safety.",
+      "met": true,
+      "evidence": [
+        "experiments/enquiry/engine.js",
+        "experiments/enquiry/module.js",
+        "downloads/03_constructive_enquiry_results.json",
+        "downloads/03_constructive_enquiry.py"
+      ],
+      "verification": "See package tests/enquiry.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 3,
+      "title": "Ask What Matters",
+      "gate": "python",
+      "label": "Native-Python numerical parity",
+      "criterion": "A standalone second implementation reproduces declared primary fixture results. It is not independent scientific replication.",
+      "met": true,
+      "evidence": [
+        "experiments/enquiry/engine.js",
+        "experiments/enquiry/module.js",
+        "downloads/03_constructive_enquiry_results.json",
+        "downloads/03_constructive_enquiry.py"
+      ],
+      "verification": "See package tests/python/parity.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 3,
+      "title": "Ask What Matters",
+      "gate": "independent",
+      "label": "Independent replication and robustness",
+      "criterion": "External reproduction and broader difficult-input tests with independently designed protocols.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 3,
+      "title": "Ask What Matters",
+      "gate": "scale",
+      "label": "Measured scale-up",
+      "criterion": "Larger contexts with comprehensive measured resource costs and comparators.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 3,
+      "title": "Ask What Matters",
+      "gate": "general",
+      "label": "Generalized application",
+      "criterion": "Evidence and applicable results beyond these finite development fixtures.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 4,
+      "title": "Learn What Was Missing",
+      "gate": "contract",
+      "label": "Stated test contract",
+      "criterion": "Question, assumptions, success condition and limits are explicit.",
+      "met": true,
+      "evidence": [
+        "experiments/expression/engine.js",
+        "experiments/expression/module.js",
+        "downloads/04_acquired_expression_results.json",
+        "downloads/04_acquired_expression.py"
+      ],
+      "verification": "See package tests/expression.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 4,
+      "title": "Learn What Was Missing",
+      "gate": "model",
+      "label": "Specified mathematical model",
+      "criterion": "Finite state, response semantics and relevant obligations are defined.",
+      "met": true,
+      "evidence": [
+        "experiments/expression/engine.js",
+        "experiments/expression/module.js",
+        "downloads/04_acquired_expression_results.json",
+        "downloads/04_acquired_expression.py"
+      ],
+      "verification": "See package tests/expression.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 4,
+      "title": "Learn What Was Missing",
+      "gate": "finite",
+      "label": "Finite checks in declared scopes",
+      "criterion": "Computed fixtures and interventions pass their stated checks. This is not universal safety.",
+      "met": true,
+      "evidence": [
+        "experiments/expression/engine.js",
+        "experiments/expression/module.js",
+        "downloads/04_acquired_expression_results.json",
+        "downloads/04_acquired_expression.py"
+      ],
+      "verification": "See package tests/expression.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 4,
+      "title": "Learn What Was Missing",
+      "gate": "python",
+      "label": "Native-Python numerical parity",
+      "criterion": "A standalone second implementation reproduces declared primary fixture results. It is not independent scientific replication.",
+      "met": true,
+      "evidence": [
+        "experiments/expression/engine.js",
+        "experiments/expression/module.js",
+        "downloads/04_acquired_expression_results.json",
+        "downloads/04_acquired_expression.py"
+      ],
+      "verification": "See package tests/python/parity.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 4,
+      "title": "Learn What Was Missing",
+      "gate": "independent",
+      "label": "Independent replication and robustness",
+      "criterion": "External reproduction and broader difficult-input tests with independently designed protocols.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 4,
+      "title": "Learn What Was Missing",
+      "gate": "scale",
+      "label": "Measured scale-up",
+      "criterion": "Larger contexts with comprehensive measured resource costs and comparators.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 4,
+      "title": "Learn What Was Missing",
+      "gate": "general",
+      "label": "Generalized application",
+      "criterion": "Evidence and applicable results beyond these finite development fixtures.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 5,
+      "title": "Extend How Repairs Are Built",
+      "gate": "contract",
+      "label": "Stated test contract",
+      "criterion": "Question, assumptions, success condition and limits are explicit.",
+      "met": true,
+      "evidence": [
+        "experiments/meta/engine.js",
+        "experiments/meta/module.js",
+        "downloads/05_bounded_meta_extension_results.json",
+        "downloads/05_bounded_meta_extension.py"
+      ],
+      "verification": "See package tests/meta.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 5,
+      "title": "Extend How Repairs Are Built",
+      "gate": "model",
+      "label": "Specified mathematical model",
+      "criterion": "Finite state, response semantics and relevant obligations are defined.",
+      "met": true,
+      "evidence": [
+        "experiments/meta/engine.js",
+        "experiments/meta/module.js",
+        "downloads/05_bounded_meta_extension_results.json",
+        "downloads/05_bounded_meta_extension.py"
+      ],
+      "verification": "See package tests/meta.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 5,
+      "title": "Extend How Repairs Are Built",
+      "gate": "finite",
+      "label": "Finite checks in declared scopes",
+      "criterion": "Computed fixtures and interventions pass their stated checks. This is not universal safety.",
+      "met": true,
+      "evidence": [
+        "experiments/meta/engine.js",
+        "experiments/meta/module.js",
+        "downloads/05_bounded_meta_extension_results.json",
+        "downloads/05_bounded_meta_extension.py"
+      ],
+      "verification": "See package tests/meta.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 5,
+      "title": "Extend How Repairs Are Built",
+      "gate": "python",
+      "label": "Native-Python numerical parity",
+      "criterion": "A standalone second implementation reproduces declared primary fixture results. It is not independent scientific replication.",
+      "met": true,
+      "evidence": [
+        "experiments/meta/engine.js",
+        "experiments/meta/module.js",
+        "downloads/05_bounded_meta_extension_results.json",
+        "downloads/05_bounded_meta_extension.py"
+      ],
+      "verification": "See package tests/python/parity.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 5,
+      "title": "Extend How Repairs Are Built",
+      "gate": "independent",
+      "label": "Independent replication and robustness",
+      "criterion": "External reproduction and broader difficult-input tests with independently designed protocols.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 5,
+      "title": "Extend How Repairs Are Built",
+      "gate": "scale",
+      "label": "Measured scale-up",
+      "criterion": "Larger contexts with comprehensive measured resource costs and comparators.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 5,
+      "title": "Extend How Repairs Are Built",
+      "gate": "general",
+      "label": "Generalized application",
+      "criterion": "Evidence and applicable results beyond these finite development fixtures.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 6,
+      "title": "What Does Better Checking Cost?",
+      "gate": "contract",
+      "label": "Stated test contract",
+      "criterion": "Question, assumptions, success condition and limits are explicit.",
+      "met": true,
+      "evidence": [
+        "experiments/rates/engine.js",
+        "experiments/rates/module.js",
+        "downloads/06_resource_comparison_results.json",
+        "downloads/06_resource_comparison.py"
+      ],
+      "verification": "See package tests/rates.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 6,
+      "title": "What Does Better Checking Cost?",
+      "gate": "model",
+      "label": "Specified mathematical model",
+      "criterion": "Finite state, response semantics and relevant obligations are defined.",
+      "met": true,
+      "evidence": [
+        "experiments/rates/engine.js",
+        "experiments/rates/module.js",
+        "downloads/06_resource_comparison_results.json",
+        "downloads/06_resource_comparison.py"
+      ],
+      "verification": "See package tests/rates.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 6,
+      "title": "What Does Better Checking Cost?",
+      "gate": "finite",
+      "label": "Finite checks in declared scopes",
+      "criterion": "Computed fixtures and interventions pass their stated checks. This is not universal safety.",
+      "met": true,
+      "evidence": [
+        "experiments/rates/engine.js",
+        "experiments/rates/module.js",
+        "downloads/06_resource_comparison_results.json",
+        "downloads/06_resource_comparison.py"
+      ],
+      "verification": "See package tests/rates.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 6,
+      "title": "What Does Better Checking Cost?",
+      "gate": "python",
+      "label": "Native-Python numerical parity",
+      "criterion": "A standalone second implementation reproduces declared primary fixture results. It is not independent scientific replication.",
+      "met": true,
+      "evidence": [
+        "experiments/rates/engine.js",
+        "experiments/rates/module.js",
+        "downloads/06_resource_comparison_results.json",
+        "downloads/06_resource_comparison.py"
+      ],
+      "verification": "See package tests/python/parity.test.cjs and VALIDATION.md."
+    },
+    {
+      "stage": 6,
+      "title": "What Does Better Checking Cost?",
+      "gate": "independent",
+      "label": "Independent replication and robustness",
+      "criterion": "External reproduction and broader difficult-input tests with independently designed protocols.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 6,
+      "title": "What Does Better Checking Cost?",
+      "gate": "scale",
+      "label": "Measured scale-up",
+      "criterion": "Larger contexts with comprehensive measured resource costs and comparators.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    },
+    {
+      "stage": 6,
+      "title": "What Does Better Checking Cost?",
+      "gate": "general",
+      "label": "Generalized application",
+      "criterion": "Evidence and applicable results beyond these finite development fixtures.",
+      "met": false,
+      "evidence": [],
+      "verification": "Not established by this version."
+    }
+  ]
+}

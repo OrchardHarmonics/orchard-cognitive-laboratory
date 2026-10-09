@@ -1,0 +1,404 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>What Does Better Checking Cost? · Orchard</title><style>body{font:17px/1.6 system-ui,sans-serif;background:#f4f6fb;color:#182a3a;margin:0;padding:32px}main{max-width:1000px;margin:auto}h1{font:42px/1.15 Georgia,serif}a{color:#2359af}pre{background:white;border:1px solid #d4dce6;border-radius:12px;padding:22px;overflow:auto;font:13px/1.7 monospace}p,li{max-width:80ch}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #d4dce6;padding:12px;text-align:left}nav{margin-bottom:30px}@media(max-width:500px){body{padding:16px}h1{font-size:32px}pre{padding:12px}}</style><main><nav><a href="../index.html#home">← Orchard laboratory</a></nav><p>Native Python · self-contained finite experiment</p><h1>What Does Better Checking Cost?</h1><p>Python 3.10 or later. Standard library only. No JavaScript engine, account, network requests or external actions. Noncommercial research and code experiments are permitted under the <a href="../licensing.html">Orchard Research and Evaluation Licence</a>. Commercial use needs separate written permission.</p><p><a href="06_resource_comparison.py" download>Download this script</a> · <a href="06_resource_comparison_report.html">Inspect its computed default report</a></p><pre>python3 06_resource_comparison.py --help
+python3 06_resource_comparison.py --output result.json</pre><p>Default live receiving permission is off. Controlled comparison censuses explicitly supply simulated permission. The report is computed by the script, rather than embedded as its answer. Native artifacts replay within Python; their structural encoding is not a JavaScript interchange format.</p><h2>Complete source</h2><pre><code>#!/usr/bin/env python3
+# Mathematical provenance: New authored toy inspired by Towards Recursively Self-Improving Alignment (PDF p. 3) and Constructive Enquiry §10.2 (p. 7).
+# Finite educational implementation; see the laboratory for definitions and scope.
+&quot;&quot;&quot;Orchard finite laboratory, native Python reference implementation.
+
+Standard library only. Predictions, checking, simulator truth and action permission
+are kept separate. Fixtures are authored finite worlds, not empirical AI safety data.
+Software: Orchard Noncommercial Research and Evaluation Licence 1.0.
+Commercial use requires separate written permission; publications retain their own terms.
+&quot;&quot;&quot;
+
+
+import argparse
+
+
+import copy
+
+
+import itertools
+
+
+import json
+
+
+from functools import lru_cache
+
+
+from pathlib import Path
+
+
+def require(ok, message):
+    if not ok:
+        raise ValueError(message)
+
+
+def canonical(x):
+    return json.dumps(x, sort_keys=True, separators=(&quot;,&quot;, &quot;:&quot;))
+
+
+def clone(x):
+    return copy.deepcopy(x)
+
+
+ROUTE_ROUNDS = dict(intact=1, removed=1, restored=1, **{&quot;relearn-one&quot;: 1, &quot;relearn-two&quot;: 2}, fresh=2, specificity=1, preinstalled=0, direct=0)
+
+
+GRAMMAR = [dict(op=op, rhs=r) for op in (&quot;ge&quot;, &quot;eq&quot;, &quot;le&quot;) for r in (0, 1, 2, 3, 4, &quot;c&quot;, &quot;c-1&quot;)]+[dict(op=&quot;mod&quot;, mod=m, residue=r) for m in (2, 3) for r in range(m)]
+
+
+def sets(n, c):
+    require(4 &lt;= n &lt;= 7 and 2 &lt;= c &lt;= 4 and c &lt; n, &quot;Descriptor out of scope&quot;)
+    return [k for k in range(2**n) if k.bit_count() == c]
+
+
+def queries(n):
+    return list(range(1, 2**n-1))
+
+
+def generate(recipe=&quot;base&quot;, drop_old=False):
+    require(recipe in (&quot;base&quot;, &quot;pair-and&quot;, &quot;pair-or&quot;), &quot;Unknown constructor&quot;)
+    g = clone(GRAMMAR[1:] if drop_old else GRAMMAR)
+    if recipe != &quot;base&quot;:
+        atoms = [x for x in GRAMMAR if x[&quot;op&quot;] == &quot;eq&quot;]
+        g += [dict(op=&quot;join&quot;, operator=recipe.split(&quot;-&quot;)[1], left=clone(a), right=clone(b)) for a, b in itertools.combinations(atoms, 2)]
+    return g
+
+
+def interpret(g, K, q, c, recipe=&quot;base&quot;):
+    require(g in generate(recipe), &quot;Program violates constructor syntax/depth&quot;)
+    return denote(g, K, q, c)
+
+
+def denote(g, K, q, c):
+    if g[&quot;op&quot;] == &quot;join&quot;:
+        a, b = denote(g[&quot;left&quot;], K, q, c), denote(g[&quot;right&quot;], K, q, c)
+        return int(a or b) if g[&quot;operator&quot;] == &quot;or&quot; else int(a and b)
+    s = (K &amp; q).bit_count()
+    if g[&quot;op&quot;] == &quot;mod&quot;:
+        return int(s % g[&quot;mod&quot;] == g[&quot;residue&quot;])
+    r = c if g[&quot;rhs&quot;] == &quot;c&quot; else c-1 if g[&quot;rhs&quot;] == &quot;c-1&quot; else g[&quot;rhs&quot;]
+    return int(s &gt;= r) if g[&quot;op&quot;] == &quot;ge&quot; else int(s == r) if g[&quot;op&quot;] == &quot;eq&quot; else int(s &lt;= r)
+
+
+def target(task, K, q, c):
+    s = (K &amp; q).bit_count()
+    if task in (&quot;A&quot;, &quot;B&quot;, &quot;C&quot;):
+        return int(s in ({0, c} if task == &quot;A&quot; else {0, c-1} if task == &quot;B&quot; else {0, 1, c}))
+    return dict(AND=int(s == c), XOR=s % 2, OR=int(s &gt;= 1), GE2=int(s &gt;= 2), EQ1=int(s == 1))[task]
+
+
+def measurements(task, validation=False):
+    scopes = [(6, c, K) for c in (3, 4) for K in sets(6, c)] if validation else [(4, 3, 7), (5, 4, 15)]
+    return dict(contract=&quot;orchard-method-task-&quot;+task+&quot;/1&quot;, source=&quot;supplied-measurements&quot;, trusted=True, version=0,
+                observations=[dict(n=n, c=c, K=K, q=q, y=target(task, K, q, c)) for n, c, K in scopes for q in queries(n)])
+
+
+def valid_measurements(data, validation=False):
+    if not data or data.get(&quot;trusted&quot;) is not True or data.get(&quot;version&quot;) != 0:
+        return False
+    O, expected = data.get(&quot;observations&quot;, []), 2170 if validation else 44
+    return data.get(&quot;contract&quot;) in [&quot;orchard-method-task-&quot;+t+&quot;/1&quot; for t in (&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;OR&quot;)] and len(O) == expected and len({(o[&quot;n&quot;], o[&quot;c&quot;], o[&quot;K&quot;], o[&quot;q&quot;]) for o in O}) == expected and all(o[&quot;K&quot;] in sets(o[&quot;n&quot;], o[&quot;c&quot;]) and o[&quot;q&quot;] in queries(o[&quot;n&quot;]) and o[&quot;y&quot;] in (0, 1) and ((o[&quot;n&quot;] == 6 and o[&quot;c&quot;] in (3, 4)) if validation else (o[&quot;n&quot;], o[&quot;c&quot;], o[&quot;K&quot;]) in [(4, 3, 7), (5, 4, 15)]) for o in O)
+
+
+def fit(programs, data, allowance=None):
+    legal = generate(&quot;pair-or&quot;) + generate(&quot;pair-and&quot;)
+    require(all(g in legal for g in programs) and len({canonical(g) for g in programs}) == len(programs), &quot;Invalid selection language&quot;)
+    allowance = len(programs) if allowance is None else allowance
+    require(type(allowance) is int and 0 &lt;= allowance &lt;= 47, &quot;Bad candidate allowance&quot;)
+    rows = [dict(g=clone(g), mismatches=sum(denote(g, o[&quot;K&quot;], o[&quot;q&quot;], o[&quot;c&quot;]) != o[&quot;y&quot;] for o in data)) for g in programs[:allowance]]
+    return dict(rows=rows, survivors=[r[&quot;g&quot;] for r in rows if not r[&quot;mismatches&quot;]], checked=len(rows), total=len(programs), predictions=len(rows)*len(data), complete=len(rows) == len(programs))
+
+
+def qualify_constructor(recipe, drop_old=False, table=None):
+    g = generate(recipe, drop_old)
+    preserved = failures = 0
+    for old in GRAMMAR:
+        for c in (2, 3, 4):
+            for s in range(c+1):
+                preserved += 1
+                failures += int(old not in g or denote(old, 2**c-1, 2**s-1, c) != interpret(old, 2**c-1, 2**s-1, c, recipe))
+    truth_failures = 0
+    if recipe != &quot;base&quot;:
+        expected = [0, 0, 0, 1] if recipe == &quot;pair-and&quot; else [0, 1, 1, 1]
+        supplied = expected if table is None else table
+        truth_failures = (sum(a != b for a, b in zip(supplied, expected))
+                          if isinstance(supplied, list) and len(supplied) == 4 and all(type(a) is int and a in (0, 1) for a in supplied) else 4)
+    return dict(passed=not failures and not truth_failures and len(g) &lt;= 47, preservationCases=preserved,
+                preservationFailures=failures, truthCases=0 if recipe == &quot;base&quot; else 4, truthFailures=truth_failures)
+
+
+def acquire_method(data=None, drop_old=False, table=None):
+    data = measurements(&quot;A&quot;) if data is None else data
+    result = dict(status=&quot;hold&quot;, reason=&quot;feedback&quot;, artifact=None, rows=[], predictions=0)
+    if data.get(&quot;trusted&quot;) is not True or data.get(&quot;version&quot;) != 0:
+        return result
+    if not valid_measurements(data):
+        return dict(result, reason=&quot;measurement-scope&quot;)
+    old = fit(generate(), data[&quot;observations&quot;])
+    result[&quot;predictions&quot;] = old[&quot;predictions&quot;]
+    if old[&quot;survivors&quot;]:
+        return dict(result, reason=&quot;no-language-witness&quot;)
+    survivors = []
+    for recipe in (&quot;base&quot;, &quot;pair-and&quot;, &quot;pair-or&quot;):
+        q = qualify_constructor(recipe, drop_old, table if recipe == &quot;pair-or&quot; else None)
+        f = old if recipe == &quot;base&quot; else fit(generate(recipe), data[&quot;observations&quot;])
+        if recipe != &quot;base&quot;:
+            result[&quot;predictions&quot;] += f[&quot;predictions&quot;]
+        result[&quot;rows&quot;].append(dict(recipe=recipe, qualification=q, fit=f))
+        if recipe != &quot;base&quot; and q[&quot;passed&quot;] and len(f[&quot;survivors&quot;]) == 1:
+            survivors.append((recipe, f[&quot;survivors&quot;][0]))
+    if len(survivors) != 1:
+        return dict(result, reason=&quot;no-qualified-method&quot;)
+    recipe, witness = survivors[0]
+    V = measurements(&quot;A&quot;, True)
+    mismatches = sum(denote(witness, o[&quot;K&quot;], o[&quot;q&quot;], o[&quot;c&quot;]) != o[&quot;y&quot;] for o in V[&quot;observations&quot;])
+    if mismatches:
+        return dict(result, reason=&quot;method-validation&quot;)
+    core = dict(recipe=recipe, data=clone(data), witness=witness, validation=V, maxNewLeaves=2)
+    return dict(result, status=&quot;qualified&quot;, reason=&quot;method-acquired&quot;, validationCount=len(V[&quot;observations&quot;]), artifact=dict(core, binding=canonical(core)))
+
+
+def acquire_repair(data, validation, recipe=&quot;base&quot;, allowance=47):
+    result = dict(status=&quot;hold&quot;, reason=&quot;feedback&quot;, artifact=None, fit=None, validationCount=0, mismatches=None)
+    if not data.get(&quot;trusted&quot;) or not validation.get(&quot;trusted&quot;) or data.get(&quot;version&quot;) != 0 or validation.get(&quot;version&quot;) != 0:
+        return result
+    if data[&quot;contract&quot;] != validation[&quot;contract&quot;] or not valid_measurements(data) or not valid_measurements(validation, True):
+        return dict(result, reason=&quot;measurement-scope&quot;)
+    f = fit(generate(recipe), data[&quot;observations&quot;], allowance)
+    result[&quot;fit&quot;] = f
+    if not f[&quot;complete&quot;]:
+        return dict(result, reason=&quot;search-incomplete&quot;)
+    if len(f[&quot;survivors&quot;]) != 1:
+        return dict(result, reason=&quot;ambiguous-expression&quot; if f[&quot;survivors&quot;] else &quot;no-expression&quot;)
+    expression = f[&quot;survivors&quot;][0]
+    result[&quot;validationCount&quot;] = len(validation[&quot;observations&quot;])
+    result[&quot;mismatches&quot;] = sum(denote(expression, o[&quot;K&quot;], o[&quot;q&quot;], o[&quot;c&quot;]) != o[&quot;y&quot;] for o in validation[&quot;observations&quot;])
+    if result[&quot;mismatches&quot;]:
+        return dict(result, reason=&quot;repair-validation&quot;)
+    core = dict(recipe=recipe, expression=expression, data=clone(data), validation=clone(validation))
+    return dict(result, status=&quot;qualified&quot;, reason=&quot;repair-acquired&quot;, artifact=dict(core, binding=canonical(core)))
+
+
+def restore_repair(a):
+    require(a and a == acquire_repair(a[&quot;data&quot;], a[&quot;validation&quot;], a[&quot;recipe&quot;])[&quot;artifact&quot;], &quot;Repair binding failed replay&quot;)
+    return clone(a)
+
+
+def rate_study(kind=&quot;valid&quot;, validation_weight=1, preservation_weight=1, include_common=False):
+    require(kind in (&quot;valid&quot;, &quot;wrong-teaching&quot;, &quot;untrusted&quot;, &quot;stale&quot;, &quot;bad-validation&quot;, &quot;drop-old&quot;), &quot;Unknown rate fixture&quot;)
+    require(validation_weight in (1, 2, 4) and preservation_weight in (1, 2, 4), &quot;Bad resource weights&quot;)
+    D, V = measurements(&quot;B&quot;), measurements(&quot;B&quot;, True)
+    if kind == &quot;wrong-teaching&quot;:
+        D[&quot;observations&quot;] = measurements(&quot;A&quot;)[&quot;observations&quot;]
+    if kind == &quot;untrusted&quot;:
+        D[&quot;trusted&quot;] = False
+    if kind == &quot;stale&quot;:
+        D[&quot;version&quot;] = 1
+    if kind == &quot;bad-validation&quot;:
+        V[&quot;observations&quot;][0][&quot;y&quot;] ^= 1
+    drop_old = kind == &quot;drop-old&quot;
+    f = fit(generate(&quot;pair-or&quot;, drop_old), D[&quot;observations&quot;])
+    candidate = f[&quot;survivors&quot;][0] if f[&quot;complete&quot;] and len(f[&quot;survivors&quot;]) == 1 else None
+    raw = dict(arm=&quot;fit-only&quot;, status=&quot;fitted&quot; if candidate else &quot;hold&quot;, reason=&quot;unique-fit&quot; if candidate else &quot;no-unique-fit&quot;, expression=candidate,
+               selection=f[&quot;predictions&quot;], validation=0, preservation=0, truth=0, replaySelection=0, replayValidation=0)
+    checked = dict(arm=&quot;checked&quot;, status=&quot;hold&quot;, reason=&quot;feedback&quot;, expression=None, selection=0, validation=0, preservation=0, truth=0, replaySelection=0, replayValidation=0)
+    if D[&quot;trusted&quot;] and V[&quot;trusted&quot;] and D[&quot;version&quot;] == 0 and V[&quot;version&quot;] == 0:
+        q = qualify_constructor(&quot;pair-or&quot;, drop_old)
+        checked.update(preservation=q[&quot;preservationCases&quot;], truth=q[&quot;truthCases&quot;])
+        if not q[&quot;passed&quot;]:
+            checked[&quot;reason&quot;] = &quot;preservation&quot;
+        else:
+            result = acquire_repair(D, V, &quot;pair-or&quot;)
+            checked.update(selection=result[&quot;fit&quot;][&quot;predictions&quot;] if result[&quot;fit&quot;] else 0, validation=result[&quot;validationCount&quot;], reason=result[&quot;reason&quot;])
+            if result[&quot;artifact&quot;]:
+                retained = restore_repair(result[&quot;artifact&quot;])
+                checked.update(status=&quot;qualified&quot;, expression=retained[&quot;expression&quot;], replaySelection=result[&quot;fit&quot;][&quot;predictions&quot;], replayValidation=result[&quot;validationCount&quot;])
+    method = acquire_method()
+    common = dict(selection=method[&quot;predictions&quot;], validation=method[&quot;validationCount&quot;],
+                  preservation=sum(r[&quot;qualification&quot;][&quot;preservationCases&quot;] for r in method[&quot;rows&quot;]), truth=sum(r[&quot;qualification&quot;][&quot;truthCases&quot;] for r in method[&quot;rows&quot;]), replaySelection=0, replayValidation=0)
+    def cost(row):
+        return row[&quot;selection&quot;]+row[&quot;validation&quot;]*validation_weight+(row[&quot;preservation&quot;]+row[&quot;truth&quot;])*preservation_weight+row[&quot;replaySelection&quot;]+row[&quot;replayValidation&quot;]*validation_weight
+    def score(g):
+        if g is None:
+            return None
+        correct = total = 0
+        for c in (3, 4):
+            for K in sets(7, c):
+                for q in queries(7):
+                    total += 1
+                    correct += denote(g, K, q, c) == target(&quot;B&quot;, K, q, c)
+        return dict(correct=correct, total=total, accuracy=correct/total)
+    common_work = cost(common)
+    common_charged = common_work if include_common else 0
+    arms = [dict(a, work=cost(a), chargedWork=cost(a)+common_charged,
+                 threshold=cost(a)+common_charged if a[&quot;expression&quot;] else None, score=score(a[&quot;expression&quot;])) for a in (raw, checked)]
+    return dict(kind=kind, weights=dict(validation=validation_weight, preservation=preservation_weight), includeCommon=include_common,
+                common=common, commonWork=common_work, commonCharged=common_charged, arms=arms,
+                limitation=&quot;This declared logical-work index omits host overhead and hardware cost. Its stronger checking obligations are not evidence of faster acquisition or full MeRSIA.&quot;)
+
+
+def stage6(args):
+    return dict(stage=6, study=rate_study(args.rate_case, args.validation_weight, args.preservation_weight, args.include_common))
+
+
+def cli(stage):
+    parser = argparse.ArgumentParser(description=&quot;Native Python Orchard laboratory stage &quot;+str(stage)+&quot;. Standard library only; all actions simulated.&quot;)
+    parser.add_argument(&quot;--output&quot;, type=Path, help=&quot;Save the computed JSON report&quot;)
+    if stage &lt; 6:
+        parser.add_argument(&quot;--permission&quot;, action=&quot;store_true&quot;, help=&quot;Allow local simulated receiving use; defaults off&quot;)
+    if stage == 1:
+        parser.add_argument(&quot;--error-allowance&quot;, type=int, choices=(0, 1, 2), default=1)
+        parser.add_argument(&quot;--no-anchor&quot;, action=&quot;store_true&quot;)
+    if stage == 2:
+        parser.add_argument(&quot;--route&quot;, choices=tuple(ROUTE_ROUNDS))
+        parser.add_argument(&quot;--rounds&quot;, type=int, choices=(0, 1, 2))
+    if stage in (3, 4, 5):
+        parser.add_argument(&quot;--budget&quot;, type=int, help=&quot;Runtime ticks, not development work (stage 3 default 18, stages 4/5 default 48)&quot;)
+        parser.add_argument(&quot;--price&quot;, choices=(&quot;unit&quot;, &quot;width&quot;), default=&quot;unit&quot;)
+        parser.add_argument(&quot;--deny-query&quot;, action=&quot;store_true&quot;)
+        parser.add_argument(&quot;--deny-refresh&quot;, action=&quot;store_true&quot;)
+        parser.add_argument(&quot;--miss-watch&quot;, action=&quot;store_true&quot;)
+        parser.add_argument(&quot;--stale&quot;, action=&quot;store_true&quot;)
+    if stage in (4, 5):
+        parser.add_argument(&quot;--include-evidence&quot;, action=&quot;store_true&quot;)
+    if stage == 5:
+        parser.add_argument(&quot;--cardinality&quot;, type=int, choices=(3, 4), default=4)
+        parser.add_argument(&quot;--allowance&quot;, type=int, choices=(0, 26, 46, 47), default=47)
+    if stage == 6:
+        parser.add_argument(&quot;--rate-case&quot;, choices=(&quot;valid&quot;, &quot;wrong-teaching&quot;, &quot;untrusted&quot;, &quot;stale&quot;, &quot;bad-validation&quot;, &quot;drop-old&quot;), default=&quot;valid&quot;)
+        parser.add_argument(&quot;--validation-weight&quot;, type=int, choices=(1, 2, 4), default=1)
+        parser.add_argument(&quot;--preservation-weight&quot;, type=int, choices=(1, 2, 4), default=1)
+        parser.add_argument(&quot;--include-common&quot;, action=&quot;store_true&quot;)
+    args = parser.parse_args()
+    report = globals()[&quot;stage&quot;+str(stage)](args)
+    report[&quot;implementation&quot;] = &quot;Native Python 3.10+ reference; no JavaScript or external packages required&quot;
+    report[&quot;release&quot;] = &quot;Orchard Noncommercial Research and Evaluation Licence 1.0; commercial use requires separate written permission; source publications retain their own terms&quot;
+    text = json.dumps(report, indent=2, ensure_ascii=False)+&quot;\n&quot;
+    if args.output:
+        args.output.write_text(text, encoding=&quot;utf-8&quot;)
+    else:
+        print(text, end=&quot;&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    cli(6)
+
+# Full software licence, carried with this standalone download:
+# ORCHARD NONCOMMERCIAL RESEARCH AND EVALUATION LICENCE 1.0
+# Effective for the software in laboratory version 0.6.1, 9 October 2026
+# 
+# Licensor: Kimberley Laverne Asher
+# Contact: kimberlasher@gmail.com
+# Copyright (c) 2026 Kimberley Laverne Asher, to the extent of rights held.
+# 
+# 1. SCOPE AND ACCEPTANCE
+# 
+# &quot;Software&quot; means the Orchard Cognitive Laboratory implementation distributed
+# with this notice: its original JavaScript, Python, HTML, CSS, tests, build tools,
+# computed fixture reports and implementation documentation. It excludes the
+# books, papers and other source publications in sources/, the original Orchard
+# logo and other separately identified third-party material. Those materials
+# retain their own terms. This licence does not apply to earlier versions merely
+# because they have the same name.
+# 
+# The permissions below are granted only to the extent the Licensor holds the
+# relevant rights. Exercising permissions that require this licence signifies
+# acceptance of its conditions. Reading this notice alone creates no obligation.
+# No fee is charged for the permissions granted here.
+# 
+# 2. PERMITTED RESEARCH AND EVALUATION
+# 
+# You may inspect, run and reproduce the Software for noncommercial study,
+# education, research, testing, evaluation and reproducibility. You may modify
+# it and create works based on it for those purposes, subject to sections 3 and 4.
+# 
+# A permitted purpose must not be primarily intended for commercial advantage,
+# monetary compensation, commercial product development or commercial business
+# operations. Research salary, academic employment and a research grant do not,
+# by themselves, make scholarly research commercial. Commercial R&amp;D or work
+# intended to develop a commercial product or service is not permitted, even
+# when performed by an educational, charitable or government organisation.
+# 
+# Any visitor may read the laboratory website and interact with its unmodified
+# demonstration solely to assess the work and consider a research collaboration
+# or commercial licensing enquiry. This limited demonstration evaluation does
+# not authorise product development, integration, production use or commercial
+# deployment of the Software.
+# 
+# 3. COPIES, MODIFICATIONS AND RESEARCH SHARING
+# 
+# You may share unmodified or modified Software solely for the permitted
+# purposes. Every copy or substantial portion must carry this complete licence,
+# the Licensor identification and copyright notice, and the identification of
+# any separately licensed materials it contains. Preserve existing attribution
+# and identify your changes clearly, including that your version is unofficial.
+# Do not represent your changes as an authorised Orchard release or endorsement.
+# 
+# You may not sublicense the Licensor&#x27;s material, remove its restrictions, or
+# redistribute it on terms that purport to authorise a prohibited use. Each
+# recipient receives the same offer directly from the Licensor. Your own
+# original contributions may have their own terms, but those terms cannot grant
+# additional rights in the Licensor&#x27;s material. Sharing a Software modification
+# does not grant permission to include or adapt source publications or artwork.
+# 
+# You may publish noncommercial research findings, measurements and criticism,
+# with appropriate scholarly attribution. The licence does not claim ownership
+# of your independently authored findings or of mathematical facts.
+# 
+# 4. USES REQUIRING SEPARATE WRITTEN PERMISSION
+# 
+# This licence grants no right to sell the Software or derivatives, offer paid
+# services based on it, incorporate it into a commercial product, perform
+# commercial R&amp;D with it, or use it for commercial business operations, hosted
+# services or production deployments. Such uses require a separate written
+# commercial agreement with the Licensor. A modification, change of name or
+# port to another programming language does not remove these conditions where
+# protected Software expression is reused or adapted.
+# 
+# 5. PUBLICATIONS, IDEAS, BRAND AND OTHER RIGHTS
+# 
+# The supplied source publications retain their stated CC-BY-NC-ND 4.0 terms.
+# This Software licence neither replaces nor restricts permissions already
+# granted by those terms. In particular, CC-BY-NC-ND permits noncommercial
+# reproduction/sharing of the original under its conditions and permits making
+# and reproducing, but not sharing, noncommercial adapted material. Consult the
+# actual CC licence for its full terms and exceptions.
+# 
+# This licence covers protected expression in the Software, not mathematical
+# ideas, facts, algorithms, methods or functionality as such. It does not
+# prohibit an independent implementation merely because it uses the same ideas.
+# No statement here promises exclusive copyright control of the Orchard&#x27;s
+# underlying mathematics or restricts applicable fair dealing, fair use or
+# other statutory rights that do not require the Licensor&#x27;s permission.
+# 
+# No patent, trademark, logo-use, endorsement, confidential-material access or
+# undisclosed-framework licence is granted. Brand references for accurate
+# attribution are distinct from use of the logo as your own product identity.
+# The Software&#x27;s licence does not authorise distributing the original logo.
+# Material not covered here needs its own applicable permission.
+# 
+# 6. TERM, BREACH AND OTHER AGREEMENTS
+# 
+# These permissions continue while you comply with these terms. They terminate
+# if you materially breach them; uses after termination require new permission.
+# The Licensor may separately offer commercial or other permissions. Changes to
+# future versions do not retrospectively change this version&#x27;s grant to users
+# who comply with it. A separate signed agreement governs only the permissions
+# it expressly covers. No other permission is implied.
+# 
+# 7. EXPERIMENTAL SOFTWARE AND LIABILITY
+# 
+# The Software is an educational research demonstration. It is supplied as is,
+# without warranties to the extent permitted by applicable law, including
+# warranties of accuracy, fitness, merchantability, non-infringement or safety.
+# Finite fixture checks are not certification for operational use. The Software
+# is not supplied as an operational safety controller.
+# 
+# To the extent permitted by applicable law, the Licensor is not liable for
+# losses or damages arising from use of the Software. Nothing excludes liability
+# that applicable law does not allow to be excluded, or limits mandatory rights.
+# 
+# END OF LICENCE
+</code></pre></main></html>

@@ -1,0 +1,12 @@
+{
+  "name": "orchard-cognitive-laboratory",
+  "version": "0.6.1",
+  "private": true,
+  "description": "Local modular laboratory for bounded Orchard alignment and context experiments",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "preview": "node preview.cjs",
+    "test:python": "node --test tests/python/*.test.cjs && python3 tests/python/boundaries.py"
+  }
+}

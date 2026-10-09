@@ -1,0 +1,333 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Missing Distinction · Orchard</title><style>body{font:17px/1.6 system-ui,sans-serif;background:#f4f6fb;color:#182a3a;margin:0;padding:32px}main{max-width:1000px;margin:auto}h1{font:42px/1.15 Georgia,serif}a{color:#2359af}pre{background:white;border:1px solid #d4dce6;border-radius:12px;padding:22px;overflow:auto;font:13px/1.7 monospace}p,li{max-width:80ch}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #d4dce6;padding:12px;text-align:left}nav{margin-bottom:30px}@media(max-width:500px){body{padding:16px}h1{font-size:32px}pre{padding:12px}}</style><main><nav><a href="../index.html#home">← Orchard laboratory</a></nav><p>Native Python · self-contained finite experiment</p><h1>The Missing Distinction</h1><p>Python 3.10 or later. Standard library only. No JavaScript engine, account, network requests or external actions. Noncommercial research and code experiments are permitted under the <a href="../licensing.html">Orchard Research and Evaluation Licence</a>. Commercial use needs separate written permission.</p><p><a href="01_coupled_repair.py" download>Download this script</a> · <a href="01_coupled_repair_report.html">Inspect its computed default report</a></p><pre>python3 01_coupled_repair.py --help
+python3 01_coupled_repair.py --output result.json</pre><p>Default live receiving permission is off. Controlled comparison censuses explicitly supply simulated permission. The report is computed by the script, rather than embedded as its answer. Native artifacts replay within Python; their structural encoding is not a JavaScript interchange format.</p><h2>Complete source</h2><pre><code>#!/usr/bin/env python3
+# Mathematical provenance: Recursive Improvement Without Recursive Authority, supplied PDF p. 5 (worked encounter).
+# Finite educational implementation; see the laboratory for definitions and scope.
+&quot;&quot;&quot;Orchard finite laboratory, native Python reference implementation.
+
+Standard library only. Predictions, checking, simulator truth and action permission
+are kept separate. Fixtures are authored finite worlds, not empirical AI safety data.
+Software: Orchard Noncommercial Research and Evaluation Licence 1.0.
+Commercial use requires separate written permission; publications retain their own terms.
+&quot;&quot;&quot;
+
+
+import argparse
+
+
+import copy
+
+
+import itertools
+
+
+import json
+
+
+from functools import lru_cache
+
+
+from pathlib import Path
+
+
+def require(ok, message):
+    if not ok:
+        raise ValueError(message)
+
+
+def canonical(x):
+    return json.dumps(x, sort_keys=True, separators=(&quot;,&quot;, &quot;:&quot;))
+
+
+def initial(context=&quot;encounter-01&quot;):
+    return dict(context=context, revision=0, budget=1, reports=fixture(context),
+                global_rule=False, refined=False, permission=False,
+                exposeAllowed=True, coverageValid=True)
+
+
+def fixture(context, anchor=True):
+    reports = [dict(root=&quot;target-00&quot;, context=context, state=0, harmful=False),
+               dict(root=&quot;target-01&quot;, context=context, state=1, harmful=True)]
+    if anchor:
+        reports += [dict(root=&quot;anchor-safe&quot;, context=context, state=2, harmful=False),
+                    dict(root=&quot;anchor-harmful&quot;, context=context, state=2, harmful=True)]
+    return reports
+
+
+def ingest(reports, context):
+    counts, seen = [[0, 0] for _ in range(32)], {}
+    for r in reports:
+        require(r[&quot;context&quot;] == context and isinstance(r[&quot;root&quot;], str) and r[&quot;root&quot;], &quot;Bad report context/root&quot;)
+        require(type(r[&quot;state&quot;]) is int and 0 &lt;= r[&quot;state&quot;] &lt; 32 and type(r[&quot;harmful&quot;]) is bool, &quot;Bad report&quot;)
+        if r[&quot;root&quot;] in seen:
+            require(seen[r[&quot;root&quot;]] == r, &quot;Conflicting root reuse&quot;)
+            continue
+        seen[r[&quot;root&quot;]] = r
+        counts[r[&quot;state&quot;]][int(r[&quot;harmful&quot;])] += 1
+        require(sum(counts[r[&quot;state&quot;]]) &lt;= 3, &quot;At most three roots per point&quot;)
+    return counts
+
+
+def rule_label(n, rest, budget, global_rule):
+    if min(n) + rest &gt; budget:
+        return None
+    claims = [v for v in (0, 1) if n[v] + (rest if global_rule else 0) &gt; budget]
+    return claims[0] if len(claims) == 1 else None
+
+
+def evaluate(state):
+    require(type(state[&quot;budget&quot;]) is int and 0 &lt;= state[&quot;budget&quot;] &lt;= 2, &quot;Bad error allowance&quot;)
+    require(not state[&quot;refined&quot;] or state[&quot;exposeAllowed&quot;], &quot;Coordinate access denied&quot;)
+    counts = ingest(state[&quot;reports&quot;], state[&quot;context&quot;])
+    minima = [min(n) for n in counts]
+    minimum = sum(minima)
+    point = [rule_label(n, minimum-minima[x], state[&quot;budget&quot;], state[&quot;global_rule&quot;]) for x, n in enumerate(counts)]
+    fibres = {}
+    for x in range(32):
+        fibres.setdefault(x if state[&quot;refined&quot;] else x &gt;&gt; 1, []).append(x)
+    receiving = [None]*32
+    for fibre in fibres.values():
+        v = point[fibre[0]]
+        if v is not None and all(point[x] == v for x in fibre):
+            for x in fibre:
+                receiving[x] = v
+    dp = [1]+[0]*state[&quot;budget&quot;]
+    for n in counts:
+        nxt = [0]*len(dp)
+        for used, count in enumerate(dp):
+            for v in (0, 1):
+                cost = n[1-v]
+                if used+cost &lt; len(dp):
+                    nxt[used+cost] += count
+        dp = nxt
+    return dict(counts=counts, minimumErrors=minimum, consistent=minimum &lt;= state[&quot;budget&quot;],
+                point=point, receiving=receiving, worlds=str(sum(dp)),
+                coverage=sum(receiving[x] is not None for x in (0, 1)))
+
+
+def qualify_rule(budget=1):
+    cases = 0
+    for safe in range(4):
+        for harmful in range(4-safe):
+            for rest in range(32):
+                cases += 1
+                n = [safe, harmful]
+                allowed = [v for v in (0, 1) if n[1-v]+rest &lt;= budget]
+                old, new = rule_label(n, rest, budget, False), rule_label(n, rest, budget, True)
+                require(new is None or allowed == [new], &quot;Unsound rule&quot;)
+                require(old is None or old == new, &quot;Protected label lost&quot;)
+    return dict(passed=True, cases=cases)
+
+
+def state_binding(s):
+    return canonical({k: v for k, v in s.items() if k != &quot;permission&quot;})
+
+
+def capture(s):
+    result = evaluate(s)
+    return dict(snapshot=state_binding(s), labels=[result[&quot;receiving&quot;][x] for x in (0, 1)],
+                qualifierCases=qualify_rule(s[&quot;budget&quot;])[&quot;cases&quot;] if s[&quot;global_rule&quot;] else 0)
+
+
+def execute(s, receipt):
+    reason = &quot;coverage&quot; if not s[&quot;coverageValid&quot;] else &quot;no-receipt&quot; if not receipt else &quot;stale&quot; if receipt[&quot;snapshot&quot;] != state_binding(s) else &quot;permission&quot; if not s[&quot;permission&quot;] else &quot;current&quot;
+    labels = evaluate(s)[&quot;receiving&quot;] if reason == &quot;current&quot; else []
+    return dict(reason=reason, decisions=[&quot;hold&quot; if reason != &quot;current&quot; or labels[x] is None else &quot;release&quot; if labels[x] == 0 else &quot;block&quot; for x in (0, 1)])
+
+
+def preserves(a, b):
+    return all(v is None or b[k][x] == v for k in (&quot;point&quot;, &quot;receiving&quot;) for x, v in enumerate(a[k]))
+
+
+def direct_search(s):
+    before = evaluate(s)
+    candidates = []
+    for rule, view in itertools.product((False, True), repeat=2):
+        if view and not s[&quot;exposeAllowed&quot;]:
+            candidates.append(dict(global_rule=rule, refined=view, coverage=None, eligible=False))
+            continue
+        nxt = dict(s, global_rule=rule, refined=view)
+        after = evaluate(nxt)
+        candidates.append(dict(global_rule=rule, refined=view, coverage=after[&quot;coverage&quot;],
+                               eligible=preserves(before, after) and after[&quot;coverage&quot;] &gt; before[&quot;coverage&quot;]))
+    chosen = next((r for r in candidates if r[&quot;eligible&quot;]), None)
+    return candidates, dict(s, global_rule=chosen[&quot;global_rule&quot;], refined=chosen[&quot;refined&quot;]) if chosen else None
+
+
+ROUTE_ROUNDS = dict(intact=1, removed=1, restored=1, **{&quot;relearn-one&quot;: 1, &quot;relearn-two&quot;: 2}, fresh=2, specificity=1, preinstalled=0, direct=0)
+
+
+def stage1(args):
+    s = initial()
+    s[&quot;budget&quot;] = args.error_allowance
+    s[&quot;permission&quot;] = args.permission
+    s[&quot;reports&quot;] = fixture(s[&quot;context&quot;], not args.no_anchor)
+    candidates, repaired = direct_search(s)
+    before, after = evaluate(s), evaluate(repaired or s)
+    receipt = capture(repaired or s)
+    revoked = dict(repaired or s, permission=False)
+    return dict(stage=1, question=&quot;Can rule and view repair change warranted receiving labels with fixed evidence?&quot;,
+                candidates=candidates, before=before[&quot;coverage&quot;], after=after[&quot;coverage&quot;],
+                worldsBefore=before[&quot;worlds&quot;], worldsAfter=after[&quot;worlds&quot;],
+                qualification=qualify_rule(s[&quot;budget&quot;]), labels=receipt[&quot;labels&quot;],
+                live=execute(repaired or s, receipt), afterRevocation=execute(revoked, receipt))
+
+
+def cli(stage):
+    parser = argparse.ArgumentParser(description=&quot;Native Python Orchard laboratory stage &quot;+str(stage)+&quot;. Standard library only; all actions simulated.&quot;)
+    parser.add_argument(&quot;--output&quot;, type=Path, help=&quot;Save the computed JSON report&quot;)
+    if stage &lt; 6:
+        parser.add_argument(&quot;--permission&quot;, action=&quot;store_true&quot;, help=&quot;Allow local simulated receiving use; defaults off&quot;)
+    if stage == 1:
+        parser.add_argument(&quot;--error-allowance&quot;, type=int, choices=(0, 1, 2), default=1)
+        parser.add_argument(&quot;--no-anchor&quot;, action=&quot;store_true&quot;)
+    if stage == 2:
+        parser.add_argument(&quot;--route&quot;, choices=tuple(ROUTE_ROUNDS))
+        parser.add_argument(&quot;--rounds&quot;, type=int, choices=(0, 1, 2))
+    if stage in (3, 4, 5):
+        parser.add_argument(&quot;--budget&quot;, type=int, help=&quot;Runtime ticks, not development work (stage 3 default 18, stages 4/5 default 48)&quot;)
+        parser.add_argument(&quot;--price&quot;, choices=(&quot;unit&quot;, &quot;width&quot;), default=&quot;unit&quot;)
+        parser.add_argument(&quot;--deny-query&quot;, action=&quot;store_true&quot;)
+        parser.add_argument(&quot;--deny-refresh&quot;, action=&quot;store_true&quot;)
+        parser.add_argument(&quot;--miss-watch&quot;, action=&quot;store_true&quot;)
+        parser.add_argument(&quot;--stale&quot;, action=&quot;store_true&quot;)
+    if stage in (4, 5):
+        parser.add_argument(&quot;--include-evidence&quot;, action=&quot;store_true&quot;)
+    if stage == 5:
+        parser.add_argument(&quot;--cardinality&quot;, type=int, choices=(3, 4), default=4)
+        parser.add_argument(&quot;--allowance&quot;, type=int, choices=(0, 26, 46, 47), default=47)
+    if stage == 6:
+        parser.add_argument(&quot;--rate-case&quot;, choices=(&quot;valid&quot;, &quot;wrong-teaching&quot;, &quot;untrusted&quot;, &quot;stale&quot;, &quot;bad-validation&quot;, &quot;drop-old&quot;), default=&quot;valid&quot;)
+        parser.add_argument(&quot;--validation-weight&quot;, type=int, choices=(1, 2, 4), default=1)
+        parser.add_argument(&quot;--preservation-weight&quot;, type=int, choices=(1, 2, 4), default=1)
+        parser.add_argument(&quot;--include-common&quot;, action=&quot;store_true&quot;)
+    args = parser.parse_args()
+    report = globals()[&quot;stage&quot;+str(stage)](args)
+    report[&quot;implementation&quot;] = &quot;Native Python 3.10+ reference; no JavaScript or external packages required&quot;
+    report[&quot;release&quot;] = &quot;Orchard Noncommercial Research and Evaluation Licence 1.0; commercial use requires separate written permission; source publications retain their own terms&quot;
+    text = json.dumps(report, indent=2, ensure_ascii=False)+&quot;\n&quot;
+    if args.output:
+        args.output.write_text(text, encoding=&quot;utf-8&quot;)
+    else:
+        print(text, end=&quot;&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    cli(1)
+
+# Full software licence, carried with this standalone download:
+# ORCHARD NONCOMMERCIAL RESEARCH AND EVALUATION LICENCE 1.0
+# Effective for the software in laboratory version 0.6.1, 9 October 2026
+# 
+# Licensor: Kimberley Laverne Asher
+# Contact: kimberlasher@gmail.com
+# Copyright (c) 2026 Kimberley Laverne Asher, to the extent of rights held.
+# 
+# 1. SCOPE AND ACCEPTANCE
+# 
+# &quot;Software&quot; means the Orchard Cognitive Laboratory implementation distributed
+# with this notice: its original JavaScript, Python, HTML, CSS, tests, build tools,
+# computed fixture reports and implementation documentation. It excludes the
+# books, papers and other source publications in sources/, the original Orchard
+# logo and other separately identified third-party material. Those materials
+# retain their own terms. This licence does not apply to earlier versions merely
+# because they have the same name.
+# 
+# The permissions below are granted only to the extent the Licensor holds the
+# relevant rights. Exercising permissions that require this licence signifies
+# acceptance of its conditions. Reading this notice alone creates no obligation.
+# No fee is charged for the permissions granted here.
+# 
+# 2. PERMITTED RESEARCH AND EVALUATION
+# 
+# You may inspect, run and reproduce the Software for noncommercial study,
+# education, research, testing, evaluation and reproducibility. You may modify
+# it and create works based on it for those purposes, subject to sections 3 and 4.
+# 
+# A permitted purpose must not be primarily intended for commercial advantage,
+# monetary compensation, commercial product development or commercial business
+# operations. Research salary, academic employment and a research grant do not,
+# by themselves, make scholarly research commercial. Commercial R&amp;D or work
+# intended to develop a commercial product or service is not permitted, even
+# when performed by an educational, charitable or government organisation.
+# 
+# Any visitor may read the laboratory website and interact with its unmodified
+# demonstration solely to assess the work and consider a research collaboration
+# or commercial licensing enquiry. This limited demonstration evaluation does
+# not authorise product development, integration, production use or commercial
+# deployment of the Software.
+# 
+# 3. COPIES, MODIFICATIONS AND RESEARCH SHARING
+# 
+# You may share unmodified or modified Software solely for the permitted
+# purposes. Every copy or substantial portion must carry this complete licence,
+# the Licensor identification and copyright notice, and the identification of
+# any separately licensed materials it contains. Preserve existing attribution
+# and identify your changes clearly, including that your version is unofficial.
+# Do not represent your changes as an authorised Orchard release or endorsement.
+# 
+# You may not sublicense the Licensor&#x27;s material, remove its restrictions, or
+# redistribute it on terms that purport to authorise a prohibited use. Each
+# recipient receives the same offer directly from the Licensor. Your own
+# original contributions may have their own terms, but those terms cannot grant
+# additional rights in the Licensor&#x27;s material. Sharing a Software modification
+# does not grant permission to include or adapt source publications or artwork.
+# 
+# You may publish noncommercial research findings, measurements and criticism,
+# with appropriate scholarly attribution. The licence does not claim ownership
+# of your independently authored findings or of mathematical facts.
+# 
+# 4. USES REQUIRING SEPARATE WRITTEN PERMISSION
+# 
+# This licence grants no right to sell the Software or derivatives, offer paid
+# services based on it, incorporate it into a commercial product, perform
+# commercial R&amp;D with it, or use it for commercial business operations, hosted
+# services or production deployments. Such uses require a separate written
+# commercial agreement with the Licensor. A modification, change of name or
+# port to another programming language does not remove these conditions where
+# protected Software expression is reused or adapted.
+# 
+# 5. PUBLICATIONS, IDEAS, BRAND AND OTHER RIGHTS
+# 
+# The supplied source publications retain their stated CC-BY-NC-ND 4.0 terms.
+# This Software licence neither replaces nor restricts permissions already
+# granted by those terms. In particular, CC-BY-NC-ND permits noncommercial
+# reproduction/sharing of the original under its conditions and permits making
+# and reproducing, but not sharing, noncommercial adapted material. Consult the
+# actual CC licence for its full terms and exceptions.
+# 
+# This licence covers protected expression in the Software, not mathematical
+# ideas, facts, algorithms, methods or functionality as such. It does not
+# prohibit an independent implementation merely because it uses the same ideas.
+# No statement here promises exclusive copyright control of the Orchard&#x27;s
+# underlying mathematics or restricts applicable fair dealing, fair use or
+# other statutory rights that do not require the Licensor&#x27;s permission.
+# 
+# No patent, trademark, logo-use, endorsement, confidential-material access or
+# undisclosed-framework licence is granted. Brand references for accurate
+# attribution are distinct from use of the logo as your own product identity.
+# The Software&#x27;s licence does not authorise distributing the original logo.
+# Material not covered here needs its own applicable permission.
+# 
+# 6. TERM, BREACH AND OTHER AGREEMENTS
+# 
+# These permissions continue while you comply with these terms. They terminate
+# if you materially breach them; uses after termination require new permission.
+# The Licensor may separately offer commercial or other permissions. Changes to
+# future versions do not retrospectively change this version&#x27;s grant to users
+# who comply with it. A separate signed agreement governs only the permissions
+# it expressly covers. No other permission is implied.
+# 
+# 7. EXPERIMENTAL SOFTWARE AND LIABILITY
+# 
+# The Software is an educational research demonstration. It is supplied as is,
+# without warranties to the extent permitted by applicable law, including
+# warranties of accuracy, fitness, merchantability, non-infringement or safety.
+# Finite fixture checks are not certification for operational use. The Software
+# is not supplied as an operational safety controller.
+# 
+# To the extent permitted by applicable law, the Licensor is not liable for
+# losses or damages arising from use of the Software. Nothing excludes liability
+# that applicable law does not allow to be excluded, or limits mandatory rights.
+# 
+# END OF LICENCE
+</code></pre></main></html>

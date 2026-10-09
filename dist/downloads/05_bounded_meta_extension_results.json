@@ -1,0 +1,503 @@
+{
+  "stage": 5,
+  "method": {
+    "recipe": "pair-or",
+    "witness": {
+      "op": "join",
+      "operator": "or",
+      "left": {
+        "op": "eq",
+        "rhs": 0
+      },
+      "right": {
+        "op": "eq",
+        "rhs": "c"
+      }
+    },
+    "predictions": 5280,
+    "validationCount": 2170,
+    "qualification": {
+      "passed": true,
+      "preservationCases": 312,
+      "preservationFailures": 0,
+      "truthCases": 4,
+      "truthFailures": 0
+    }
+  },
+  "laterRepair": {
+    "op": "join",
+    "operator": "or",
+    "left": {
+      "op": "eq",
+      "rhs": 0
+    },
+    "right": {
+      "op": "eq",
+      "rhs": "c-1"
+    }
+  },
+  "repairStatus": "repair-acquired",
+  "live": {
+    "O": [
+      {
+        "q": 63,
+        "y": 0,
+        "version": 0
+      },
+      {
+        "q": 95,
+        "y": 0,
+        "version": 0
+      },
+      {
+        "q": 111,
+        "y": 0,
+        "version": 0
+      },
+      {
+        "q": 115,
+        "y": 0,
+        "version": 0
+      },
+      {
+        "q": 116,
+        "y": 0,
+        "version": 0
+      },
+      {
+        "q": 7,
+        "y": 1,
+        "version": 0
+      }
+    ],
+    "proposal": 15,
+    "decision": "hold",
+    "reason": "receiving-permission",
+    "decisionTick": 11,
+    "ticks": 48,
+    "work": 8,
+    "serviced": 16,
+    "missed": 0,
+    "trace": [
+      {
+        "tick": 1,
+        "kind": "query"
+      },
+      {
+        "tick": 2,
+        "kind": "query"
+      },
+      {
+        "tick": 3,
+        "kind": "watch"
+      },
+      {
+        "tick": 4,
+        "kind": "query"
+      },
+      {
+        "tick": 5,
+        "kind": "query"
+      },
+      {
+        "tick": 6,
+        "kind": "watch"
+      },
+      {
+        "tick": 7,
+        "kind": "query"
+      },
+      {
+        "tick": 8,
+        "kind": "query"
+      },
+      {
+        "tick": 9,
+        "kind": "watch"
+      },
+      {
+        "tick": 10,
+        "kind": "refresh"
+      },
+      {
+        "tick": 11,
+        "kind": "qualification"
+      },
+      {
+        "tick": 12,
+        "kind": "watch"
+      },
+      {
+        "tick": 13,
+        "kind": "idle"
+      },
+      {
+        "tick": 14,
+        "kind": "idle"
+      },
+      {
+        "tick": 15,
+        "kind": "watch"
+      },
+      {
+        "tick": 16,
+        "kind": "idle"
+      },
+      {
+        "tick": 17,
+        "kind": "idle"
+      },
+      {
+        "tick": 18,
+        "kind": "watch"
+      },
+      {
+        "tick": 19,
+        "kind": "idle"
+      },
+      {
+        "tick": 20,
+        "kind": "idle"
+      },
+      {
+        "tick": 21,
+        "kind": "watch"
+      },
+      {
+        "tick": 22,
+        "kind": "idle"
+      },
+      {
+        "tick": 23,
+        "kind": "idle"
+      },
+      {
+        "tick": 24,
+        "kind": "watch"
+      },
+      {
+        "tick": 25,
+        "kind": "idle"
+      },
+      {
+        "tick": 26,
+        "kind": "idle"
+      },
+      {
+        "tick": 27,
+        "kind": "watch"
+      },
+      {
+        "tick": 28,
+        "kind": "idle"
+      },
+      {
+        "tick": 29,
+        "kind": "idle"
+      },
+      {
+        "tick": 30,
+        "kind": "watch"
+      },
+      {
+        "tick": 31,
+        "kind": "idle"
+      },
+      {
+        "tick": 32,
+        "kind": "idle"
+      },
+      {
+        "tick": 33,
+        "kind": "watch"
+      },
+      {
+        "tick": 34,
+        "kind": "idle"
+      },
+      {
+        "tick": 35,
+        "kind": "idle"
+      },
+      {
+        "tick": 36,
+        "kind": "watch"
+      },
+      {
+        "tick": 37,
+        "kind": "idle"
+      },
+      {
+        "tick": 38,
+        "kind": "idle"
+      },
+      {
+        "tick": 39,
+        "kind": "watch"
+      },
+      {
+        "tick": 40,
+        "kind": "idle"
+      },
+      {
+        "tick": 41,
+        "kind": "idle"
+      },
+      {
+        "tick": 42,
+        "kind": "watch"
+      },
+      {
+        "tick": 43,
+        "kind": "idle"
+      },
+      {
+        "tick": 44,
+        "kind": "idle"
+      },
+      {
+        "tick": 45,
+        "kind": "watch"
+      },
+      {
+        "tick": 46,
+        "kind": "idle"
+      },
+      {
+        "tick": 47,
+        "kind": "idle"
+      },
+      {
+        "tick": 48,
+        "kind": "watch"
+      }
+    ],
+    "history": [
+      {
+        "query": 0,
+        "tick": 0,
+        "worlds": 140,
+        "actions": 35
+      },
+      {
+        "query": 1,
+        "tick": 1,
+        "worlds": 50,
+        "actions": 35,
+        "q": 63,
+        "y": 0,
+        "phase": "inherited"
+      },
+      {
+        "query": 2,
+        "tick": 2,
+        "worlds": 20,
+        "actions": 15,
+        "q": 95,
+        "y": 0,
+        "phase": "inherited"
+      },
+      {
+        "query": 3,
+        "tick": 4,
+        "worlds": 6,
+        "actions": 5,
+        "q": 111,
+        "y": 0,
+        "phase": "inherited"
+      },
+      {
+        "query": 4,
+        "tick": 5,
+        "worlds": 4,
+        "actions": 3,
+        "q": 115,
+        "y": 0,
+        "phase": "inherited"
+      },
+      {
+        "query": 5,
+        "tick": 7,
+        "worlds": 2,
+        "actions": 2,
+        "q": 116,
+        "y": 0,
+        "phase": "inherited"
+      },
+      {
+        "query": 6,
+        "tick": 8,
+        "worlds": 1,
+        "actions": 1,
+        "q": 7,
+        "y": 1,
+        "phase": "constructed"
+      }
+    ],
+    "counts": {
+      "predictions": 23940,
+      "scores": 4410,
+      "nodes": 72,
+      "replays": 37,
+      "replayPredictions": 190
+    },
+    "actions": [
+      15
+    ],
+    "scoring": {
+      "correct": false,
+      "incorrect": false,
+      "withheld": true
+    }
+  },
+  "comparison": [
+    {
+      "arm": "fixed",
+      "recipe": "base",
+      "methodAcquisitionRounds": 0,
+      "methodRestorationReplays": 0,
+      "candidatesChecked": 26,
+      "candidateSpace": 26,
+      "selectionPredictions": 1144,
+      "validationPredictions": 0,
+      "newTask": {
+        "total": 70,
+        "correct": 0,
+        "incorrect": 0,
+        "withheld": 70,
+        "queries": 426,
+        "work": 566,
+        "missed": 0
+      },
+      "legacy": {
+        "total": 210,
+        "correct": 210,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 1444,
+        "work": 2074,
+        "missed": 0
+      }
+    },
+    {
+      "arm": "learned",
+      "recipe": "pair-or",
+      "methodAcquisitionRounds": 1,
+      "methodRestorationReplays": 0,
+      "candidatesChecked": 47,
+      "candidateSpace": 47,
+      "selectionPredictions": 2068,
+      "validationPredictions": 2170,
+      "newTask": {
+        "total": 70,
+        "correct": 70,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 480,
+        "work": 690,
+        "missed": 0
+      },
+      "legacy": {
+        "total": 210,
+        "correct": 210,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 1501,
+        "work": 2131,
+        "missed": 0
+      }
+    },
+    {
+      "arm": "removed",
+      "recipe": "base",
+      "methodAcquisitionRounds": 1,
+      "methodRestorationReplays": 0,
+      "candidatesChecked": 26,
+      "candidateSpace": 26,
+      "selectionPredictions": 1144,
+      "validationPredictions": 0,
+      "newTask": {
+        "total": 70,
+        "correct": 0,
+        "incorrect": 0,
+        "withheld": 70,
+        "queries": 426,
+        "work": 566,
+        "missed": 0
+      },
+      "legacy": {
+        "total": 210,
+        "correct": 210,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 1444,
+        "work": 2074,
+        "missed": 0
+      }
+    },
+    {
+      "arm": "restored",
+      "recipe": "pair-or",
+      "methodAcquisitionRounds": 1,
+      "methodRestorationReplays": 1,
+      "candidatesChecked": 47,
+      "candidateSpace": 47,
+      "selectionPredictions": 2068,
+      "validationPredictions": 2170,
+      "newTask": {
+        "total": 70,
+        "correct": 70,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 480,
+        "work": 690,
+        "missed": 0
+      },
+      "legacy": {
+        "total": 210,
+        "correct": 210,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 1501,
+        "work": 2131,
+        "missed": 0
+      }
+    },
+    {
+      "arm": "preinstalled",
+      "recipe": "pair-or",
+      "methodAcquisitionRounds": 0,
+      "methodRestorationReplays": 0,
+      "candidatesChecked": 47,
+      "candidateSpace": 47,
+      "selectionPredictions": 2068,
+      "validationPredictions": 2170,
+      "newTask": {
+        "total": 70,
+        "correct": 70,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 480,
+        "work": 690,
+        "missed": 0
+      },
+      "legacy": {
+        "total": 210,
+        "correct": 210,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 1501,
+        "work": 2131,
+        "missed": 0
+      }
+    }
+  ],
+  "boundary": {
+    "reason": "no-expression",
+    "survivors": 0
+  },
+  "metaGrammarExpanded": false,
+  "authorityExpanded": false,
+  "implementation": "Native Python 3.10+ reference; no JavaScript or external packages required",
+  "release": "Orchard Noncommercial Research and Evaluation Licence 1.0; commercial use requires separate written permission; source publications retain their own terms"
+}

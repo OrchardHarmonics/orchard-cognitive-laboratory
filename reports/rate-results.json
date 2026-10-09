@@ -1,0 +1,88 @@
+{
+  "stage": 6,
+  "study": {
+    "kind": "valid",
+    "weights": {
+      "validation": 1,
+      "preservation": 1
+    },
+    "includeCommon": false,
+    "common": {
+      "selection": 5280,
+      "validation": 2170,
+      "preservation": 936,
+      "truth": 8,
+      "replaySelection": 0,
+      "replayValidation": 0
+    },
+    "commonWork": 8394,
+    "commonCharged": 0,
+    "arms": [
+      {
+        "arm": "fit-only",
+        "status": "fitted",
+        "reason": "unique-fit",
+        "expression": {
+          "op": "join",
+          "operator": "or",
+          "left": {
+            "op": "eq",
+            "rhs": 0
+          },
+          "right": {
+            "op": "eq",
+            "rhs": "c-1"
+          }
+        },
+        "selection": 2068,
+        "validation": 0,
+        "preservation": 0,
+        "truth": 0,
+        "replaySelection": 0,
+        "replayValidation": 0,
+        "work": 2068,
+        "chargedWork": 2068,
+        "threshold": 2068,
+        "score": {
+          "correct": 8820,
+          "total": 8820,
+          "accuracy": 1.0
+        }
+      },
+      {
+        "arm": "checked",
+        "status": "qualified",
+        "reason": "repair-acquired",
+        "expression": {
+          "op": "join",
+          "operator": "or",
+          "left": {
+            "op": "eq",
+            "rhs": 0
+          },
+          "right": {
+            "op": "eq",
+            "rhs": "c-1"
+          }
+        },
+        "selection": 2068,
+        "validation": 2170,
+        "preservation": 312,
+        "truth": 4,
+        "replaySelection": 2068,
+        "replayValidation": 2170,
+        "work": 8792,
+        "chargedWork": 8792,
+        "threshold": 8792,
+        "score": {
+          "correct": 8820,
+          "total": 8820,
+          "accuracy": 1.0
+        }
+      }
+    ],
+    "limitation": "This declared logical-work index omits host overhead and hardware cost. Its stronger checking obligations are not evidence of faster acquisition or full MeRSIA."
+  },
+  "implementation": "Native Python 3.10+ reference; no JavaScript or external packages required",
+  "release": "Orchard Noncommercial Research and Evaluation Licence 1.0; commercial use requires separate written permission; source publications retain their own terms"
+}

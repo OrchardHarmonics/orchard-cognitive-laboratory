@@ -1,0 +1,455 @@
+{
+  "stage": 4,
+  "expression": {
+    "op": "ge",
+    "rhs": 1
+  },
+  "calibration": 88,
+  "selectionPredictions": 2288,
+  "validation": 3100,
+  "live": {
+    "O": [
+      {
+        "q": 63,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 31,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 15,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 7,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 1,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 24,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 6,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 2,
+        "y": 1,
+        "version": 0
+      },
+      {
+        "q": 8,
+        "y": 1,
+        "version": 0
+      }
+    ],
+    "proposal": 11,
+    "decision": "hold",
+    "reason": "receiving-permission",
+    "decisionTick": 16,
+    "ticks": 48,
+    "work": 11,
+    "serviced": 16,
+    "missed": 0,
+    "trace": [
+      {
+        "tick": 1,
+        "kind": "query"
+      },
+      {
+        "tick": 2,
+        "kind": "query"
+      },
+      {
+        "tick": 3,
+        "kind": "watch"
+      },
+      {
+        "tick": 4,
+        "kind": "query"
+      },
+      {
+        "tick": 5,
+        "kind": "query"
+      },
+      {
+        "tick": 6,
+        "kind": "watch"
+      },
+      {
+        "tick": 7,
+        "kind": "query"
+      },
+      {
+        "tick": 8,
+        "kind": "query"
+      },
+      {
+        "tick": 9,
+        "kind": "watch"
+      },
+      {
+        "tick": 10,
+        "kind": "query"
+      },
+      {
+        "tick": 11,
+        "kind": "query"
+      },
+      {
+        "tick": 12,
+        "kind": "watch"
+      },
+      {
+        "tick": 13,
+        "kind": "query"
+      },
+      {
+        "tick": 14,
+        "kind": "refresh"
+      },
+      {
+        "tick": 15,
+        "kind": "watch"
+      },
+      {
+        "tick": 16,
+        "kind": "qualification"
+      },
+      {
+        "tick": 17,
+        "kind": "idle"
+      },
+      {
+        "tick": 18,
+        "kind": "watch"
+      },
+      {
+        "tick": 19,
+        "kind": "idle"
+      },
+      {
+        "tick": 20,
+        "kind": "idle"
+      },
+      {
+        "tick": 21,
+        "kind": "watch"
+      },
+      {
+        "tick": 22,
+        "kind": "idle"
+      },
+      {
+        "tick": 23,
+        "kind": "idle"
+      },
+      {
+        "tick": 24,
+        "kind": "watch"
+      },
+      {
+        "tick": 25,
+        "kind": "idle"
+      },
+      {
+        "tick": 26,
+        "kind": "idle"
+      },
+      {
+        "tick": 27,
+        "kind": "watch"
+      },
+      {
+        "tick": 28,
+        "kind": "idle"
+      },
+      {
+        "tick": 29,
+        "kind": "idle"
+      },
+      {
+        "tick": 30,
+        "kind": "watch"
+      },
+      {
+        "tick": 31,
+        "kind": "idle"
+      },
+      {
+        "tick": 32,
+        "kind": "idle"
+      },
+      {
+        "tick": 33,
+        "kind": "watch"
+      },
+      {
+        "tick": 34,
+        "kind": "idle"
+      },
+      {
+        "tick": 35,
+        "kind": "idle"
+      },
+      {
+        "tick": 36,
+        "kind": "watch"
+      },
+      {
+        "tick": 37,
+        "kind": "idle"
+      },
+      {
+        "tick": 38,
+        "kind": "idle"
+      },
+      {
+        "tick": 39,
+        "kind": "watch"
+      },
+      {
+        "tick": 40,
+        "kind": "idle"
+      },
+      {
+        "tick": 41,
+        "kind": "idle"
+      },
+      {
+        "tick": 42,
+        "kind": "watch"
+      },
+      {
+        "tick": 43,
+        "kind": "idle"
+      },
+      {
+        "tick": 44,
+        "kind": "idle"
+      },
+      {
+        "tick": 45,
+        "kind": "watch"
+      },
+      {
+        "tick": 46,
+        "kind": "idle"
+      },
+      {
+        "tick": 47,
+        "kind": "idle"
+      },
+      {
+        "tick": 48,
+        "kind": "watch"
+      }
+    ],
+    "history": [
+      {
+        "query": 0,
+        "tick": 0,
+        "worlds": 105,
+        "actions": 35
+      },
+      {
+        "query": 1,
+        "tick": 1,
+        "worlds": 75,
+        "actions": 35,
+        "q": 63,
+        "y": 1,
+        "phase": "inherited"
+      },
+      {
+        "query": 2,
+        "tick": 2,
+        "worlds": 55,
+        "actions": 35,
+        "q": 31,
+        "y": 1,
+        "phase": "inherited"
+      },
+      {
+        "query": 3,
+        "tick": 4,
+        "worlds": 42,
+        "actions": 34,
+        "q": 15,
+        "y": 1,
+        "phase": "inherited"
+      },
+      {
+        "query": 4,
+        "tick": 5,
+        "worlds": 33,
+        "actions": 31,
+        "q": 7,
+        "y": 1,
+        "phase": "inherited"
+      },
+      {
+        "query": 5,
+        "tick": 7,
+        "worlds": 16,
+        "actions": 15,
+        "q": 1,
+        "y": 1,
+        "phase": "constructed"
+      },
+      {
+        "query": 6,
+        "tick": 8,
+        "worlds": 9,
+        "actions": 9,
+        "q": 24,
+        "y": 1,
+        "phase": "constructed"
+      },
+      {
+        "query": 7,
+        "tick": 10,
+        "worlds": 4,
+        "actions": 4,
+        "q": 6,
+        "y": 1,
+        "phase": "constructed"
+      },
+      {
+        "query": 8,
+        "tick": 11,
+        "worlds": 2,
+        "actions": 2,
+        "q": 2,
+        "y": 1,
+        "phase": "constructed"
+      },
+      {
+        "query": 9,
+        "tick": 13,
+        "worlds": 1,
+        "actions": 1,
+        "q": 8,
+        "y": 1,
+        "phase": "constructed"
+      }
+    ],
+    "counts": {
+      "predictions": 44226,
+      "scores": 8190,
+      "nodes": 132,
+      "replays": 68,
+      "replayPredictions": 351
+    },
+    "actions": [
+      11
+    ],
+    "scoring": {
+      "correct": false,
+      "incorrect": false,
+      "withheld": true
+    }
+  },
+  "comparison": [
+    {
+      "arm": "inherited",
+      "main": {
+        "total": 105,
+        "correct": 105,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 693,
+        "work": 1008,
+        "missed": 0
+      },
+      "stress": {
+        "total": 70,
+        "correct": 2,
+        "incorrect": 68,
+        "withheld": 0,
+        "queries": 430,
+        "work": 640,
+        "missed": 0
+      }
+    },
+    {
+      "arm": "removed",
+      "main": {
+        "total": 105,
+        "correct": 71,
+        "incorrect": 34,
+        "withheld": 0,
+        "queries": 513,
+        "work": 828,
+        "missed": 0
+      },
+      "stress": {
+        "total": 70,
+        "correct": 2,
+        "incorrect": 68,
+        "withheld": 0,
+        "queries": 352,
+        "work": 562,
+        "missed": 0
+      }
+    },
+    {
+      "arm": "restored",
+      "main": {
+        "total": 105,
+        "correct": 105,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 693,
+        "work": 1008,
+        "missed": 0
+      },
+      "stress": {
+        "total": 70,
+        "correct": 2,
+        "incorrect": 68,
+        "withheld": 0,
+        "queries": 430,
+        "work": 640,
+        "missed": 0
+      }
+    },
+    {
+      "arm": "active",
+      "main": {
+        "total": 105,
+        "correct": 105,
+        "incorrect": 0,
+        "withheld": 0,
+        "queries": 666,
+        "work": 981,
+        "missed": 0
+      },
+      "stress": {
+        "total": 70,
+        "correct": 32,
+        "incorrect": 38,
+        "withheld": 0,
+        "queries": 418,
+        "work": 628,
+        "missed": 0
+      }
+    }
+  ],
+  "evidence": null,
+  "grammarExpanded": false,
+  "implementation": "Native Python 3.10+ reference; no JavaScript or external packages required",
+  "release": "Orchard Noncommercial Research and Evaluation Licence 1.0; commercial use requires separate written permission; source publications retain their own terms"
+}

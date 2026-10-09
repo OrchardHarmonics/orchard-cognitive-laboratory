@@ -1,0 +1,500 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learn What Was Missing · Orchard</title><style>body{font:17px/1.6 system-ui,sans-serif;background:#f4f6fb;color:#182a3a;margin:0;padding:32px}main{max-width:1000px;margin:auto}h1{font:42px/1.15 Georgia,serif}a{color:#2359af}pre{background:white;border:1px solid #d4dce6;border-radius:12px;padding:22px;overflow:auto;font:13px/1.7 monospace}p,li{max-width:80ch}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #d4dce6;padding:12px;text-align:left}nav{margin-bottom:30px}@media(max-width:500px){body{padding:16px}h1{font-size:32px}pre{padding:12px}}</style><main><nav><a href="../index.html#home">← Orchard laboratory</a></nav><p>Native Python · self-contained finite experiment</p><h1>Learn What Was Missing</h1><p>Python 3.10 or later. Standard library only. No JavaScript engine, account, network requests or external actions. Noncommercial research and code experiments are permitted under the <a href="../licensing.html">Orchard Research and Evaluation Licence</a>. Commercial use needs separate written permission.</p><p><a href="04_acquired_expression.py" download>Download this script</a> · <a href="04_acquired_expression_report.html">Inspect its computed default report</a></p><pre>python3 04_acquired_expression.py --help
+python3 04_acquired_expression.py --output result.json</pre><p>Default live receiving permission is off. Controlled comparison censuses explicitly supply simulated permission. The report is computed by the script, rather than embedded as its answer. Native artifacts replay within Python; their structural encoding is not a JavaScript interchange format.</p><h2>Complete source</h2><pre><code>#!/usr/bin/env python3
+# Mathematical provenance: Constructive Enquiry and Acquired Model Extension, supplied PDF p. 3 (§§4–4.1).
+# Finite educational implementation; see the laboratory for definitions and scope.
+&quot;&quot;&quot;Orchard finite laboratory, native Python reference implementation.
+
+Standard library only. Predictions, checking, simulator truth and action permission
+are kept separate. Fixtures are authored finite worlds, not empirical AI safety data.
+Software: Orchard Noncommercial Research and Evaluation Licence 1.0.
+Commercial use requires separate written permission; publications retain their own terms.
+&quot;&quot;&quot;
+
+
+import argparse
+
+
+import copy
+
+
+import itertools
+
+
+import json
+
+
+from functools import lru_cache
+
+
+from pathlib import Path
+
+
+def require(ok, message):
+    if not ok:
+        raise ValueError(message)
+
+
+def canonical(x):
+    return json.dumps(x, sort_keys=True, separators=(&quot;,&quot;, &quot;:&quot;))
+
+
+def clone(x):
+    return copy.deepcopy(x)
+
+
+ROUTE_ROUNDS = dict(intact=1, removed=1, restored=1, **{&quot;relearn-one&quot;: 1, &quot;relearn-two&quot;: 2}, fresh=2, specificity=1, preinstalled=0, direct=0)
+
+
+GRAMMAR = [dict(op=op, rhs=r) for op in (&quot;ge&quot;, &quot;eq&quot;, &quot;le&quot;) for r in (0, 1, 2, 3, 4, &quot;c&quot;, &quot;c-1&quot;)]+[dict(op=&quot;mod&quot;, mod=m, residue=r) for m in (2, 3) for r in range(m)]
+
+
+OLD = [dict(op=&quot;eq&quot;, rhs=&quot;c&quot;), dict(op=&quot;mod&quot;, mod=2, residue=1)]
+
+
+def sets(n, c):
+    require(4 &lt;= n &lt;= 7 and 2 &lt;= c &lt;= 4 and c &lt; n, &quot;Descriptor out of scope&quot;)
+    return [k for k in range(2**n) if k.bit_count() == c]
+
+
+def queries(n):
+    return list(range(1, 2**n-1))
+
+
+def generate(recipe=&quot;base&quot;, drop_old=False):
+    require(recipe in (&quot;base&quot;, &quot;pair-and&quot;, &quot;pair-or&quot;), &quot;Unknown constructor&quot;)
+    g = clone(GRAMMAR[1:] if drop_old else GRAMMAR)
+    if recipe != &quot;base&quot;:
+        atoms = [x for x in GRAMMAR if x[&quot;op&quot;] == &quot;eq&quot;]
+        g += [dict(op=&quot;join&quot;, operator=recipe.split(&quot;-&quot;)[1], left=clone(a), right=clone(b)) for a, b in itertools.combinations(atoms, 2)]
+    return g
+
+
+def denote(g, K, q, c):
+    if g[&quot;op&quot;] == &quot;join&quot;:
+        a, b = denote(g[&quot;left&quot;], K, q, c), denote(g[&quot;right&quot;], K, q, c)
+        return int(a or b) if g[&quot;operator&quot;] == &quot;or&quot; else int(a and b)
+    s = (K &amp; q).bit_count()
+    if g[&quot;op&quot;] == &quot;mod&quot;:
+        return int(s % g[&quot;mod&quot;] == g[&quot;residue&quot;])
+    r = c if g[&quot;rhs&quot;] == &quot;c&quot; else c-1 if g[&quot;rhs&quot;] == &quot;c-1&quot; else g[&quot;rhs&quot;]
+    return int(s &gt;= r) if g[&quot;op&quot;] == &quot;ge&quot; else int(s == r) if g[&quot;op&quot;] == &quot;eq&quot; else int(s &lt;= r)
+
+
+def target(task, K, q, c):
+    s = (K &amp; q).bit_count()
+    if task in (&quot;A&quot;, &quot;B&quot;, &quot;C&quot;):
+        return int(s in ({0, c} if task == &quot;A&quot; else {0, c-1} if task == &quot;B&quot; else {0, 1, c}))
+    return dict(AND=int(s == c), XOR=s % 2, OR=int(s &gt;= 1), GE2=int(s &gt;= 2), EQ1=int(s == 1))[task]
+
+
+def worlds(n, c, library):
+    return [(canonical(g), K) for g in library for K in sets(n, c)]
+
+
+def actions(h):
+    return sorted({K for _, K in h})
+
+
+@lru_cache(maxsize=128)
+def compiled_plan(n, c, price, h):
+    &quot;&quot;&quot;Construct a tree from represented action disagreements, then replay every world.&quot;&quot;&quot;
+    program = {g: json.loads(g) for g, _ in h}
+    counts = dict(predictions=0, scores=0, nodes=0, replays=0, replayPredictions=0)
+    def build(support):
+        counts[&quot;nodes&quot;] += 1
+        a = actions(support)
+        if not a:
+            return dict(kind=&quot;hold&quot;)
+        if len(a) == 1:
+            return dict(kind=&quot;leaf&quot;, K=a[0])
+        best = None
+        for q in queries(n):
+            zero, one = [], []
+            for g, K in support:
+                counts[&quot;predictions&quot;] += 1
+                (one if denote(program[g], K, q, c) else zero).append((g, K))
+            pairs = sum(K != J for _, K in zero for _, J in one)
+            score = (pairs, min(len(zero), len(one)), -(q.bit_count() if price == &quot;width&quot; else 1), -q)
+            counts[&quot;scores&quot;] += 1
+            if best is None or score &gt; best[0]:
+                best = score, q, zero, one
+        if not best[0][0]:
+            return dict(kind=&quot;hold&quot;)
+        return dict(kind=&quot;query&quot;, q=best[1], zero=build(best[2]), one=build(best[3]))
+    tree = build(h)
+    for g, K in h:
+        t, depth = tree, 0
+        while t[&quot;kind&quot;] == &quot;query&quot;:
+            depth += 1; counts[&quot;replayPredictions&quot;] += 1
+            require(depth &lt; 2**n, &quot;Cyclic tree&quot;)
+            t = t[&quot;one&quot; if denote(program[g], K, t[&quot;q&quot;], c) else &quot;zero&quot;]
+        require(t[&quot;kind&quot;] == &quot;leaf&quot; and t[&quot;K&quot;] == K, &quot;Tree qualification failed&quot;)
+        counts[&quot;replays&quot;] += 1
+    return tree, counts
+
+
+def diagnose(settings, channel, library=OLD, recipe=&quot;base&quot;):
+    &quot;&quot;&quot;Policy consumes descriptors and responses only, never simulator K or task.&quot;&quot;&quot;
+    n, c = settings.get(&quot;n&quot;, 7), settings.get(&quot;c&quot;, 3)
+    sets(n, c)
+    budget, price, route = settings.get(&quot;budget&quot;, 48), settings.get(&quot;price&quot;, &quot;unit&quot;), settings.get(&quot;route&quot;, &quot;inherited&quot;)
+    require(type(budget) is int and 0 &lt;= budget &lt;= 64 and price in (&quot;unit&quot;, &quot;width&quot;), &quot;Bad runtime budget/price&quot;)
+    require(route in (&quot;inherited&quot;, &quot;active&quot;, &quot;removed&quot;), &quot;Bad route&quot;)
+    require(len(library) &gt;= 2 and all(g in generate(recipe) for g in library) and len({canonical(g) for g in library}) == len(library), &quot;Bad library&quot;)
+    permission, watch = settings.get(&quot;permission&quot;, False), settings.get(&quot;watch&quot;, True)
+    require(all(type(settings.get(k, default)) is bool for k, default in [(&quot;permission&quot;, False), (&quot;watch&quot;, True), (&quot;queryPermission&quot;, True), (&quot;refreshPermission&quot;, True), (&quot;knownFailure&quot;, False)]), &quot;Bad permission flag&quot;)
+    O, trace, h = [], [], worlds(n, c, library)
+    tick = work = serviced = missed = 0
+    reason, proposal, decision = &quot;unresolved&quot;, None, &quot;hold&quot;
+    history = [dict(query=0, tick=0, worlds=len(h), actions=len(actions(h)))]
+    counts = dict(predictions=0, scores=0, nodes=0, replays=0, replayPredictions=0)
+    def support():
+        return [w for w in worlds(n, c, library) if all(denote(json.loads(w[0]), w[1], o[&quot;q&quot;], c) == o[&quot;y&quot;] for o in O)]
+    def charge(kind, cost):
+        nonlocal tick, work, serviced, missed, reason
+        used = 0
+        while used &lt; cost:
+            if tick &gt;= budget:
+                reason = &quot;budget&quot;
+                return False
+            tick += 1
+            if tick % 3 == 0:
+                serviced += int(watch); missed += int(not watch)
+                trace.append(dict(tick=tick, kind=&quot;watch&quot; if watch else &quot;missed-watch&quot;))
+            else:
+                used += 1; work += 1
+                trace.append(dict(tick=tick, kind=kind))
+        return True
+    def follow(represented, phase):
+        nonlocal h, reason
+        t, cc = compiled_plan(n, c, price, tuple(represented))
+        for k in counts:
+            counts[k] += cc[k]
+        while t[&quot;kind&quot;] == &quot;query&quot;:
+            if not settings.get(&quot;queryPermission&quot;, True):
+                reason = &quot;query-permission&quot;
+                return False
+            if not charge(&quot;query&quot;, t[&quot;q&quot;].bit_count() if price == &quot;width&quot; else 1):
+                return False
+            answer = channel[&quot;query&quot;](t[&quot;q&quot;])
+            require(type(answer.get(&quot;y&quot;)) is int and answer[&quot;y&quot;] in (0, 1) and type(answer.get(&quot;version&quot;)) is int and answer[&quot;version&quot;] &gt;= 0, &quot;Bad response&quot;)
+            if O and answer[&quot;version&quot;] != O[0][&quot;version&quot;]:
+                reason = &quot;source-version&quot;
+                return False
+            O.append(dict(q=t[&quot;q&quot;], **answer)); h = support()
+            history.append(dict(query=len(O), tick=tick, worlds=len(h), actions=len(actions(h)), q=t[&quot;q&quot;], y=answer[&quot;y&quot;], phase=phase))
+            t = t[&quot;one&quot; if answer[&quot;y&quot;] else &quot;zero&quot;]
+        return True
+    def finish():
+        nonlocal tick, serviced, missed
+        decision_tick = tick
+        while tick &lt; budget:
+            tick += 1
+            if tick % 3 == 0:
+                serviced += int(watch); missed += int(not watch)
+                trace.append(dict(tick=tick, kind=&quot;watch&quot; if watch else &quot;missed-watch&quot;))
+            else:
+                trace.append(dict(tick=tick, kind=&quot;idle&quot;))
+        return dict(O=clone(O), proposal=proposal, decision=decision, reason=reason, decisionTick=decision_tick, ticks=tick, work=work, serviced=serviced, missed=missed, trace=trace, history=history, counts=counts, actions=actions(h))
+    if not follow(h if route == &quot;active&quot; else worlds(n, c, OLD[:1]), &quot;active&quot; if route == &quot;active&quot; else &quot;inherited&quot;):
+        return finish()
+    if len(actions(h)) &gt; 1:
+        if route == &quot;removed&quot;:
+            reason = &quot;enquiry-removed&quot;
+            return finish()
+        if not follow(h, &quot;constructed&quot;):
+            return finish()
+    if not h:
+        reason = &quot;empty-support&quot;
+        return finish()
+    if len(actions(h)) != 1:
+        return finish()
+    proposal = actions(h)[0]
+    if not settings.get(&quot;refreshPermission&quot;, True):
+        reason = &quot;refresh-permission&quot;
+        return finish()
+    if not charge(&quot;refresh&quot;, 1) or not charge(&quot;qualification&quot;, 1):
+        return finish()
+    version = channel[&quot;version&quot;]()
+    if &quot;afterQualification&quot; in channel:
+        channel[&quot;afterQualification&quot;]()
+    if settings.get(&quot;knownFailure&quot;, False):
+        reason = &quot;coverage&quot;
+        return finish()
+    if version != channel[&quot;version&quot;]() or any(o[&quot;version&quot;] != version for o in O):
+        reason = &quot;stale&quot;
+        return finish()
+    if missed:
+        reason = &quot;watch&quot;
+        return finish()
+    if not permission:
+        reason = &quot;receiving-permission&quot;
+        return finish()
+    if not charge(&quot;admission&quot;, 1):
+        return finish()
+    if missed or version != channel[&quot;version&quot;]():
+        reason = &quot;watch&quot; if missed else &quot;stale&quot;
+        return finish()
+    decision, reason = &quot;admit&quot;, &quot;current&quot;
+    return finish()
+
+
+def simulate(settings, library=OLD, recipe=&quot;base&quot;):
+    n, c, K, task = settings.get(&quot;n&quot;, 7), settings.get(&quot;c&quot;, 3), settings.get(&quot;K&quot;, 11), settings.get(&quot;task&quot;, &quot;OR&quot;)
+    require(K in sets(n, c), &quot;Invalid actual set&quot;)
+    version = 0
+    def after():
+        nonlocal version
+        if settings.get(&quot;stale&quot;, False):
+            version += 1
+    channel = dict(query=lambda q: dict(y=target(task, K, q, c), version=version), version=lambda: version, afterQualification=after)
+    r = diagnose(settings, channel, library, recipe)
+    r[&quot;scoring&quot;] = dict(correct=r[&quot;decision&quot;] == &quot;admit&quot; and r[&quot;proposal&quot;] == K,
+                        incorrect=r[&quot;decision&quot;] == &quot;admit&quot; and r[&quot;proposal&quot;] != K, withheld=r[&quot;decision&quot;] == &quot;hold&quot;)
+    return r
+
+
+def tally(episodes):
+    return dict(total=len(episodes), correct=sum(r[&quot;scoring&quot;][&quot;correct&quot;] for r in episodes),
+                incorrect=sum(r[&quot;scoring&quot;][&quot;incorrect&quot;] for r in episodes), withheld=sum(r[&quot;scoring&quot;][&quot;withheld&quot;] for r in episodes),
+                queries=sum(len(r[&quot;O&quot;]) for r in episodes), work=sum(r[&quot;work&quot;] for r in episodes), missed=sum(r[&quot;missed&quot;] for r in episodes))
+
+
+def fit(programs, data, allowance=None):
+    legal = generate(&quot;pair-or&quot;) + generate(&quot;pair-and&quot;)
+    require(all(g in legal for g in programs) and len({canonical(g) for g in programs}) == len(programs), &quot;Invalid selection language&quot;)
+    allowance = len(programs) if allowance is None else allowance
+    require(type(allowance) is int and 0 &lt;= allowance &lt;= 47, &quot;Bad candidate allowance&quot;)
+    rows = [dict(g=clone(g), mismatches=sum(denote(g, o[&quot;K&quot;], o[&quot;q&quot;], o[&quot;c&quot;]) != o[&quot;y&quot;] for o in data)) for g in programs[:allowance]]
+    return dict(rows=rows, survivors=[r[&quot;g&quot;] for r in rows if not r[&quot;mismatches&quot;]], checked=len(rows), total=len(programs), predictions=len(rows)*len(data), complete=len(rows) == len(programs))
+
+
+def expression_evidence():
+    cases = []
+    for n, c in itertools.product((4, 5), (2, 3)):
+        bad = next((r for K in sets(n, c) if (r := simulate(dict(n=n, c=c, K=K, task=&quot;OR&quot;, budget=64, permission=True)))[&quot;scoring&quot;][&quot;incorrect&quot;]), None)
+        require(bad is not None, &quot;No calibration failure&quot;)
+        K = next(K for K in sets(n, c) if simulate(dict(n=n, c=c, K=K, task=&quot;OR&quot;, budget=64, permission=True))[&quot;scoring&quot;][&quot;incorrect&quot;])
+        cases.append(dict(n=n, c=c, K=K, proposal=bad[&quot;proposal&quot;], trace=bad[&quot;O&quot;], observations=[dict(n=n, c=c, K=K, q=q, y=target(&quot;OR&quot;, K, q, c)) for q in queries(n)]))
+    V = [dict(n=6, c=c, K=K, q=q, y=target(&quot;OR&quot;, K, q, c)) for c in (2, 3, 4) for K in sets(6, c) for q in queries(6)]
+    return dict(cases=cases, validation=V, trusted=True, version=0)
+
+
+def acquire_expression(data):
+    require(data.get(&quot;trusted&quot;) and data.get(&quot;version&quot;) == 0, &quot;Trusted current feedback required&quot;)
+    scopes = {(4, 2), (4, 3), (5, 2), (5, 3)}
+    require({(r[&quot;n&quot;], r[&quot;c&quot;]) for r in data[&quot;cases&quot;]} == scopes and len(data[&quot;cases&quot;]) == 4, &quot;Incomplete calibration scope&quot;)
+    for r in data[&quot;cases&quot;]:
+        require(r[&quot;K&quot;] != r[&quot;proposal&quot;] and r[&quot;K&quot;] in sets(r[&quot;n&quot;], r[&quot;c&quot;]), &quot;Invalid audit&quot;)
+        require(len(r[&quot;observations&quot;]) == len(queries(r[&quot;n&quot;])) and {o[&quot;q&quot;] for o in r[&quot;observations&quot;]} == set(queries(r[&quot;n&quot;])), &quot;Incomplete calibration measurements&quot;)
+        require(all(o[&quot;n&quot;] == r[&quot;n&quot;] and o[&quot;c&quot;] == r[&quot;c&quot;] and o[&quot;K&quot;] == r[&quot;K&quot;] and type(o[&quot;y&quot;]) is int and o[&quot;y&quot;] in (0, 1) for o in r[&quot;observations&quot;]), &quot;Measurements do not match audited context&quot;)
+    D = [o for r in data[&quot;cases&quot;] for o in r[&quot;observations&quot;]]
+    f = fit(GRAMMAR, D)
+    require(len(f[&quot;survivors&quot;]) == 1, &quot;Expression selection not unique&quot;)
+    V = data[&quot;validation&quot;]
+    require(len(V) == 3100 and len({(o[&quot;n&quot;], o[&quot;c&quot;], o[&quot;K&quot;], o[&quot;q&quot;]) for o in V}) == 3100 and all(o[&quot;n&quot;] == 6 and o[&quot;c&quot;] in (2, 3, 4) and o[&quot;K&quot;] in sets(6, o[&quot;c&quot;]) and o[&quot;q&quot;] in queries(6) for o in V), &quot;Incomplete validation&quot;)
+    expression = f[&quot;survivors&quot;][0]
+    require(all(denote(expression, o[&quot;K&quot;], o[&quot;q&quot;], o[&quot;c&quot;]) == o[&quot;y&quot;] for o in V), &quot;Validation disagreement&quot;)
+    core = dict(expression=expression, data=clone(data))
+    return dict(core, binding=canonical(core), calibrationCount=len(D), validationCount=len(V), predictions=f[&quot;predictions&quot;])
+
+
+def restore_expression(a):
+    require(a == acquire_expression(a[&quot;data&quot;]), &quot;Expression binding failed replay&quot;)
+    return clone(a)
+
+
+def runtime_settings(args, **extra):
+    return dict(budget=args.budget if args.budget is not None else 48,
+                price=args.price, permission=args.permission,
+                queryPermission=not args.deny_query, refreshPermission=not args.deny_refresh,
+                watch=not args.miss_watch, stale=args.stale, **extra)
+
+
+def expression_comparison(artifact, budget=48, price=&quot;unit&quot;):
+    a = restore_expression(artifact)
+    expanded = OLD+[a[&quot;expression&quot;]]
+    rows = []
+    for arm in (&quot;inherited&quot;, &quot;removed&quot;, &quot;restored&quot;, &quot;active&quot;):
+        library = OLD if arm == &quot;removed&quot; else expanded
+        if arm == &quot;restored&quot;:
+            library = OLD+[restore_expression(artifact)[&quot;expression&quot;]]
+        def episodes(tasks, ticks):
+            return [simulate(dict(n=7, c=3, K=K, task=task, budget=ticks, price=price,
+                                  permission=True, route=&quot;active&quot; if arm == &quot;active&quot; else &quot;inherited&quot;), library)
+                    for task in tasks for K in sets(7, 3)]
+        main, stress = episodes((&quot;AND&quot;, &quot;XOR&quot;, &quot;OR&quot;), budget), episodes((&quot;GE2&quot;, &quot;EQ1&quot;), 64)
+        rows.append(dict(arm=arm, main=tally(main), stress=tally(stress)))
+    return rows
+
+
+def stage4(args):
+    data = expression_evidence()
+    artifact = restore_expression(acquire_expression(data))
+    L = OLD+[artifact[&quot;expression&quot;]]
+    return dict(stage=4, expression=artifact[&quot;expression&quot;], calibration=artifact[&quot;calibrationCount&quot;],
+                selectionPredictions=artifact[&quot;predictions&quot;], validation=artifact[&quot;validationCount&quot;],
+                live=simulate(runtime_settings(args, n=7, c=3, K=11, task=&quot;OR&quot;), L),
+                comparison=expression_comparison(artifact, 48 if args.budget is None else args.budget, args.price),
+                evidence=data if args.include_evidence else None, grammarExpanded=False)
+
+
+def cli(stage):
+    parser = argparse.ArgumentParser(description=&quot;Native Python Orchard laboratory stage &quot;+str(stage)+&quot;. Standard library only; all actions simulated.&quot;)
+    parser.add_argument(&quot;--output&quot;, type=Path, help=&quot;Save the computed JSON report&quot;)
+    if stage &lt; 6:
+        parser.add_argument(&quot;--permission&quot;, action=&quot;store_true&quot;, help=&quot;Allow local simulated receiving use; defaults off&quot;)
+    if stage == 1:
+        parser.add_argument(&quot;--error-allowance&quot;, type=int, choices=(0, 1, 2), default=1)
+        parser.add_argument(&quot;--no-anchor&quot;, action=&quot;store_true&quot;)
+    if stage == 2:
+        parser.add_argument(&quot;--route&quot;, choices=tuple(ROUTE_ROUNDS))
+        parser.add_argument(&quot;--rounds&quot;, type=int, choices=(0, 1, 2))
+    if stage in (3, 4, 5):
+        parser.add_argument(&quot;--budget&quot;, type=int, help=&quot;Runtime ticks, not development work (stage 3 default 18, stages 4/5 default 48)&quot;)
+        parser.add_argument(&quot;--price&quot;, choices=(&quot;unit&quot;, &quot;width&quot;), default=&quot;unit&quot;)
+        parser.add_argument(&quot;--deny-query&quot;, action=&quot;store_true&quot;)
+        parser.add_argument(&quot;--deny-refresh&quot;, action=&quot;store_true&quot;)
+        parser.add_argument(&quot;--miss-watch&quot;, action=&quot;store_true&quot;)
+        parser.add_argument(&quot;--stale&quot;, action=&quot;store_true&quot;)
+    if stage in (4, 5):
+        parser.add_argument(&quot;--include-evidence&quot;, action=&quot;store_true&quot;)
+    if stage == 5:
+        parser.add_argument(&quot;--cardinality&quot;, type=int, choices=(3, 4), default=4)
+        parser.add_argument(&quot;--allowance&quot;, type=int, choices=(0, 26, 46, 47), default=47)
+    if stage == 6:
+        parser.add_argument(&quot;--rate-case&quot;, choices=(&quot;valid&quot;, &quot;wrong-teaching&quot;, &quot;untrusted&quot;, &quot;stale&quot;, &quot;bad-validation&quot;, &quot;drop-old&quot;), default=&quot;valid&quot;)
+        parser.add_argument(&quot;--validation-weight&quot;, type=int, choices=(1, 2, 4), default=1)
+        parser.add_argument(&quot;--preservation-weight&quot;, type=int, choices=(1, 2, 4), default=1)
+        parser.add_argument(&quot;--include-common&quot;, action=&quot;store_true&quot;)
+    args = parser.parse_args()
+    report = globals()[&quot;stage&quot;+str(stage)](args)
+    report[&quot;implementation&quot;] = &quot;Native Python 3.10+ reference; no JavaScript or external packages required&quot;
+    report[&quot;release&quot;] = &quot;Orchard Noncommercial Research and Evaluation Licence 1.0; commercial use requires separate written permission; source publications retain their own terms&quot;
+    text = json.dumps(report, indent=2, ensure_ascii=False)+&quot;\n&quot;
+    if args.output:
+        args.output.write_text(text, encoding=&quot;utf-8&quot;)
+    else:
+        print(text, end=&quot;&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    cli(4)
+
+# Full software licence, carried with this standalone download:
+# ORCHARD NONCOMMERCIAL RESEARCH AND EVALUATION LICENCE 1.0
+# Effective for the software in laboratory version 0.6.1, 9 October 2026
+# 
+# Licensor: Kimberley Laverne Asher
+# Contact: kimberlasher@gmail.com
+# Copyright (c) 2026 Kimberley Laverne Asher, to the extent of rights held.
+# 
+# 1. SCOPE AND ACCEPTANCE
+# 
+# &quot;Software&quot; means the Orchard Cognitive Laboratory implementation distributed
+# with this notice: its original JavaScript, Python, HTML, CSS, tests, build tools,
+# computed fixture reports and implementation documentation. It excludes the
+# books, papers and other source publications in sources/, the original Orchard
+# logo and other separately identified third-party material. Those materials
+# retain their own terms. This licence does not apply to earlier versions merely
+# because they have the same name.
+# 
+# The permissions below are granted only to the extent the Licensor holds the
+# relevant rights. Exercising permissions that require this licence signifies
+# acceptance of its conditions. Reading this notice alone creates no obligation.
+# No fee is charged for the permissions granted here.
+# 
+# 2. PERMITTED RESEARCH AND EVALUATION
+# 
+# You may inspect, run and reproduce the Software for noncommercial study,
+# education, research, testing, evaluation and reproducibility. You may modify
+# it and create works based on it for those purposes, subject to sections 3 and 4.
+# 
+# A permitted purpose must not be primarily intended for commercial advantage,
+# monetary compensation, commercial product development or commercial business
+# operations. Research salary, academic employment and a research grant do not,
+# by themselves, make scholarly research commercial. Commercial R&amp;D or work
+# intended to develop a commercial product or service is not permitted, even
+# when performed by an educational, charitable or government organisation.
+# 
+# Any visitor may read the laboratory website and interact with its unmodified
+# demonstration solely to assess the work and consider a research collaboration
+# or commercial licensing enquiry. This limited demonstration evaluation does
+# not authorise product development, integration, production use or commercial
+# deployment of the Software.
+# 
+# 3. COPIES, MODIFICATIONS AND RESEARCH SHARING
+# 
+# You may share unmodified or modified Software solely for the permitted
+# purposes. Every copy or substantial portion must carry this complete licence,
+# the Licensor identification and copyright notice, and the identification of
+# any separately licensed materials it contains. Preserve existing attribution
+# and identify your changes clearly, including that your version is unofficial.
+# Do not represent your changes as an authorised Orchard release or endorsement.
+# 
+# You may not sublicense the Licensor&#x27;s material, remove its restrictions, or
+# redistribute it on terms that purport to authorise a prohibited use. Each
+# recipient receives the same offer directly from the Licensor. Your own
+# original contributions may have their own terms, but those terms cannot grant
+# additional rights in the Licensor&#x27;s material. Sharing a Software modification
+# does not grant permission to include or adapt source publications or artwork.
+# 
+# You may publish noncommercial research findings, measurements and criticism,
+# with appropriate scholarly attribution. The licence does not claim ownership
+# of your independently authored findings or of mathematical facts.
+# 
+# 4. USES REQUIRING SEPARATE WRITTEN PERMISSION
+# 
+# This licence grants no right to sell the Software or derivatives, offer paid
+# services based on it, incorporate it into a commercial product, perform
+# commercial R&amp;D with it, or use it for commercial business operations, hosted
+# services or production deployments. Such uses require a separate written
+# commercial agreement with the Licensor. A modification, change of name or
+# port to another programming language does not remove these conditions where
+# protected Software expression is reused or adapted.
+# 
+# 5. PUBLICATIONS, IDEAS, BRAND AND OTHER RIGHTS
+# 
+# The supplied source publications retain their stated CC-BY-NC-ND 4.0 terms.
+# This Software licence neither replaces nor restricts permissions already
+# granted by those terms. In particular, CC-BY-NC-ND permits noncommercial
+# reproduction/sharing of the original under its conditions and permits making
+# and reproducing, but not sharing, noncommercial adapted material. Consult the
+# actual CC licence for its full terms and exceptions.
+# 
+# This licence covers protected expression in the Software, not mathematical
+# ideas, facts, algorithms, methods or functionality as such. It does not
+# prohibit an independent implementation merely because it uses the same ideas.
+# No statement here promises exclusive copyright control of the Orchard&#x27;s
+# underlying mathematics or restricts applicable fair dealing, fair use or
+# other statutory rights that do not require the Licensor&#x27;s permission.
+# 
+# No patent, trademark, logo-use, endorsement, confidential-material access or
+# undisclosed-framework licence is granted. Brand references for accurate
+# attribution are distinct from use of the logo as your own product identity.
+# The Software&#x27;s licence does not authorise distributing the original logo.
+# Material not covered here needs its own applicable permission.
+# 
+# 6. TERM, BREACH AND OTHER AGREEMENTS
+# 
+# These permissions continue while you comply with these terms. They terminate
+# if you materially breach them; uses after termination require new permission.
+# The Licensor may separately offer commercial or other permissions. Changes to
+# future versions do not retrospectively change this version&#x27;s grant to users
+# who comply with it. A separate signed agreement governs only the permissions
+# it expressly covers. No other permission is implied.
+# 
+# 7. EXPERIMENTAL SOFTWARE AND LIABILITY
+# 
+# The Software is an educational research demonstration. It is supplied as is,
+# without warranties to the extent permitted by applicable law, including
+# warranties of accuracy, fitness, merchantability, non-infringement or safety.
+# Finite fixture checks are not certification for operational use. The Software
+# is not supplied as an operational safety controller.
+# 
+# To the extent permitted by applicable law, the Licensor is not liable for
+# losses or damages arising from use of the Software. Nothing excludes liability
+# that applicable law does not allow to be excluded, or limits mandatory rights.
+# 
+# END OF LICENCE
+</code></pre></main></html>
