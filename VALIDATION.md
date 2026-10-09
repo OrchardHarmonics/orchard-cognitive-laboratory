@@ -1,3 +1,7 @@
+## Public website refinement · 9 October 2026
+
+126 static HTML links and anchors checked, including the four supplied Amazon links and the forthcoming book citation. Desktop and 390px book-page layout verified without horizontal overflow. All six scoped fixtures pass when run through the public HTTPS homepage. Mathematics, engine tests, Python implementations and existing licence terms are unchanged.
+
 # Public edition verification
 
 On 9 October 2026, all 54 browser-engine tests, six cross-language parity tests and six native boundary tests passed again in this public checkout. All 109 local HTML links resolve, including the five manuscript citation pages. Eight exact supplied external publication links are preserved. Private manuscripts are excluded. The underlying experimental calculations are unchanged.

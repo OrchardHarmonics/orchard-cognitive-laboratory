@@ -38,3 +38,53 @@
 
 .masthead-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:flex-end}.licensing-link{font-size:.78rem;text-decoration:none;color:var(--blue)}.licensing-link:hover{text-decoration:underline}.home-hero-art .home-art-label{color:var(--ink);font-weight:400;min-height:36px;line-height:1.35;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:4px}.home-hero-art .home-art-label:hover,.home-hero-art .home-art-label:focus-visible{background:#eaf7f2;border-color:#6b9e8d;outline:2px solid #c3dfd4;outline-offset:2px}.home-iceberg{background:var(--night);color:#e7f0f5;border-radius:16px;padding:38px;margin:0 0 58px;display:grid;grid-template-columns:1.25fr 1fr;gap:35px;align-items:center}.home-iceberg h2{font:400 2.2rem/1.15 Georgia,serif;color:#fff;margin-bottom:20px}.home-iceberg .home-eyebrow{color:var(--mint)}.home-iceberg p{font-size:.88rem;color:var(--night-muted);margin:16px 0}.home-iceberg .iceberg-lead{font-size:1.05rem;color:#e7f0f5}.iceberg-art{min-width:0}.iceberg-art svg{width:100%;height:auto}.iceberg-art text{font:13px system-ui,sans-serif}.home-iceberg .secondary{background:transparent;color:#e7f0f5;border-color:#526b7f}.home-iceberg .primary{background:#c8f0e3;color:#123b31;border-color:#c8f0e3}@media(max-width:780px){.home-iceberg{grid-template-columns:1fr;padding:24px}.iceberg-art{max-width:400px;margin:auto}.masthead-links{gap:8px;flex-direction:column;align-items:flex-end}.licensing-link{font-size:.7rem}}@media(max-width:440px){.home-iceberg{padding:22px}.home-iceberg h2{font-size:1.85rem}.masthead-links .local-tag{font-size:.65rem}.masthead-links{max-width:130px}.home-hero-art .home-art-label{font-size:.68rem}}
 .home-iceberg .iceberg-caption{font-size:.7rem;text-align:center;color:#aec9d3;margin:0 0 8px}
+
+/* A consistent homepage rhythm; these rules do not alter experiment layouts. */
+#laboratory-front{display:flex;flex-direction:column;gap:clamp(36px,4vw,56px);padding-bottom:36px}
+#laboratory-front>section{margin:0}
+#laboratory-front>.home-hero{padding:30px 0 0}
+#laboratory-front>.home-progress{padding:32px 0}
+.home-foundations{align-items:start}
+.home-mersia{display:block;columns:2;column-gap:35px}
+.home-mersia .home-eyebrow,.home-mersia h2{column-span:all}
+.home-mersia p:not(.home-eyebrow){margin-top:16px}
+.home-mersia button{display:block;break-inside:avoid;margin-top:18px}
+.home-section-heading{align-items:start}
+.home-milestone-cards{gap:20px}
+.home-books{display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid var(--line);padding-top:32px}
+.home-books h2{font:400 clamp(1.7rem,2.5vw,2.3rem)/1.2 Georgia,serif}
+.home-books p:not(.home-eyebrow){color:var(--muted);font-size:.92rem;max-width:720px;margin-top:16px}
+.home-books>a{flex-shrink:0}
+@media(max-width:740px){.home-mersia{columns:auto}.home-books{align-items:start;flex-direction:column}.masthead-links{gap:8px;flex-direction:row;max-width:none}.masthead-links .local-tag{display:none}.masthead{align-items:start}.home-milestone-cards{gap:16px}}
+@media(max-width:440px){.masthead{flex-wrap:wrap}.masthead-links{justify-content:flex-start;gap:18px}.home-books>a{width:100%}}
+/* The bookshop is an editorial reading guide, with no invented cover artwork. */
+.books-main{padding-top:42px;padding-bottom:48px}
+.books-hero{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;padding:20px 0 45px;align-items:center;border-bottom:1px solid var(--line)}
+.books-hero h1{font:400 clamp(2.8rem,5vw,4.8rem)/1.05 Georgia,serif;max-width:740px}
+.books-hero h1 em{color:var(--safe)}
+.books-lead{font-size:1.12rem;line-height:1.6;color:var(--muted);margin:24px 0 0;max-width:670px}
+.books-invitation{background:var(--night);color:#fff;padding:32px;border-radius:14px}
+.books-invitation .home-eyebrow{color:var(--mint)}
+.books-invitation p:last-child{font:italic 1.7rem/1.35 Georgia,serif}
+.reading-path{display:flex;flex-wrap:wrap;gap:12px;padding:26px 0 38px}
+.reading-path a{padding:9px 14px;border:1px solid var(--line);border-radius:24px;font-size:.85rem;text-decoration:none;background:#fff}
+.book-shelf{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.book-entry{position:relative;background:#fff;border:1px solid var(--line);border-top:4px solid var(--safe);border-radius:12px;padding:32px;display:flex;flex-direction:column;scroll-margin-top:24px;min-width:0}
+.book-entry:nth-child(2){border-top-color:var(--blue)}
+.book-entry:nth-child(3){border-top-color:#e99815}
+.book-entry:nth-child(4){border-top-color:#ed5c31}
+.book-entry .publication-category{color:var(--muted);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.book-entry h2{font:400 2rem/1.15 Georgia,serif;margin:18px 0 22px}
+.book-entry h2 span{display:block;font:400 1rem/1.45 system-ui,sans-serif;color:var(--muted);margin-top:10px}
+.book-entry>p{color:var(--muted);font-size:.96rem;margin-bottom:18px}
+.book-entry details{margin-bottom:22px;font-size:.9rem;color:var(--muted)}
+.book-entry details p{margin-top:15px}
+.book-entry blockquote{font:italic 1.25rem Georgia,serif;margin:18px 0;color:var(--ink)}
+.book-entry .empty-set-example{font:3rem Georgia,serif}
+.book-entry .publication-access{margin-top:auto;align-self:start;padding:11px 16px;border-radius:7px;text-decoration:none;background:var(--night);color:#fff;font-size:.85rem}
+.book-entry .publication-format{font-size:.78rem}
+.books-forthcoming{display:grid;grid-template-columns:1fr 1.4fr;gap:30px;background:#eaf1f5;padding:32px;border-radius:12px;margin-top:32px}
+.books-forthcoming h2{font:400 2rem Georgia,serif;margin-top:14px}
+.books-forthcoming p{color:var(--muted);font-size:.95rem}
+.books-footer-note{color:var(--muted);font-size:.85rem;margin-top:30px}
+@media(max-width:740px){.books-hero,.book-shelf,.books-forthcoming{grid-template-columns:1fr}.books-main{padding-top:22px}.books-hero{gap:28px}.book-entry{padding:25px}.books-forthcoming{padding:25px}.books-invitation{padding:25px}}

@@ -1,0 +1,10 @@
+# Static Orchard laboratory; the former WordPress files are kept outside public_html.
+DirectoryIndex index.html
+Options -Indexes
+ErrorDocument 410 /retired.html
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(?:wp-admin|wp-content|wp-includes)(?:/|$) - [G,L]
+RewriteRule ^(?:wp-.*\.php|xmlrpc\.php|index\.php)$ - [G,L]
+RewriteRule ^(?:mission|research|development|category)(?:/|$) - [G,L]
+</IfModule>

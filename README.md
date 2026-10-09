@@ -2,7 +2,7 @@
 
 Six inspectable toy experiments towards MeRSIA: meta-recursively self-improving alignment.
 
-**[Open the interactive laboratory](https://orchardharmonics.com/)** · [Software terms](LICENSE.txt) · [Research and commercial enquiries](mailto:kimberlasher@gmail.com)
+**[Open the interactive laboratory](https://orchardharmonics.com/)** · [Explore the books](https://orchardharmonics.com/books.html) · [Software terms](LICENSE.txt) · [Research and commercial enquiries](mailto:kimberlasher@gmail.com)
 
 Watch a missing contextual distinction make a decision possible, carry a qualified method into a fresh context, construct useful enquiries, learn a missing expression, and acquire a bounded constructor for a different later repair. Then inspect the cost of stronger checking.
 
@@ -10,7 +10,7 @@ This is a small public window into the Orchard Cognitive Framework’s developed
 
 ## Try it
 
-Open `dist/index.html` in a browser. It works offline, without installation, accounts, model calls or a server. Keep the `dist` folder together: the page uses its adjacent scripts, logo and source PDFs.
+Open `dist/index.html` in a browser. It works offline, without installation, accounts, model calls or a server. Keep the `dist` folder together: the page uses its adjacent scripts, logo and bibliographic source pages.
 
 Begin on the welcome page, then choose one of the six experiments using the navigation at the top. Each has a guided experience, computed graphics and numerical results. Dotted terms open plain-English definitions, mathematics or research status, and source-page links. “Browse all definitions” lists 82 concepts. Relevant definitions also link to the author-supplied Zenodo records.
 
