@@ -255,3 +255,8 @@ Removing the constructor leaves no expression in the base grammar. Old answers m
 Download `dist/downloads/07_changing_obligations.py`. The native reference reconstructs the constructor acquisition locally and matches all declared numerical interventions. Full cross-language receipt import is not claimed. This is authored finite verification, not independent scientific replication, autonomous normative self-governance, or a generalized MeRSIA result.
 
 The prominently linked vision page develops the author’s aspiration from the preface of *The Aligned Signal* and the current author brief. It preserves the distinction between a wider societal ambition and the finite claims shown in the laboratory. No unpublished manuscript is distributed.
+
+
+## Central downloads directory
+
+The primary navigation links `dist/downloads.html`: descriptions, standalone Python downloads, inspectable source, computed reports and interactive entry points for all seven stages. Python 3.10+ and its standard library are sufficient. The vision diagram uses separate text and arrow lanes with visible arrowheads; no mathematical engines changed in this layout update.
