@@ -1,6 +1,6 @@
 {
   "name": "orchard-cognitive-laboratory",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Local modular laboratory for bounded Orchard alignment and context experiments",
   "license": "SEE LICENSE IN LICENSE.txt",

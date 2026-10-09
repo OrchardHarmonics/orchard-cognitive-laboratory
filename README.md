@@ -1,5 +1,7 @@
 # Orchard Cognitive Laboratory
 
+**Version 1.0.0 · Launch research edition.** Start with [Under the Hood](https://orchardharmonics.com/technical.html) for a worked finite result, definitions, a projection-adequacy proof, matched controls, exact reproduction commands and open research questions. Version 1.0 marks the public launch presentation, not completion of MeRSIA or a general alignment proof.
+
 Seven inspectable toy experiments towards MeRSIA: meta-recursively self-improving alignment.
 
 **[Open the interactive laboratory](https://orchardharmonics.com/)** · [Read the vision](https://orchardharmonics.com/vision.html) · [Explore the books](https://orchardharmonics.com/books.html) · [Software terms](LICENSE.txt) · [Research and commercial enquiries](mailto:kimberlasher@gmail.com)

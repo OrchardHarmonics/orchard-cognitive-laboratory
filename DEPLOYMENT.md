@@ -4,7 +4,7 @@ The public laboratory is hosted on the author’s existing Bluehost plan at http
 
 ## Preparing an update
 
-Edit this public checkout. Keep private manuscripts, correspondence, hosting credentials, backups and account files out of it. Run the relevant checks and preview the changed pages at desktop and narrow widths. The six mathematical engines are unchanged by the initial deployment and book-page refinement.
+Edit this public checkout. Keep private manuscripts, correspondence, hosting credentials, backups and account files out of it. Run the relevant checks and preview the changed pages at desktop and narrow widths. The seven mathematical engines are unchanged by the version 1.0 technical entry page.
 
 Publish the same checked revision to GitHub and Bluehost. GitHub commits do not deploy to Bluehost automatically. For a static-site update, archive the **contents** of dist/ (including .htaccess), upload using Bluehost File Manager and extract into the domain’s public web directory. Keep recoverable copies before overwriting changed files. Remove the installer archive from the public directory afterwards. Never upload the full research archive or a WordPress recovery archive.
 
@@ -16,6 +16,6 @@ The supplied .htaccess selects index.html, disables directory indexes and return
 
 ## Verification
 
-Verify the ordinary domain root over HTTPS, Vision, Books and Licensing navigation, source-reference pages, downloadable Python sources, the live 0/2 to 2/2 encounter, glossary dialogs and all seven scoped fixtures. Check a retired route returns the retirement page, and verify no WordPress files or installer ZIP remain publicly accessible. Prices and edition availability are maintained by Amazon; this site retains the author-supplied purchase links without live-price claims.
+Verify the ordinary domain root over HTTPS, Under the Hood, Vision, Books, Downloads and Licensing navigation, source-reference pages, downloadable Python sources, the live 0/2 to 2/2 encounter, glossary dialogs and all seven scoped fixtures. Check a retired route returns the retirement page, and verify no WordPress files or installer ZIP remain publicly accessible. Prices and edition availability are maintained by Amazon; this site retains the author-supplied purchase links without live-price claims.
 
 Software terms remain Orchard Noncommercial Research and Evaluation Licence 1.0. The book and paper terms and the logo exclusion are unchanged.

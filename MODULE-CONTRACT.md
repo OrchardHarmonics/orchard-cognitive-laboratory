@@ -33,7 +33,7 @@ window.OrchardLab.register({
 
 The host offers selection with `open(id)`, installed-module metadata with `list()`, current state with `snapshot()`, and an ordered run with `runSequence(ids)`. The visible runner uses registration order. It stops after a reported failed stage, checks result identity and protocol, and passes deeply frozen, JSON-compatible prior results to the next stage.
 
-Version 0.5 installs coupled repair, qualified inheritance, constructive enquiry, acquired expression and bounded meta-extensibility. The first runs its repair fixture and acquires a construction method on a separate source internal-view witness. It emits `constructionArtifact` containing a scoped, versioned policy, structural binding, qualification and replayable acquisition record. The second validates this artifact and consumes its policy after a clean bootstrap and current load grant. First-stage observations, receiving labels, grants and receipts do not enter the child. A standalone run of stage two creates its own declared source fixture; it reports `previousConsumed: false`.
+The version 1.0 launch edition installs seven scoped experiments. Stages one through five cover coupled repair, qualified inheritance, constructive enquiry, acquired expression and bounded meta-extensibility; stages six and seven add resource comparison and changing obligations. The first runs its repair fixture and acquires a construction method on a separate source internal-view witness. It emits `constructionArtifact` containing a scoped, versioned policy, structural binding, qualification and replayable acquisition record. The second validates this artifact and consumes its policy after a clean bootstrap and current load grant. First-stage observations, receiving labels, grants and receipts do not enter the child. A standalone run of stage two creates its own declared source fixture; it reports `previousConsumed: false`.
 
 Stage three checks the preceding inheritance result’s protocol, identity, passed flag, unchanged authority and absence of evidence transfer. It reports `transfer: 'milestone-provenance-only'` and `constructionTransfer: 'none'`. Its n=4/c=2 AND/XOR model has a different scope from the five-bit rule constructor; the enquiry compiler is supplied separately. No automatic mathematical adapter or learned compiler transfer is claimed. Standalone stage three uses its own declared fixture and reports no previous consumption.
 
@@ -79,9 +79,10 @@ Specify these before implementation:
 | 3 · constructive enquiry | An action disagreement generates an additional diagnostic test | Enquiry enabled/removed, query costs, correct/incorrect/withheld outcomes |
 | 4 · acquired expression | Trusted failure evidence supports a missing expression in a supplied grammar | Fixed library, extension, restored expression, held-out validation and off-grammar failures |
 | 5 · meta-extensibility | A change to construction language or machinery satisfies a newly stated contract | Fixed constructor versus revised constructor; stable interpretation and qualification boundary |
-| 6 · relative development | Alignment development outpaces specified other capability development | Defined units, matched resource envelopes, held-out tasks, uncertainty and non-regression |
+| 6 · resource comparison | Compare fitting and checked adoption under a declared operation model | Matched later task, faulty feedback, separate checking and source costs; rate dominance remains open |
+| 7 · changing obligations | Reuse a constructor under a new authorized reference and repair the receiving view | Inherited, removed, restored, preinstalled and direct routes; stale receipts, grant and language limits |
 
-Stage five is implemented as a bounded toy under a fixed meta-grammar and supplied meanings. Broader self-extensibility and the final relative-rate row remain research targets. No result here establishes rate dominance. Before claiming “alignment learns faster,” agree on what alignment development and other capability development mean, on a common resource measure, and on a falsifiable success criterion. More recursion alone does not establish rate dominance.
+Stage five is implemented as a bounded toy under a fixed meta-grammar and supplied meanings. Broader self-extensibility and relative-rate dominance remain research targets. No result here establishes rate dominance. Before claiming “alignment learns faster,” agree on what alignment development and other capability development mean, on a common resource measure, and on a falsifiable success criterion. More recursion alone does not establish rate dominance.
 
 ## Presentation rules
 
@@ -94,7 +95,7 @@ Later modules can consume qualified construction artifacts after their transfer 
 
 `resource-comparison` accepts a passed stage-five envelope only under `orchard-lab/1`, with no authority expansion, and actually replays its generator artifact. It reports a declared resource comparison, not relative-rate dominance. Runtime evidence and grants are not imported. Its output is frozen by the same sequence contract.
 
-The welcome page is a host route, not a seventh experiment. `#home` displays it; each registered experiment has its own hash route. Leaving a module disposes its listeners and optional tools. Welcome sequence execution uses all six registered experiment IDs without changing live controls. Definitions register before the front-page DOM initialization.
+The welcome page is a host route, not an experiment. `#home` displays it; each registered experiment has its own hash route. Leaving a module disposes its listeners and optional tools. Welcome sequence execution uses all seven registered experiment IDs without changing live controls. Definitions register before the front-page DOM initialization.
 
 The downloadable Python scripts use native reference implementations. Their artifacts support local Python replay; they do not claim serialized interchange with JavaScript bindings. Preserve numerical parity checks when changing either implementation.
 
