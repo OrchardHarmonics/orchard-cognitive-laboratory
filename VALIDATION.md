@@ -1,6 +1,10 @@
 ## Public website refinement · 9 October 2026
 
-126 static HTML links and anchors checked, including the four supplied Amazon links and the forthcoming book citation. Desktop and 390px book-page layout verified without horizontal overflow. All six scoped fixtures pass when run through the public HTTPS homepage. Mathematics, engine tests, Python implementations and existing licence terms are unchanged.
+126 local static HTML links and anchors checked. The four author-supplied Amazon links are retained; current listing availability was not independently verified. Desktop and 390px book-page layout verified without horizontal overflow. All six scoped fixtures pass when run through the public HTTPS homepage. Mathematics, engine tests, Python implementations and existing licence terms are unchanged.
+
+The public repair example reaches 2/2 and the glossary opens mathematical definitions with source references. The Licensing page excludes the author-requested removed prose section. The retired /mission/ and /wp-admin/ routes visibly show the retirement page. The public web directory contains no WordPress files or installer ZIP.
+
+Download verification remains incomplete: browser automation reported a client block on the direct .py route and could not complete a download event; this does not establish whether ordinary visitor downloads are affected. The author has been asked to check the native browser link. Source inspection pages and the GitHub checkout provide the reference code. Automated HTTP status probes were challenged by the host’s Cloudflare protection; they did not verify origin response codes.
 
 # Public edition verification
 
