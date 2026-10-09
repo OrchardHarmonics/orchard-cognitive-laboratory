@@ -91,3 +91,5 @@
 @media(max-width:900px){.vision-hero{gap:30px}.vision-aside{padding:28px}.vision-commitments{gap:20px}.vision-mechanics{gap:25px}.obligation-steps{grid-template-columns:1fr 1fr}}
 @media(max-width:740px){.vision-hero,.vision-mechanics,.vision-mersia,.vision-evidence,.vision-commitments{grid-template-columns:1fr}.vision-prose{columns:auto}.vision-main{padding-top:25px}.vision-aside{border-radius:14px}.vision-aside blockquote{margin-top:30px}.vision-evidence,.vision-invitation{padding:25px}.vision-hero h1 br{display:none}.home-next-grid{grid-template-columns:1fr}}
 @media(max-width:440px){.obligation-witness{grid-template-columns:1fr}.vision-cycle{padding:10px}.vision-hero h1{font-size:2.65rem}.home-vision-link{width:100%}}
+
+.author-profile-links{display:flex;gap:6px 10px;flex-wrap:wrap;align-items:center}.author-profile-links a{font-size:.84rem}.vision-invitation .author-profile-links a{color:var(--mint)}
